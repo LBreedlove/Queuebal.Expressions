@@ -1,0 +1,4483 @@
+{
+  "Queuebal.Json.Data.dll": {
+    "/Users/lucas.breedlove/src/queuebal/Queuebal.Expression/Queuebal.Json.Data/DataProvider.cs": {
+      "Queuebal.Json.Data.DataProviderScopeAccess": {
+        "System.Void Queuebal.Json.Data.DataProviderScopeAccess::Finalize()": {
+          "Lines": {
+            "33": 0,
+            "34": 0,
+            "35": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.Data.DataProviderScope Queuebal.Json.Data.DataProviderScopeAccess::get_Scope()": {
+          "Lines": {
+            "40": 0
+          },
+          "Branches": []
+        },
+        "System.Void Queuebal.Json.Data.DataProviderScopeAccess::Dispose()": {
+          "Lines": {
+            "46": 0,
+            "47": 0,
+            "48": 0
+          },
+          "Branches": []
+        },
+        "System.Void Queuebal.Json.Data.DataProviderScopeAccess::Dispose(System.Boolean)": {
+          "Lines": {
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0
+          },
+          "Branches": [
+            {
+              "Line": 55,
+              "Offset": 19,
+              "EndOffset": 21,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 55,
+              "Offset": 19,
+              "EndOffset": 24,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 60,
+              "Offset": 27,
+              "EndOffset": 29,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 60,
+              "Offset": 27,
+              "EndOffset": 49,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void Queuebal.Json.Data.DataProviderScopeAccess::.ctor(Queuebal.Json.Data.DataProvider,Queuebal.Json.Data.DataProviderScope)": {
+          "Lines": {
+            "10": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "29": 0,
+            "30": 0
+          },
+          "Branches": []
+        }
+      },
+      "Queuebal.Json.Data.DataProviderScope": {
+        "System.String Queuebal.Json.Data.DataProviderScope::get_Name()": {
+          "Lines": {
+            "102": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.Data.DataProviderScope Queuebal.Json.Data.DataProviderScope::AddValue(System.String,Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.Data.DataProviderScope Queuebal.Json.Data.DataProviderScope::AddValues(System.Collections.Generic.Dictionary`2<System.String,Queuebal.Json.JSONValue>)": {
+          "Lines": {
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "130": 0,
+            "131": 0
+          },
+          "Branches": [
+            {
+              "Line": 125,
+              "Offset": 49,
+              "EndOffset": 11,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 125,
+              "Offset": 49,
+              "EndOffset": 51,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            }
+          ]
+        },
+        "Queuebal.Json.JSONValue Queuebal.Json.Data.DataProviderScope::GetValue(System.String)": {
+          "Lines": {
+            "139": 0
+          },
+          "Branches": [
+            {
+              "Line": 139,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 139,
+              "Offset": 14,
+              "EndOffset": 19,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void Queuebal.Json.Data.DataProviderScope::.ctor(System.String,System.Collections.Generic.Dictionary`2<System.String,Queuebal.Json.JSONValue>)": {
+          "Lines": {
+            "81": 6,
+            "87": 6,
+            "88": 6,
+            "89": 6,
+            "90": 6,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 6
+          },
+          "Branches": [
+            {
+              "Line": 90,
+              "Offset": 32,
+              "EndOffset": 34,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 92,
+              "Offset": 88,
+              "EndOffset": 45,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 92,
+              "Offset": 88,
+              "EndOffset": 90,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 90,
+              "Offset": 32,
+              "EndOffset": 108,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            }
+          ]
+        }
+      },
+      "Queuebal.Json.Data.DataProvider": {
+        "Queuebal.Json.Data.DataProvider Queuebal.Json.Data.DataProvider::AddRootValue(System.String,Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "169": 0,
+            "170": 0,
+            "171": 0,
+            "172": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.Data.DataProvider Queuebal.Json.Data.DataProvider::AddRootValues(System.Collections.Generic.Dictionary`2<System.String,Queuebal.Json.JSONValue>)": {
+          "Lines": {
+            "181": 0,
+            "182": 0,
+            "183": 0,
+            "184": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.Data.DataProvider Queuebal.Json.Data.DataProvider::AddValue(System.String,Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "189": 0,
+            "190": 0,
+            "191": 0,
+            "192": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.Data.DataProvider Queuebal.Json.Data.DataProvider::AddValues(System.Collections.Generic.Dictionary`2<System.String,Queuebal.Json.JSONValue>)": {
+          "Lines": {
+            "201": 0,
+            "202": 0,
+            "203": 0,
+            "204": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.Data.DataProvider Queuebal.Json.Data.DataProvider::AddParentValue(System.String,Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "215": 0,
+            "216": 0,
+            "217": 0,
+            "218": 0,
+            "221": 0,
+            "222": 0,
+            "224": 0,
+            "225": 0,
+            "229": 0,
+            "230": 0,
+            "231": 0,
+            "232": 0
+          },
+          "Branches": [
+            {
+              "Line": 216,
+              "Offset": 17,
+              "EndOffset": 19,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 216,
+              "Offset": 17,
+              "EndOffset": 31,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 221,
+              "Offset": 47,
+              "EndOffset": 49,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 221,
+              "Offset": 47,
+              "EndOffset": 68,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "Queuebal.Json.Data.DataProvider Queuebal.Json.Data.DataProvider::PushScope(Queuebal.Json.Data.DataProviderScope)": {
+          "Lines": {
+            "240": 0,
+            "241": 0,
+            "242": 0,
+            "243": 0,
+            "244": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.Data.DataProvider Queuebal.Json.Data.DataProvider::PopScope()": {
+          "Lines": {
+            "251": 0,
+            "254": 0,
+            "255": 0,
+            "256": 0,
+            "257": 0,
+            "259": 0,
+            "260": 0,
+            "261": 0
+          },
+          "Branches": [
+            {
+              "Line": 254,
+              "Offset": 17,
+              "EndOffset": 19,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 254,
+              "Offset": 17,
+              "EndOffset": 46,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "Queuebal.Json.Data.DataProvider Queuebal.Json.Data.DataProvider::RemoveScope(Queuebal.Json.Data.DataProviderScope)": {
+          "Lines": {
+            "269": 0,
+            "271": 0,
+            "272": 0,
+            "273": 0,
+            "274": 0,
+            "277": 0,
+            "278": 0,
+            "279": 0,
+            "282": 0,
+            "283": 0
+          },
+          "Branches": [
+            {
+              "Line": 271,
+              "Offset": 25,
+              "EndOffset": 27,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 271,
+              "Offset": 25,
+              "EndOffset": 57,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 277,
+              "Offset": 74,
+              "EndOffset": 76,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 277,
+              "Offset": 74,
+              "EndOffset": 88,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "Queuebal.Json.Data.DataProviderScopeAccess Queuebal.Json.Data.DataProvider::WithScope(System.String,System.Collections.Generic.Dictionary`2<System.String,Queuebal.Json.JSONValue>)": {
+          "Lines": {
+            "293": 0,
+            "294": 0,
+            "295": 0,
+            "296": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.JSONValue Queuebal.Json.Data.DataProvider::GetRootValue(System.String)": {
+          "Lines": {
+            "304": 0,
+            "305": 0,
+            "306": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.JSONValue Queuebal.Json.Data.DataProvider::GetValue(System.String,System.String)": {
+          "Lines": {
+            "318": 0,
+            "319": 0,
+            "320": 0,
+            "321": 0,
+            "322": 0,
+            "323": 0,
+            "324": 0,
+            "325": 0,
+            "327": 0,
+            "329": 0,
+            "330": 0
+          },
+          "Branches": [
+            {
+              "Line": 319,
+              "Offset": 83,
+              "EndOffset": 17,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 322,
+              "Offset": 32,
+              "EndOffset": 34,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 322,
+              "Offset": 32,
+              "EndOffset": 48,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 322,
+              "Offset": 51,
+              "EndOffset": 53,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 322,
+              "Offset": 51,
+              "EndOffset": 67,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 319,
+              "Offset": 83,
+              "EndOffset": 85,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void Queuebal.Json.Data.DataProvider::.ctor()": {
+          "Lines": {
+            "149": 6,
+            "150": 6,
+            "151": 6,
+            "155": 6,
+            "156": 6,
+            "157": 6,
+            "158": 6,
+            "159": 6
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/Users/lucas.breedlove/src/queuebal/Queuebal.Expression/Queuebal.Json.Data/DataSelector.cs": {
+      "Queuebal.Json.Data.DataSelector": {
+        "System.String Queuebal.Json.Data.DataSelector::get_Path()": {
+          "Lines": {
+            "28": 12
+          },
+          "Branches": []
+        },
+        "System.Void Queuebal.Json.Data.DataSelector::.ctor(System.String)": {
+          "Lines": {
+            "15": 6,
+            "16": 6,
+            "17": 6,
+            "18": 0,
+            "19": 0,
+            "22": 6,
+            "23": 6
+          },
+          "Branches": [
+            {
+              "Line": 17,
+              "Offset": 16,
+              "EndOffset": 18,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 17,
+              "Offset": 16,
+              "EndOffset": 35,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            }
+          ]
+        }
+      },
+      "Queuebal.Json.Data.DataSelector/<GetListItems>d__6": {
+        "System.Boolean Queuebal.Json.Data.DataSelector/<GetListItems>d__6::MoveNext()": {
+          "Lines": {
+            "149": 2,
+            "150": 2,
+            "151": 2,
+            "153": 2,
+            "155": 2,
+            "156": 6,
+            "157": 2,
+            "158": 2,
+            "159": 2,
+            "160": 2,
+            "161": 2,
+            "162": 9,
+            "163": 2,
+            "164": 2,
+            "165": 2,
+            "166": 2,
+            "167": 1,
+            "168": 1,
+            "169": 1,
+            "170": 0,
+            "171": 0,
+            "173": 0,
+            "175": 1,
+            "176": 1
+          },
+          "Branches": [
+            {
+              "Line": 156,
+              "Offset": 471,
+              "EndOffset": 110,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 2
+            },
+            {
+              "Line": 158,
+              "Offset": 130,
+              "EndOffset": 135,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 162,
+              "Offset": 383,
+              "EndOffset": 293,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 2
+            },
+            {
+              "Line": 164,
+              "Offset": 326,
+              "EndOffset": 328,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 2
+            },
+            {
+              "Line": 164,
+              "Offset": 326,
+              "EndOffset": 364,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            },
+            {
+              "Line": 162,
+              "Offset": 383,
+              "EndOffset": 385,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            },
+            {
+              "Line": 158,
+              "Offset": 130,
+              "EndOffset": 409,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 170,
+              "Offset": 419,
+              "EndOffset": 421,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 170,
+              "Offset": 419,
+              "EndOffset": 424,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 1
+            },
+            {
+              "Line": 156,
+              "Offset": 471,
+              "EndOffset": 476,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "Queuebal.Json.Data.DataSelector/<GetValues>d__4": {
+        "System.Boolean Queuebal.Json.Data.DataSelector/<GetValues>d__4::MoveNext()": {
+          "Lines": {
+            "39": 12,
+            "40": 12,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "46": 12,
+            "47": 54,
+            "48": 12,
+            "49": 12,
+            "50": 6,
+            "51": 6
+          },
+          "Branches": [
+            {
+              "Line": 40,
+              "Offset": 64,
+              "EndOffset": 66,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 40,
+              "Offset": 64,
+              "EndOffset": 111,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 12
+            },
+            {
+              "Line": 47,
+              "Offset": 251,
+              "EndOffset": 183,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 12
+            },
+            {
+              "Line": 47,
+              "Offset": 251,
+              "EndOffset": 253,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 6
+            }
+          ]
+        }
+      },
+      "Queuebal.Json.Data.DataSelector/<GetValues>d__5": {
+        "System.Boolean Queuebal.Json.Data.DataSelector/<GetValues>d__5::MoveNext()": {
+          "Lines": {
+            "63": 14,
+            "64": 14,
+            "65": 14,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "71": 14,
+            "72": 14,
+            "73": 76,
+            "74": 20,
+            "75": 20,
+            "76": 2,
+            "78": 2,
+            "79": 0,
+            "80": 0,
+            "83": 0,
+            "84": 0,
+            "87": 2,
+            "94": 9,
+            "95": 2,
+            "96": 2,
+            "97": 1,
+            "98": 1,
+            "100": 18,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0,
+            "112": 0,
+            "113": 0,
+            "116": 18,
+            "117": 10,
+            "118": 10,
+            "119": 10,
+            "121": 8,
+            "122": 8,
+            "123": 8,
+            "125": 18,
+            "126": 18,
+            "127": 4,
+            "129": 4,
+            "130": 2,
+            "133": 14,
+            "134": 14,
+            "135": 14,
+            "136": 14,
+            "138": 8,
+            "139": 4
+          },
+          "Branches": [
+            {
+              "Line": 65,
+              "Offset": 112,
+              "EndOffset": 114,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 65,
+              "Offset": 112,
+              "EndOffset": 159,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 14
+            },
+            {
+              "Line": 73,
+              "Offset": 896,
+              "EndOffset": 217,
+              "Path": 1,
+              "Ordinal": 19,
+              "Hits": 20
+            },
+            {
+              "Line": 75,
+              "Offset": 253,
+              "EndOffset": 258,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 2
+            },
+            {
+              "Line": 78,
+              "Offset": 277,
+              "EndOffset": 279,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 78,
+              "Offset": 277,
+              "EndOffset": 349,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 2
+            },
+            {
+              "Line": 94,
+              "Offset": 494,
+              "EndOffset": 423,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 2
+            },
+            {
+              "Line": 94,
+              "Offset": 494,
+              "EndOffset": 496,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 1
+            },
+            {
+              "Line": 75,
+              "Offset": 253,
+              "EndOffset": 517,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 18
+            },
+            {
+              "Line": 100,
+              "Offset": 535,
+              "EndOffset": 537,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 102,
+              "Offset": 548,
+              "EndOffset": 550,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 102,
+              "Offset": 548,
+              "EndOffset": 572,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 100,
+              "Offset": 535,
+              "EndOffset": 653,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 18
+            },
+            {
+              "Line": 116,
+              "Offset": 663,
+              "EndOffset": 665,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 10
+            },
+            {
+              "Line": 116,
+              "Offset": 663,
+              "EndOffset": 687,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 8
+            },
+            {
+              "Line": 126,
+              "Offset": 759,
+              "EndOffset": 761,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 4
+            },
+            {
+              "Line": 129,
+              "Offset": 770,
+              "EndOffset": 772,
+              "Path": 0,
+              "Ordinal": 16,
+              "Hits": 0
+            },
+            {
+              "Line": 129,
+              "Offset": 770,
+              "EndOffset": 776,
+              "Path": 1,
+              "Ordinal": 17,
+              "Hits": 4
+            },
+            {
+              "Line": 126,
+              "Offset": 759,
+              "EndOffset": 833,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 14
+            },
+            {
+              "Line": 73,
+              "Offset": 896,
+              "EndOffset": 901,
+              "Path": 0,
+              "Ordinal": 18,
+              "Hits": 8
+            }
+          ]
+        }
+      }
+    },
+    "/Users/lucas.breedlove/src/queuebal/Queuebal.Expression/Queuebal.Json.Data/IDataSelector.cs": {
+      "Queuebal.Json.Data.DataSelectorResult": {
+        "Queuebal.Json.Data.DataSelectorResult Queuebal.Json.Data.DataSelectorResult::Located(System.String,Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "44": 8,
+            "45": 8,
+            "46": 8
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.Data.DataSelectorResult Queuebal.Json.Data.DataSelectorResult::NotFound(System.String)": {
+          "Lines": {
+            "53": 4,
+            "54": 4,
+            "55": 4
+          },
+          "Branches": []
+        },
+        "System.Boolean Queuebal.Json.Data.DataSelectorResult::get_Found()": {
+          "Lines": {
+            "60": 12
+          },
+          "Branches": []
+        },
+        "System.String Queuebal.Json.Data.DataSelectorResult::get_Path()": {
+          "Lines": {
+            "66": 2
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.JSONValue Queuebal.Json.Data.DataSelectorResult::get_Value()": {
+          "Lines": {
+            "74": 4
+          },
+          "Branches": [
+            {
+              "Line": 74,
+              "Offset": 6,
+              "EndOffset": 8,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 74,
+              "Offset": 6,
+              "EndOffset": 19,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            }
+          ]
+        },
+        "System.Void Queuebal.Json.Data.DataSelectorResult::.ctor(System.String,Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "21": 8,
+            "22": 8,
+            "23": 8,
+            "24": 8,
+            "25": 8,
+            "26": 8
+          },
+          "Branches": []
+        },
+        "System.Void Queuebal.Json.Data.DataSelectorResult::.ctor(System.String)": {
+          "Lines": {
+            "32": 4,
+            "33": 4,
+            "34": 4,
+            "35": 4,
+            "36": 4
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/Users/lucas.breedlove/src/queuebal/Queuebal.Expression/Queuebal.Json.Data/IndexRange.cs": {
+      "Queuebal.Json.Data.IndexRange": {
+        "Queuebal.Json.Data.IndexRange Queuebal.Json.Data.IndexRange::Build(System.String)": {
+          "Lines": {
+            "14": 2,
+            "15": 2,
+            "16": 0,
+            "17": 0,
+            "20": 2,
+            "21": 2,
+            "22": 0,
+            "23": 0,
+            "26": 2,
+            "27": 2,
+            "28": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "36": 0,
+            "39": 2,
+            "40": 2,
+            "42": 2,
+            "43": 2,
+            "44": 2,
+            "45": 2,
+            "47": 2,
+            "48": 2,
+            "49": 2,
+            "50": 2,
+            "52": 2,
+            "53": 0,
+            "54": 0,
+            "57": 2,
+            "58": 0,
+            "59": 0,
+            "62": 2,
+            "63": 2
+          },
+          "Branches": [
+            {
+              "Line": 15,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 15,
+              "Offset": 11,
+              "EndOffset": 30,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 21,
+              "Offset": 68,
+              "EndOffset": 70,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 21,
+              "Offset": 68,
+              "EndOffset": 99,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 2
+            },
+            {
+              "Line": 27,
+              "Offset": 116,
+              "EndOffset": 118,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 30,
+              "Offset": 134,
+              "EndOffset": 136,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 30,
+              "Offset": 134,
+              "EndOffset": 164,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 27,
+              "Offset": 116,
+              "EndOffset": 196,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 2
+            },
+            {
+              "Line": 42,
+              "Offset": 240,
+              "EndOffset": 242,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 2
+            },
+            {
+              "Line": 42,
+              "Offset": 240,
+              "EndOffset": 250,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 2
+            },
+            {
+              "Line": 47,
+              "Offset": 265,
+              "EndOffset": 267,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 2
+            },
+            {
+              "Line": 47,
+              "Offset": 265,
+              "EndOffset": 275,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 2
+            },
+            {
+              "Line": 52,
+              "Offset": 290,
+              "EndOffset": 292,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 52,
+              "Offset": 290,
+              "EndOffset": 378,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 2
+            },
+            {
+              "Line": 57,
+              "Offset": 393,
+              "EndOffset": 395,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 57,
+              "Offset": 393,
+              "EndOffset": 481,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 2
+            }
+          ]
+        },
+        "System.Boolean Queuebal.Json.Data.IndexRange::get_IsSingleItem()": {
+          "Lines": {
+            "68": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean Queuebal.Json.Data.IndexRange::get_IsEmpty()": {
+          "Lines": {
+            "73": 0
+          },
+          "Branches": [
+            {
+              "Line": 73,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 73,
+              "Offset": 12,
+              "EndOffset": 28,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Boolean Queuebal.Json.Data.IndexRange::get_IsInfinite()": {
+          "Lines": {
+            "78": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Queuebal.Json.Data.IndexRange::get_Start()": {
+          "Lines": {
+            "83": 4
+          },
+          "Branches": []
+        },
+        "System.Int32 Queuebal.Json.Data.IndexRange::get_End()": {
+          "Lines": {
+            "88": 4
+          },
+          "Branches": []
+        },
+        "System.Boolean Queuebal.Json.Data.IndexRange::ContainsIndex(System.Int32)": {
+          "Lines": {
+            "96": 2,
+            "97": 2,
+            "98": 2,
+            "99": 2,
+            "100": 2,
+            "101": 2,
+            "103": 0,
+            "106": 0,
+            "107": 0,
+            "109": 0,
+            "112": 0,
+            "113": 2
+          },
+          "Branches": [
+            {
+              "Line": 97,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 99,
+              "Offset": 26,
+              "EndOffset": 28,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 2
+            },
+            {
+              "Line": 99,
+              "Offset": 26,
+              "EndOffset": 33,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 97,
+              "Offset": 12,
+              "EndOffset": 45,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 106,
+              "Offset": 56,
+              "EndOffset": 58,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 106,
+              "Offset": 56,
+              "EndOffset": 74,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 112,
+              "Offset": 81,
+              "EndOffset": 83,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 112,
+              "Offset": 81,
+              "EndOffset": 94,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "/Users/lucas.breedlove/src/queuebal/Queuebal.Expression/Queuebal.Json.Data/PathSegmenter.cs": {
+      "Queuebal.Json.Data.PathSegmenter/<GetPathSegments>d__0": {
+        "System.Boolean Queuebal.Json.Data.PathSegmenter/<GetPathSegments>d__0::MoveNext()": {
+          "Lines": {
+            "22": 16,
+            "23": 16,
+            "24": 0,
+            "25": 0,
+            "28": 16,
+            "29": 16,
+            "30": 16,
+            "31": 16,
+            "32": 16,
+            "33": 260,
+            "34": 110,
+            "35": 110,
+            "36": 12,
+            "37": 12,
+            "38": 0,
+            "39": 0,
+            "42": 12,
+            "43": 0,
+            "44": 0,
+            "47": 12,
+            "48": 2,
+            "50": 2,
+            "51": 2,
+            "52": 2,
+            "53": 2,
+            "57": 10,
+            "58": 10,
+            "61": 6,
+            "62": 6,
+            "63": 6,
+            "64": 98,
+            "65": 6,
+            "66": 6,
+            "67": 0,
+            "68": 0,
+            "71": 6,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "80": 6,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "87": 6,
+            "88": 6,
+            "89": 6,
+            "90": 92,
+            "91": 6,
+            "92": 6,
+            "93": 0,
+            "94": 0,
+            "98": 6,
+            "99": 6,
+            "102": 2,
+            "103": 2,
+            "104": 2,
+            "105": 2,
+            "106": 2,
+            "107": 86,
+            "108": 80,
+            "109": 80,
+            "110": 80,
+            "111": 100,
+            "112": 100,
+            "115": 8,
+            "116": 0,
+            "118": 0,
+            "119": 0,
+            "120": 0,
+            "122": 0,
+            "124": 8,
+            "125": 8,
+            "126": 8,
+            "127": 0,
+            "128": 0,
+            "131": 8,
+            "132": 0,
+            "133": 0,
+            "136": 8,
+            "137": 8,
+            "138": 0,
+            "139": 0,
+            "142": 8,
+            "143": 8,
+            "144": 8
+          },
+          "Branches": [
+            {
+              "Line": 23,
+              "Offset": 80,
+              "EndOffset": 82,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 23,
+              "Offset": 80,
+              "EndOffset": 85,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 16
+            },
+            {
+              "Line": 33,
+              "Offset": 868,
+              "EndOffset": 145,
+              "Path": 1,
+              "Ordinal": 25,
+              "Hits": 110
+            },
+            {
+              "Line": 35,
+              "Offset": 181,
+              "EndOffset": 186,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 12
+            },
+            {
+              "Line": 37,
+              "Offset": 198,
+              "EndOffset": 200,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 37,
+              "Offset": 198,
+              "EndOffset": 217,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 12
+            },
+            {
+              "Line": 42,
+              "Offset": 227,
+              "EndOffset": 229,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 42,
+              "Offset": 227,
+              "EndOffset": 246,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 12
+            },
+            {
+              "Line": 47,
+              "Offset": 256,
+              "EndOffset": 258,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 2
+            },
+            {
+              "Line": 47,
+              "Offset": 256,
+              "EndOffset": 303,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 10
+            },
+            {
+              "Line": 35,
+              "Offset": 181,
+              "EndOffset": 401,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 98
+            },
+            {
+              "Line": 64,
+              "Offset": 415,
+              "EndOffset": 420,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 6
+            },
+            {
+              "Line": 66,
+              "Offset": 431,
+              "EndOffset": 433,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 66,
+              "Offset": 431,
+              "EndOffset": 450,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 6
+            },
+            {
+              "Line": 71,
+              "Offset": 460,
+              "EndOffset": 462,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 71,
+              "Offset": 460,
+              "EndOffset": 512,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 6
+            },
+            {
+              "Line": 80,
+              "Offset": 533,
+              "EndOffset": 535,
+              "Path": 0,
+              "Ordinal": 16,
+              "Hits": 0
+            },
+            {
+              "Line": 80,
+              "Offset": 533,
+              "EndOffset": 608,
+              "Path": 1,
+              "Ordinal": 17,
+              "Hits": 6
+            },
+            {
+              "Line": 64,
+              "Offset": 415,
+              "EndOffset": 633,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 92
+            },
+            {
+              "Line": 90,
+              "Offset": 647,
+              "EndOffset": 652,
+              "Path": 0,
+              "Ordinal": 18,
+              "Hits": 6
+            },
+            {
+              "Line": 92,
+              "Offset": 666,
+              "EndOffset": 668,
+              "Path": 0,
+              "Ordinal": 20,
+              "Hits": 0
+            },
+            {
+              "Line": 92,
+              "Offset": 666,
+              "EndOffset": 685,
+              "Path": 1,
+              "Ordinal": 21,
+              "Hits": 6
+            },
+            {
+              "Line": 90,
+              "Offset": 647,
+              "EndOffset": 794,
+              "Path": 1,
+              "Ordinal": 19,
+              "Hits": 86
+            },
+            {
+              "Line": 107,
+              "Offset": 807,
+              "EndOffset": 809,
+              "Path": 0,
+              "Ordinal": 22,
+              "Hits": 80
+            },
+            {
+              "Line": 107,
+              "Offset": 807,
+              "EndOffset": 818,
+              "Path": 1,
+              "Ordinal": 23,
+              "Hits": 100
+            },
+            {
+              "Line": 33,
+              "Offset": 868,
+              "EndOffset": 873,
+              "Path": 0,
+              "Ordinal": 24,
+              "Hits": 8
+            },
+            {
+              "Line": 115,
+              "Offset": 908,
+              "EndOffset": 910,
+              "Path": 0,
+              "Ordinal": 26,
+              "Hits": 0
+            },
+            {
+              "Line": 118,
+              "Offset": 943,
+              "EndOffset": 945,
+              "Path": 0,
+              "Ordinal": 28,
+              "Hits": 0
+            },
+            {
+              "Line": 118,
+              "Offset": 943,
+              "EndOffset": 962,
+              "Path": 1,
+              "Ordinal": 29,
+              "Hits": 0
+            },
+            {
+              "Line": 115,
+              "Offset": 908,
+              "EndOffset": 963,
+              "Path": 1,
+              "Ordinal": 27,
+              "Hits": 8
+            },
+            {
+              "Line": 124,
+              "Offset": 991,
+              "EndOffset": 996,
+              "Path": 0,
+              "Ordinal": 30,
+              "Hits": 8
+            },
+            {
+              "Line": 126,
+              "Offset": 1007,
+              "EndOffset": 1009,
+              "Path": 0,
+              "Ordinal": 32,
+              "Hits": 0
+            },
+            {
+              "Line": 126,
+              "Offset": 1007,
+              "EndOffset": 1026,
+              "Path": 1,
+              "Ordinal": 33,
+              "Hits": 8
+            },
+            {
+              "Line": 131,
+              "Offset": 1036,
+              "EndOffset": 1038,
+              "Path": 0,
+              "Ordinal": 34,
+              "Hits": 0
+            },
+            {
+              "Line": 131,
+              "Offset": 1036,
+              "EndOffset": 1041,
+              "Path": 1,
+              "Ordinal": 35,
+              "Hits": 8
+            },
+            {
+              "Line": 137,
+              "Offset": 1097,
+              "EndOffset": 1099,
+              "Path": 0,
+              "Ordinal": 36,
+              "Hits": 0
+            },
+            {
+              "Line": 137,
+              "Offset": 1097,
+              "EndOffset": 1116,
+              "Path": 1,
+              "Ordinal": 37,
+              "Hits": 8
+            },
+            {
+              "Line": 124,
+              "Offset": 991,
+              "EndOffset": 1152,
+              "Path": 1,
+              "Ordinal": 31,
+              "Hits": 8
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Queuebal.Core.dll": {},
+  "Queuebal.Json.dll": {
+    "/Users/lucas.breedlove/src/queuebal/Queuebal.Expression/Queuebal.Json/JSONValue.cs": {
+      "Queuebal.Json.JSONValue": {
+        "Queuebal.Json.JSONValue Queuebal.Json.JSONValue::FromJSON(System.String)": {
+          "Lines": {
+            "188": 0,
+            "190": 0
+          },
+          "Branches": []
+        },
+        "System.String Queuebal.Json.JSONValue::op_Explicit(Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "203": 0,
+            "204": 0,
+            "205": 0,
+            "206": 0,
+            "208": 0,
+            "209": 0
+          },
+          "Branches": [
+            {
+              "Line": 204,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 204,
+              "Offset": 15,
+              "EndOffset": 29,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Boolean Queuebal.Json.JSONValue::op_Explicit(Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "216": 0,
+            "217": 0,
+            "218": 0,
+            "219": 0,
+            "221": 0,
+            "222": 0
+          },
+          "Branches": [
+            {
+              "Line": 217,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 217,
+              "Offset": 15,
+              "EndOffset": 29,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Int32 Queuebal.Json.JSONValue::op_Explicit(Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "229": 0,
+            "230": 0,
+            "231": 0,
+            "232": 0,
+            "234": 0,
+            "235": 0
+          },
+          "Branches": [
+            {
+              "Line": 230,
+              "Offset": 8,
+              "EndOffset": 10,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 230,
+              "Offset": 8,
+              "EndOffset": 24,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 230,
+              "Offset": 27,
+              "EndOffset": 29,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 230,
+              "Offset": 27,
+              "EndOffset": 41,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Double Queuebal.Json.JSONValue::op_Explicit(Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "242": 0,
+            "243": 0,
+            "244": 0,
+            "245": 0,
+            "247": 0,
+            "248": 0
+          },
+          "Branches": [
+            {
+              "Line": 243,
+              "Offset": 8,
+              "EndOffset": 10,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 243,
+              "Offset": 8,
+              "EndOffset": 24,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 243,
+              "Offset": 27,
+              "EndOffset": 29,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 243,
+              "Offset": 27,
+              "EndOffset": 41,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.List`1<System.Object> Queuebal.Json.JSONValue::op_Explicit(Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "255": 0,
+            "256": 0,
+            "257": 0,
+            "258": 0,
+            "261": 0,
+            "263": 0,
+            "264": 0,
+            "265": 0,
+            "266": 0,
+            "267": 0,
+            "268": 0,
+            "269": 0,
+            "270": 0,
+            "271": 0,
+            "272": 0,
+            "273": 0,
+            "274": 0,
+            "275": 0,
+            "276": 0,
+            "277": 0,
+            "278": 0,
+            "279": 0,
+            "280": 0,
+            "281": 0,
+            "282": 0,
+            "283": 0,
+            "284": 0,
+            "285": 0,
+            "286": 0,
+            "287": 0,
+            "288": 0,
+            "289": 0,
+            "290": 0,
+            "291": 0,
+            "292": 0,
+            "293": 0,
+            "295": 0,
+            "296": 0,
+            "298": 0,
+            "300": 0,
+            "301": 0
+          },
+          "Branches": [
+            {
+              "Line": 256,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 256,
+              "Offset": 15,
+              "EndOffset": 29,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 264,
+              "Offset": 342,
+              "EndOffset": 55,
+              "Path": 1,
+              "Ordinal": 17,
+              "Hits": 0
+            },
+            {
+              "Line": 266,
+              "Offset": 79,
+              "EndOffset": 81,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 266,
+              "Offset": 79,
+              "EndOffset": 96,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 270,
+              "Offset": 110,
+              "EndOffset": 112,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 270,
+              "Offset": 110,
+              "EndOffset": 133,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 274,
+              "Offset": 147,
+              "EndOffset": 149,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 274,
+              "Offset": 147,
+              "EndOffset": 175,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 278,
+              "Offset": 189,
+              "EndOffset": 191,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 278,
+              "Offset": 189,
+              "EndOffset": 215,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 282,
+              "Offset": 229,
+              "EndOffset": 231,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 282,
+              "Offset": 229,
+              "EndOffset": 254,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 286,
+              "Offset": 268,
+              "EndOffset": 270,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 286,
+              "Offset": 268,
+              "EndOffset": 288,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 290,
+              "Offset": 302,
+              "EndOffset": 304,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 290,
+              "Offset": 302,
+              "EndOffset": 322,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 0
+            },
+            {
+              "Line": 264,
+              "Offset": 342,
+              "EndOffset": 347,
+              "Path": 0,
+              "Ordinal": 16,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.Dictionary`2<System.String,System.Object> Queuebal.Json.JSONValue::op_Explicit(Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "312": 0,
+            "313": 0,
+            "314": 0,
+            "315": 0,
+            "318": 0,
+            "319": 0,
+            "320": 0,
+            "321": 0,
+            "322": 0,
+            "323": 0,
+            "324": 0,
+            "325": 0,
+            "326": 0,
+            "327": 0,
+            "328": 0,
+            "329": 0,
+            "330": 0,
+            "331": 0,
+            "332": 0,
+            "333": 0,
+            "334": 0,
+            "335": 0,
+            "336": 0,
+            "337": 0,
+            "338": 0,
+            "339": 0,
+            "340": 0,
+            "341": 0,
+            "342": 0,
+            "343": 0,
+            "344": 0,
+            "346": 0,
+            "347": 0,
+            "349": 0,
+            "351": 0,
+            "352": 0
+          },
+          "Branches": [
+            {
+              "Line": 313,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 313,
+              "Offset": 15,
+              "EndOffset": 29,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 319,
+              "Offset": 413,
+              "EndOffset": 53,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 0
+            },
+            {
+              "Line": 321,
+              "Offset": 81,
+              "EndOffset": 83,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 321,
+              "Offset": 81,
+              "EndOffset": 116,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 325,
+              "Offset": 135,
+              "EndOffset": 137,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 325,
+              "Offset": 135,
+              "EndOffset": 175,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 329,
+              "Offset": 194,
+              "EndOffset": 196,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 329,
+              "Offset": 194,
+              "EndOffset": 235,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 333,
+              "Offset": 254,
+              "EndOffset": 256,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 333,
+              "Offset": 254,
+              "EndOffset": 291,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 337,
+              "Offset": 310,
+              "EndOffset": 312,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 337,
+              "Offset": 310,
+              "EndOffset": 342,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 341,
+              "Offset": 361,
+              "EndOffset": 363,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 341,
+              "Offset": 361,
+              "EndOffset": 393,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 319,
+              "Offset": 413,
+              "EndOffset": 418,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.Dictionary`2<System.String,Queuebal.Json.JSONValue> Queuebal.Json.JSONValue::op_Explicit(Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "359": 0,
+            "360": 0,
+            "361": 0,
+            "362": 0,
+            "365": 0,
+            "366": 0,
+            "367": 0,
+            "368": 0,
+            "371": 0,
+            "372": 0,
+            "373": 0,
+            "374": 0,
+            "376": 0,
+            "377": 0
+          },
+          "Branches": [
+            {
+              "Line": 360,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 360,
+              "Offset": 15,
+              "EndOffset": 29,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 366,
+              "Offset": 46,
+              "EndOffset": 48,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 366,
+              "Offset": 46,
+              "EndOffset": 53,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 371,
+              "Offset": 108,
+              "EndOffset": 69,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 371,
+              "Offset": 108,
+              "EndOffset": 110,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.List`1<Queuebal.Json.JSONValue> Queuebal.Json.JSONValue::op_Explicit(Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "384": 0,
+            "385": 0,
+            "386": 0,
+            "387": 0,
+            "390": 0,
+            "391": 0
+          },
+          "Branches": [
+            {
+              "Line": 385,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 385,
+              "Offset": 15,
+              "EndOffset": 29,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "Queuebal.Json.JSONValue Queuebal.Json.JSONValue::op_Implicit(System.String)": {
+          "Lines": {
+            "397": 2
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.JSONValue Queuebal.Json.JSONValue::op_Implicit(System.Boolean)": {
+          "Lines": {
+            "403": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.JSONValue Queuebal.Json.JSONValue::op_Implicit(System.Int32)": {
+          "Lines": {
+            "409": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.JSONValue Queuebal.Json.JSONValue::op_Implicit(System.Double)": {
+          "Lines": {
+            "415": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.JSONValue Queuebal.Json.JSONValue::op_Implicit(System.Single)": {
+          "Lines": {
+            "421": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.JSONValue Queuebal.Json.JSONValue::op_Implicit(System.Object[])": {
+          "Lines": {
+            "428": 0,
+            "429": 0,
+            "430": 0
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.JSONValue Queuebal.Json.JSONValue::op_Implicit(System.Collections.Generic.List`1<System.Object>)": {
+          "Lines": {
+            "437": 0,
+            "438": 0,
+            "439": 0,
+            "440": 0,
+            "441": 0,
+            "442": 0,
+            "443": 0,
+            "444": 0,
+            "445": 0,
+            "446": 0,
+            "447": 0,
+            "448": 0,
+            "449": 0,
+            "450": 0,
+            "451": 0,
+            "452": 0,
+            "453": 0,
+            "454": 0,
+            "455": 0,
+            "456": 0,
+            "457": 0,
+            "458": 0,
+            "459": 0,
+            "460": 0,
+            "461": 0,
+            "462": 0,
+            "463": 0,
+            "464": 0,
+            "465": 0,
+            "466": 0,
+            "467": 0,
+            "468": 0,
+            "469": 0,
+            "470": 0,
+            "471": 0,
+            "472": 0,
+            "473": 0,
+            "474": 0,
+            "475": 0,
+            "476": 0,
+            "477": 0,
+            "478": 0,
+            "479": 0,
+            "480": 0,
+            "481": 0,
+            "482": 0,
+            "483": 0,
+            "484": 0
+          },
+          "Branches": [
+            {
+              "Line": 439,
+              "Offset": 491,
+              "EndOffset": 20,
+              "Path": 1,
+              "Ordinal": 23,
+              "Hits": 0
+            },
+            {
+              "Line": 441,
+              "Offset": 30,
+              "EndOffset": 32,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 441,
+              "Offset": 30,
+              "EndOffset": 35,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 442,
+              "Offset": 50,
+              "EndOffset": 52,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 442,
+              "Offset": 50,
+              "EndOffset": 71,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 446,
+              "Offset": 91,
+              "EndOffset": 93,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 446,
+              "Offset": 91,
+              "EndOffset": 118,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 450,
+              "Offset": 138,
+              "EndOffset": 140,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 450,
+              "Offset": 138,
+              "EndOffset": 165,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 454,
+              "Offset": 185,
+              "EndOffset": 187,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 454,
+              "Offset": 185,
+              "EndOffset": 212,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 458,
+              "Offset": 232,
+              "EndOffset": 234,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 458,
+              "Offset": 232,
+              "EndOffset": 259,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 462,
+              "Offset": 279,
+              "EndOffset": 281,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 462,
+              "Offset": 279,
+              "EndOffset": 306,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 466,
+              "Offset": 326,
+              "EndOffset": 328,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 466,
+              "Offset": 326,
+              "EndOffset": 353,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 0
+            },
+            {
+              "Line": 470,
+              "Offset": 373,
+              "EndOffset": 375,
+              "Path": 0,
+              "Ordinal": 16,
+              "Hits": 0
+            },
+            {
+              "Line": 470,
+              "Offset": 373,
+              "EndOffset": 397,
+              "Path": 1,
+              "Ordinal": 17,
+              "Hits": 0
+            },
+            {
+              "Line": 474,
+              "Offset": 417,
+              "EndOffset": 419,
+              "Path": 0,
+              "Ordinal": 18,
+              "Hits": 0
+            },
+            {
+              "Line": 474,
+              "Offset": 417,
+              "EndOffset": 441,
+              "Path": 1,
+              "Ordinal": 19,
+              "Hits": 0
+            },
+            {
+              "Line": 478,
+              "Offset": 461,
+              "EndOffset": 463,
+              "Path": 0,
+              "Ordinal": 20,
+              "Hits": 0
+            },
+            {
+              "Line": 478,
+              "Offset": 461,
+              "EndOffset": 483,
+              "Path": 1,
+              "Ordinal": 21,
+              "Hits": 0
+            },
+            {
+              "Line": 439,
+              "Offset": 491,
+              "EndOffset": 496,
+              "Path": 0,
+              "Ordinal": 22,
+              "Hits": 0
+            }
+          ]
+        },
+        "Queuebal.Json.JSONValue Queuebal.Json.JSONValue::op_Implicit(System.Collections.Generic.Dictionary`2<System.String,System.Object>)": {
+          "Lines": {
+            "491": 0,
+            "492": 0,
+            "493": 0,
+            "494": 0,
+            "495": 0,
+            "496": 0,
+            "497": 0,
+            "499": 0,
+            "500": 0,
+            "501": 0,
+            "502": 0,
+            "503": 0,
+            "504": 0,
+            "505": 0,
+            "506": 0,
+            "507": 0,
+            "508": 0,
+            "509": 0,
+            "510": 0,
+            "511": 0,
+            "512": 0,
+            "513": 0,
+            "514": 0,
+            "515": 0,
+            "516": 0,
+            "517": 0,
+            "518": 0,
+            "519": 0,
+            "520": 0,
+            "521": 0,
+            "522": 0,
+            "523": 0,
+            "524": 0,
+            "525": 0,
+            "526": 0,
+            "527": 0,
+            "528": 0,
+            "529": 0,
+            "530": 0,
+            "531": 0,
+            "532": 0,
+            "533": 0
+          },
+          "Branches": [
+            {
+              "Line": 493,
+              "Offset": 440,
+              "EndOffset": 20,
+              "Path": 1,
+              "Ordinal": 19,
+              "Hits": 0
+            },
+            {
+              "Line": 497,
+              "Offset": 48,
+              "EndOffset": 50,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 497,
+              "Offset": 48,
+              "EndOffset": 53,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 499,
+              "Offset": 71,
+              "EndOffset": 73,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 499,
+              "Offset": 71,
+              "EndOffset": 93,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 503,
+              "Offset": 114,
+              "EndOffset": 116,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 503,
+              "Offset": 114,
+              "EndOffset": 143,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 507,
+              "Offset": 164,
+              "EndOffset": 166,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 507,
+              "Offset": 164,
+              "EndOffset": 193,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 511,
+              "Offset": 214,
+              "EndOffset": 216,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 511,
+              "Offset": 214,
+              "EndOffset": 243,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 515,
+              "Offset": 264,
+              "EndOffset": 266,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 515,
+              "Offset": 264,
+              "EndOffset": 293,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 519,
+              "Offset": 314,
+              "EndOffset": 316,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 519,
+              "Offset": 314,
+              "EndOffset": 340,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 523,
+              "Offset": 361,
+              "EndOffset": 363,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 523,
+              "Offset": 361,
+              "EndOffset": 387,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 0
+            },
+            {
+              "Line": 527,
+              "Offset": 408,
+              "EndOffset": 410,
+              "Path": 0,
+              "Ordinal": 16,
+              "Hits": 0
+            },
+            {
+              "Line": 527,
+              "Offset": 408,
+              "EndOffset": 432,
+              "Path": 1,
+              "Ordinal": 17,
+              "Hits": 0
+            },
+            {
+              "Line": 493,
+              "Offset": 440,
+              "EndOffset": 445,
+              "Path": 0,
+              "Ordinal": 18,
+              "Hits": 0
+            }
+          ]
+        },
+        "Queuebal.Json.JSONValue Queuebal.Json.JSONValue::op_Implicit(System.Collections.Generic.List`1<Queuebal.Json.JSONValue>)": {
+          "Lines": {
+            "539": 6
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.JSONValue Queuebal.Json.JSONValue::op_Implicit(System.Collections.Generic.Dictionary`2<System.String,Queuebal.Json.JSONValue>)": {
+          "Lines": {
+            "545": 2
+          },
+          "Branches": []
+        },
+        "System.String Queuebal.Json.JSONValue::get_StringValue()": {
+          "Lines": {
+            "551": 4
+          },
+          "Branches": [
+            {
+              "Line": 551,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 551,
+              "Offset": 7,
+              "EndOffset": 15,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            }
+          ]
+        },
+        "System.Boolean Queuebal.Json.JSONValue::get_BooleanValue()": {
+          "Lines": {
+            "557": 0
+          },
+          "Branches": [
+            {
+              "Line": 557,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 557,
+              "Offset": 7,
+              "EndOffset": 15,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Double Queuebal.Json.JSONValue::get_FloatValue()": {
+          "Lines": {
+            "566": 0,
+            "567": 0,
+            "568": 0,
+            "569": 0,
+            "572": 0,
+            "573": 0,
+            "574": 0,
+            "577": 0,
+            "578": 0
+          },
+          "Branches": [
+            {
+              "Line": 567,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 567,
+              "Offset": 12,
+              "EndOffset": 30,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 572,
+              "Offset": 41,
+              "EndOffset": 43,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 572,
+              "Offset": 41,
+              "EndOffset": 59,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Int32 Queuebal.Json.JSONValue::get_IntValue()": {
+          "Lines": {
+            "588": 0,
+            "589": 0,
+            "590": 0,
+            "591": 0,
+            "594": 0,
+            "595": 0,
+            "596": 0,
+            "599": 0,
+            "600": 0
+          },
+          "Branches": [
+            {
+              "Line": 589,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 589,
+              "Offset": 12,
+              "EndOffset": 29,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 594,
+              "Offset": 40,
+              "EndOffset": 42,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 594,
+              "Offset": 40,
+              "EndOffset": 58,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.List`1<Queuebal.Json.JSONValue> Queuebal.Json.JSONValue::get_ListValue()": {
+          "Lines": {
+            "607": 14
+          },
+          "Branches": [
+            {
+              "Line": 607,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 607,
+              "Offset": 7,
+              "EndOffset": 15,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 14
+            }
+          ]
+        },
+        "System.Collections.Generic.Dictionary`2<System.String,Queuebal.Json.JSONValue> Queuebal.Json.JSONValue::get_DictValue()": {
+          "Lines": {
+            "613": 20
+          },
+          "Branches": [
+            {
+              "Line": 613,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 613,
+              "Offset": 7,
+              "EndOffset": 15,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 20
+            }
+          ]
+        },
+        "System.Boolean Queuebal.Json.JSONValue::get_IsList()": {
+          "Lines": {
+            "620": 7
+          },
+          "Branches": []
+        },
+        "System.Boolean Queuebal.Json.JSONValue::get_IsObject()": {
+          "Lines": {
+            "625": 18
+          },
+          "Branches": []
+        },
+        "System.Boolean Queuebal.Json.JSONValue::get_IsNumber()": {
+          "Lines": {
+            "630": 0
+          },
+          "Branches": [
+            {
+              "Line": 630,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 630,
+              "Offset": 7,
+              "EndOffset": 20,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Boolean Queuebal.Json.JSONValue::get_IsString()": {
+          "Lines": {
+            "635": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean Queuebal.Json.JSONValue::get_IsNull()": {
+          "Lines": {
+            "640": 26
+          },
+          "Branches": []
+        },
+        "System.Object Queuebal.Json.JSONValue::get_Value()": {
+          "Lines": {
+            "645": 0,
+            "646": 0,
+            "647": 0,
+            "648": 0,
+            "649": 0,
+            "650": 0,
+            "651": 0,
+            "652": 0,
+            "653": 0,
+            "654": 0,
+            "655": 0
+          },
+          "Branches": [
+            {
+              "Line": 645,
+              "Offset": 12,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 645,
+              "Offset": 12,
+              "EndOffset": 51,
+              "Path": 2,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 645,
+              "Offset": 12,
+              "EndOffset": 60,
+              "Path": 3,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 645,
+              "Offset": 12,
+              "EndOffset": 74,
+              "Path": 4,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 645,
+              "Offset": 12,
+              "EndOffset": 88,
+              "Path": 5,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 645,
+              "Offset": 12,
+              "EndOffset": 102,
+              "Path": 7,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 645,
+              "Offset": 12,
+              "EndOffset": 111,
+              "Path": 6,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 645,
+              "Offset": 12,
+              "EndOffset": 120,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            }
+          ]
+        },
+        "Queuebal.Json.JSONFieldType Queuebal.Json.JSONValue::get_FieldType()": {
+          "Lines": {
+            "660": 38
+          },
+          "Branches": []
+        },
+        "System.Boolean Queuebal.Json.JSONValue::Equals(System.Object)": {
+          "Lines": {
+            "668": 0,
+            "669": 0,
+            "670": 0,
+            "671": 0,
+            "674": 0,
+            "675": 0,
+            "676": 0,
+            "679": 0,
+            "680": 0,
+            "681": 0,
+            "684": 0,
+            "685": 0,
+            "686": 0,
+            "687": 0,
+            "690": 0,
+            "691": 0,
+            "692": 0,
+            "693": 0,
+            "694": 0,
+            "695": 0,
+            "696": 0,
+            "697": 0,
+            "698": 0,
+            "699": 0,
+            "700": 0,
+            "701": 0
+          },
+          "Branches": [
+            {
+              "Line": 669,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 669,
+              "Offset": 7,
+              "EndOffset": 17,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 674,
+              "Offset": 23,
+              "EndOffset": 25,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 674,
+              "Offset": 23,
+              "EndOffset": 33,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 679,
+              "Offset": 58,
+              "EndOffset": 60,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 679,
+              "Offset": 58,
+              "EndOffset": 68,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 685,
+              "Offset": 96,
+              "EndOffset": 98,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 685,
+              "Offset": 96,
+              "EndOffset": 106,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 690,
+              "Offset": 120,
+              "EndOffset": 158,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 690,
+              "Offset": 120,
+              "EndOffset": 166,
+              "Path": 2,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 690,
+              "Offset": 120,
+              "EndOffset": 190,
+              "Path": 3,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 690,
+              "Offset": 120,
+              "EndOffset": 246,
+              "Path": 4,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 690,
+              "Offset": 120,
+              "EndOffset": 299,
+              "Path": 5,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 690,
+              "Offset": 120,
+              "EndOffset": 352,
+              "Path": 7,
+              "Ordinal": 15,
+              "Hits": 0
+            },
+            {
+              "Line": 690,
+              "Offset": 120,
+              "EndOffset": 368,
+              "Path": 6,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 690,
+              "Offset": 120,
+              "EndOffset": 384,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Int32 Queuebal.Json.JSONValue::GetHashCode()": {
+          "Lines": {
+            "705": 0,
+            "706": 0,
+            "708": 0,
+            "711": 0,
+            "712": 0,
+            "714": 0,
+            "715": 0,
+            "717": 0,
+            "718": 0,
+            "720": 0,
+            "721": 0,
+            "723": 0,
+            "724": 0,
+            "726": 0,
+            "727": 0,
+            "729": 0,
+            "730": 0,
+            "732": 0,
+            "733": 0,
+            "734": 0,
+            "735": 0
+          },
+          "Branches": [
+            {
+              "Line": 708,
+              "Offset": 34,
+              "EndOffset": 72,
+              "Path": 2,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 711,
+              "Offset": 79,
+              "EndOffset": 81,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 711,
+              "Offset": 79,
+              "EndOffset": 87,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 708,
+              "Offset": 34,
+              "EndOffset": 98,
+              "Path": 3,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 708,
+              "Offset": 34,
+              "EndOffset": 122,
+              "Path": 4,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 708,
+              "Offset": 34,
+              "EndOffset": 146,
+              "Path": 5,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 708,
+              "Offset": 34,
+              "EndOffset": 170,
+              "Path": 7,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 723,
+              "Offset": 177,
+              "EndOffset": 179,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 723,
+              "Offset": 177,
+              "EndOffset": 185,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 708,
+              "Offset": 34,
+              "EndOffset": 193,
+              "Path": 6,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 726,
+              "Offset": 200,
+              "EndOffset": 202,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 726,
+              "Offset": 200,
+              "EndOffset": 208,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 708,
+              "Offset": 34,
+              "EndOffset": 216,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 708,
+              "Offset": 34,
+              "EndOffset": 220,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Boolean Queuebal.Json.JSONValue::ListValueEquals(System.Collections.Generic.List`1<Queuebal.Json.JSONValue>)": {
+          "Lines": {
+            "743": 0,
+            "744": 0,
+            "745": 0,
+            "746": 0,
+            "749": 0,
+            "750": 0,
+            "751": 0,
+            "754": 0,
+            "755": 0,
+            "756": 0,
+            "757": 0,
+            "760": 0,
+            "761": 0,
+            "762": 0,
+            "763": 0,
+            "764": 0,
+            "766": 0,
+            "768": 0,
+            "769": 0
+          },
+          "Branches": [
+            {
+              "Line": 744,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 744,
+              "Offset": 12,
+              "EndOffset": 19,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 749,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 749,
+              "Offset": 33,
+              "EndOffset": 40,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 755,
+              "Offset": 68,
+              "EndOffset": 70,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 755,
+              "Offset": 68,
+              "EndOffset": 75,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 760,
+              "Offset": 137,
+              "EndOffset": 80,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 762,
+              "Offset": 109,
+              "EndOffset": 111,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 762,
+              "Offset": 109,
+              "EndOffset": 116,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 760,
+              "Offset": 137,
+              "EndOffset": 139,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Boolean Queuebal.Json.JSONValue::DictValueEquals(System.Collections.Generic.Dictionary`2<System.String,Queuebal.Json.JSONValue>)": {
+          "Lines": {
+            "778": 0,
+            "779": 0,
+            "780": 0,
+            "781": 0,
+            "784": 0,
+            "785": 0,
+            "786": 0,
+            "789": 0,
+            "790": 0,
+            "791": 0,
+            "794": 0,
+            "795": 0,
+            "796": 0,
+            "797": 0,
+            "798": 0,
+            "799": 0,
+            "802": 0,
+            "803": 0,
+            "804": 0,
+            "806": 0,
+            "808": 0,
+            "809": 0,
+            "810": 0,
+            "811": 0,
+            "812": 0,
+            "814": 0,
+            "815": 0,
+            "816": 0
+          },
+          "Branches": [
+            {
+              "Line": 779,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 779,
+              "Offset": 12,
+              "EndOffset": 22,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 784,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 784,
+              "Offset": 33,
+              "EndOffset": 43,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 789,
+              "Offset": 59,
+              "EndOffset": 61,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 789,
+              "Offset": 59,
+              "EndOffset": 69,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 795,
+              "Offset": 174,
+              "EndOffset": 87,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 797,
+              "Offset": 117,
+              "EndOffset": 119,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 797,
+              "Offset": 117,
+              "EndOffset": 127,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 802,
+              "Offset": 159,
+              "EndOffset": 161,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 802,
+              "Offset": 159,
+              "EndOffset": 166,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 795,
+              "Offset": 174,
+              "EndOffset": 176,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 808,
+              "Offset": 254,
+              "EndOffset": 209,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 0
+            },
+            {
+              "Line": 810,
+              "Offset": 239,
+              "EndOffset": 241,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 810,
+              "Offset": 239,
+              "EndOffset": 246,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 808,
+              "Offset": 254,
+              "EndOffset": 256,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.String Queuebal.Json.JSONValue::ToString()": {
+          "Lines": {
+            "824": 0,
+            "825": 0,
+            "826": 0,
+            "827": 0,
+            "828": 0,
+            "831": 0,
+            "832": 0,
+            "833": 0,
+            "834": 0,
+            "835": 0,
+            "836": 0,
+            "837": 0,
+            "838": 0,
+            "839": 0,
+            "840": 0,
+            "841": 0,
+            "842": 0
+          },
+          "Branches": [
+            {
+              "Line": 826,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 826,
+              "Offset": 14,
+              "EndOffset": 28,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 831,
+              "Offset": 42,
+              "EndOffset": 77,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 831,
+              "Offset": 42,
+              "EndOffset": 85,
+              "Path": 2,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 831,
+              "Offset": 42,
+              "EndOffset": 94,
+              "Path": 3,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 835,
+              "Offset": 100,
+              "EndOffset": 102,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 835,
+              "Offset": 100,
+              "EndOffset": 109,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 831,
+              "Offset": 42,
+              "EndOffset": 117,
+              "Path": 5,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 831,
+              "Offset": 42,
+              "EndOffset": 135,
+              "Path": 4,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 831,
+              "Offset": 42,
+              "EndOffset": 153,
+              "Path": 7,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 831,
+              "Offset": 42,
+              "EndOffset": 168,
+              "Path": 6,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 831,
+              "Offset": 42,
+              "EndOffset": 183,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.String Queuebal.Json.JSONValue::GetListValueString(System.Collections.Generic.List`1<Queuebal.Json.JSONValue>)": {
+          "Lines": {
+            "850": 0,
+            "851": 0,
+            "852": 0,
+            "853": 0,
+            "854": 0,
+            "855": 0,
+            "856": 0,
+            "857": 0,
+            "858": 0,
+            "859": 0,
+            "861": 0,
+            "862": 0,
+            "863": 0,
+            "864": 0,
+            "865": 0,
+            "867": 0,
+            "868": 0,
+            "869": 0,
+            "870": 0,
+            "872": 0,
+            "873": 0,
+            "874": 0
+          },
+          "Branches": [
+            {
+              "Line": 854,
+              "Offset": 172,
+              "EndOffset": 31,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 856,
+              "Offset": 48,
+              "EndOffset": 50,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 856,
+              "Offset": 48,
+              "EndOffset": 64,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 862,
+              "Offset": 79,
+              "EndOffset": 81,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 862,
+              "Offset": 79,
+              "EndOffset": 149,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 854,
+              "Offset": 172,
+              "EndOffset": 177,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.String Queuebal.Json.JSONValue::GetDictValueString(System.Collections.Generic.Dictionary`2<System.String,Queuebal.Json.JSONValue>)": {
+          "Lines": {
+            "882": 0,
+            "883": 0,
+            "885": 0,
+            "886": 0,
+            "887": 0,
+            "888": 0,
+            "889": 0,
+            "890": 0,
+            "891": 0,
+            "892": 0,
+            "894": 0,
+            "895": 0,
+            "896": 0,
+            "898": 0,
+            "899": 0,
+            "901": 0,
+            "902": 0,
+            "903": 0,
+            "904": 0,
+            "905": 0,
+            "906": 0,
+            "907": 0
+          },
+          "Branches": [
+            {
+              "Line": 887,
+              "Offset": 284,
+              "EndOffset": 31,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 889,
+              "Offset": 48,
+              "EndOffset": 50,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 889,
+              "Offset": 48,
+              "EndOffset": 64,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 895,
+              "Offset": 85,
+              "EndOffset": 87,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 895,
+              "Offset": 85,
+              "EndOffset": 189,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 887,
+              "Offset": 284,
+              "EndOffset": 289,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void Queuebal.Json.JSONValue::.ctor()": {
+          "Lines": {
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0
+          },
+          "Branches": []
+        },
+        "System.Void Queuebal.Json.JSONValue::.ctor(System.Text.Json.JsonElement)": {
+          "Lines": {
+            "73": 18,
+            "74": 18,
+            "75": 18,
+            "78": 0,
+            "79": 0,
+            "81": 6,
+            "82": 6,
+            "83": 6,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "93": 0,
+            "94": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "106": 0,
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "117": 12,
+            "118": 12,
+            "119": 60,
+            "120": 12,
+            "121": 12,
+            "122": 12,
+            "123": 12,
+            "124": 12,
+            "126": 18
+          },
+          "Branches": [
+            {
+              "Line": 75,
+              "Offset": 21,
+              "EndOffset": 63,
+              "Path": 8,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 75,
+              "Offset": 21,
+              "EndOffset": 75,
+              "Path": 4,
+              "Ordinal": 4,
+              "Hits": 6
+            },
+            {
+              "Line": 75,
+              "Offset": 21,
+              "EndOffset": 100,
+              "Path": 7,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 75,
+              "Offset": 21,
+              "EndOffset": 124,
+              "Path": 6,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 75,
+              "Offset": 21,
+              "EndOffset": 148,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 75,
+              "Offset": 21,
+              "EndOffset": 160,
+              "Path": 5,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 96,
+              "Offset": 173,
+              "EndOffset": 175,
+              "Path": 0,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 96,
+              "Offset": 173,
+              "EndOffset": 198,
+              "Path": 1,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 101,
+              "Offset": 211,
+              "EndOffset": 213,
+              "Path": 0,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 75,
+              "Offset": 21,
+              "EndOffset": 240,
+              "Path": 3,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 110,
+              "Offset": 306,
+              "EndOffset": 274,
+              "Path": 1,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 110,
+              "Offset": 306,
+              "EndOffset": 308,
+              "Path": 0,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 75,
+              "Offset": 21,
+              "EndOffset": 334,
+              "Path": 2,
+              "Ordinal": 2,
+              "Hits": 12
+            },
+            {
+              "Line": 119,
+              "Offset": 412,
+              "EndOffset": 368,
+              "Path": 1,
+              "Ordinal": 16,
+              "Hits": 12
+            },
+            {
+              "Line": 119,
+              "Offset": 412,
+              "EndOffset": 414,
+              "Path": 0,
+              "Ordinal": 15,
+              "Hits": 12
+            },
+            {
+              "Line": 75,
+              "Offset": 21,
+              "EndOffset": 440,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 18
+            },
+            {
+              "Line": 101,
+              "Offset": 211,
+              "EndOffset": 440,
+              "Path": 1,
+              "Ordinal": 12,
+              "Hits": 18
+            }
+          ]
+        },
+        "System.Void Queuebal.Json.JSONValue::.ctor(System.String)": {
+          "Lines": {
+            "131": 2,
+            "132": 2,
+            "133": 2,
+            "134": 2,
+            "135": 2
+          },
+          "Branches": []
+        },
+        "System.Void Queuebal.Json.JSONValue::.ctor(System.Boolean)": {
+          "Lines": {
+            "140": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "144": 0
+          },
+          "Branches": []
+        },
+        "System.Void Queuebal.Json.JSONValue::.ctor(System.Int32)": {
+          "Lines": {
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "152": 0,
+            "153": 0
+          },
+          "Branches": []
+        },
+        "System.Void Queuebal.Json.JSONValue::.ctor(System.Double)": {
+          "Lines": {
+            "158": 0,
+            "159": 0,
+            "160": 0,
+            "161": 0,
+            "162": 0
+          },
+          "Branches": []
+        },
+        "System.Void Queuebal.Json.JSONValue::.ctor(System.Collections.Generic.List`1<Queuebal.Json.JSONValue>)": {
+          "Lines": {
+            "167": 6,
+            "168": 6,
+            "169": 6,
+            "170": 6,
+            "171": 6
+          },
+          "Branches": []
+        },
+        "System.Void Queuebal.Json.JSONValue::.ctor(System.Collections.Generic.Dictionary`2<System.String,Queuebal.Json.JSONValue>)": {
+          "Lines": {
+            "176": 2,
+            "177": 2,
+            "178": 2,
+            "179": 2,
+            "180": 2
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "Queuebal.Expressions.dll": {
+    "/Users/lucas.breedlove/src/queuebal/Queuebal.Expression/Queuebal.Expressions/DataSelectorExpression.cs": {
+      "Queuebal.Expressions.DataSelectorExpression": {
+        "System.String Queuebal.Expressions.DataSelectorExpression::get_ExpressionType()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.String Queuebal.Expressions.DataSelectorExpression::get_Path()": {
+          "Lines": {
+            "20": 20
+          },
+          "Branches": []
+        },
+        "System.Boolean Queuebal.Expressions.DataSelectorExpression::get_IncludeSelectedPath()": {
+          "Lines": {
+            "34": 12
+          },
+          "Branches": []
+        },
+        "Queuebal.Expressions.Expression Queuebal.Expressions.DataSelectorExpression::get_Modifier()": {
+          "Lines": {
+            "40": 12
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.JSONValue Queuebal.Expressions.DataSelectorExpression::EvaluateExpression(Queuebal.Expressions.ExpressionContext,Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "46": 7,
+            "47": 7,
+            "48": 1,
+            "49": 1,
+            "52": 6,
+            "53": 6,
+            "55": 6,
+            "56": 0,
+            "57": 0,
+            "60": 6,
+            "61": 30,
+            "62": 6,
+            "63": 6,
+            "64": 2,
+            "66": 2,
+            "69": 4,
+            "70": 1,
+            "72": 1,
+            "73": 1,
+            "74": 1,
+            "75": 1,
+            "76": 1,
+            "77": 1,
+            "79": 1,
+            "80": 1,
+            "81": 3,
+            "82": 1,
+            "84": 1,
+            "85": 1,
+            "86": 1,
+            "87": 1,
+            "88": 1,
+            "89": 1,
+            "91": 2,
+            "92": 2,
+            "93": 2,
+            "94": 4,
+            "96": 6,
+            "97": 1,
+            "99": 1,
+            "102": 5,
+            "103": 6
+          },
+          "Branches": [
+            {
+              "Line": 47,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 47,
+              "Offset": 14,
+              "EndOffset": 28,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            },
+            {
+              "Line": 55,
+              "Offset": 61,
+              "EndOffset": 63,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 55,
+              "Offset": 61,
+              "EndOffset": 81,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 6
+            },
+            {
+              "Line": 61,
+              "Offset": 329,
+              "EndOffset": 101,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 6
+            },
+            {
+              "Line": 63,
+              "Offset": 125,
+              "EndOffset": 127,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 2
+            },
+            {
+              "Line": 63,
+              "Offset": 125,
+              "EndOffset": 133,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 4
+            },
+            {
+              "Line": 69,
+              "Offset": 146,
+              "EndOffset": 148,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 1
+            },
+            {
+              "Line": 69,
+              "Offset": 146,
+              "EndOffset": 229,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 3
+            },
+            {
+              "Line": 81,
+              "Offset": 239,
+              "EndOffset": 241,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 1
+            },
+            {
+              "Line": 81,
+              "Offset": 239,
+              "EndOffset": 305,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 2
+            },
+            {
+              "Line": 61,
+              "Offset": 329,
+              "EndOffset": 334,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 6
+            },
+            {
+              "Line": 96,
+              "Offset": 355,
+              "EndOffset": 357,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 1
+            },
+            {
+              "Line": 96,
+              "Offset": 355,
+              "EndOffset": 368,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 5
+            },
+            {
+              "Line": 96,
+              "Offset": 373,
+              "EndOffset": 375,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 1
+            },
+            {
+              "Line": 96,
+              "Offset": 373,
+              "EndOffset": 398,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 5
+            }
+          ]
+        }
+      }
+    },
+    "/Users/lucas.breedlove/src/queuebal/Queuebal.Expression/Queuebal.Expressions/ExpressionContext.cs": {
+      "Queuebal.Expressions.ExpressionContext": {
+        "Queuebal.Json.Data.DataProvider Queuebal.Expressions.ExpressionContext::get_DataProvider()": {
+          "Lines": {
+            "23": 0
+          },
+          "Branches": []
+        },
+        "System.Void Queuebal.Expressions.ExpressionContext::.ctor(Queuebal.Json.Data.DataProvider)": {
+          "Lines": {
+            "15": 6,
+            "16": 6,
+            "17": 6,
+            "18": 6
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/Users/lucas.breedlove/src/queuebal/Queuebal.Expression/Queuebal.Expressions/IExpression.cs": {
+      "Queuebal.Expressions.IExpression": {
+        "System.String Queuebal.Expressions.IExpression::get_ExpressionType()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        }
+      },
+      "Queuebal.Expressions.Expression": {
+        "Queuebal.Expressions.Expression Queuebal.Expressions.Expression::get_InputValue()": {
+          "Lines": {
+            "31": 7
+          },
+          "Branches": []
+        },
+        "Queuebal.Json.JSONValue Queuebal.Expressions.Expression::Evaluate(Queuebal.Expressions.ExpressionContext,Queuebal.Json.JSONValue)": {
+          "Lines": {
+            "40": 7,
+            "42": 7,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "48": 7,
+            "49": 6
+          },
+          "Branches": [
+            {
+              "Line": 42,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 42,
+              "Offset": 12,
+              "EndOffset": 31,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 7
+            }
+          ]
+        }
+      }
+    }
+  }
+}
