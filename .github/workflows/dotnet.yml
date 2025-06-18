@@ -31,4 +31,4 @@ jobs:
       with:
         fail-on-error: false
         format: cobertura
-        files: "coverage/**/*.xml"
+        files: "coverage/**/*.coverage"
