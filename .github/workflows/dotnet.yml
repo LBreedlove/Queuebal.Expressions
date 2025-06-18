@@ -30,5 +30,4 @@ jobs:
       uses: coverallsapp/github-action@v2
       with:
         fail-on-error: false
-        format: cobertura
-        files: "coverage/**/*.coverage"
+        path-to-lcov: ./coverage/lcov.info
