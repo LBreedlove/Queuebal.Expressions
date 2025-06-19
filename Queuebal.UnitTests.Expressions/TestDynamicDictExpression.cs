@@ -39,10 +39,18 @@ public class TestDynamicDictExpression
                 {
                     Key   = new ValueExpression { Value = new JSONValue("key1") },
                     Value = new ValueExpression { Value = new JSONValue("value1") },
-                    Condition = new EqualsCondition
-                    {
-                        // This condition will evaluate to false
-                        ComparerValueExpression = new ValueExpression { Value = new JSONValue("value3") }
+                    Condition = new ConditionExpression{
+                        ConditionSet = new ConditionSet
+                        {
+                            Conditions = new List<ICondition>
+                            {
+                                new EqualsCondition
+                                {
+                                    // This condition will evaluate to false
+                                    ComparerValueExpression = new ValueExpression { Value = new JSONValue("value3") }
+                                }
+                            }
+                        }
                     }
                 },
                 new DynamicDictEntry
@@ -65,6 +73,40 @@ public class TestDynamicDictExpression
 
         // The excluded entry should not be present
         Assert.IsFalse(result.DictValue.ContainsKey("key1"));
+    }
+
+    [TestMethod]
+    public void test_evaluate_when_entry_condition_is_true_includes_entry()
+    {
+        var expression = new DynamicDictExpression
+        {
+            Entries = new List<DynamicDictEntry>
+            {
+                new DynamicDictEntry
+                {
+                    Key   = new ValueExpression { Value = new JSONValue("key1") },
+                    Value = new ValueExpression { Value = new JSONValue("value1") },
+                    Condition = new ConditionExpression
+                    {
+                        ConditionSet = ConditionSet.AlwaysTrue
+                    }
+                },
+                new DynamicDictEntry
+                {
+                    Key   = new ValueExpression { Value = new JSONValue("key2") },
+                    Value = new ValueExpression { Value = new JSONValue("value2") }
+                }
+            }
+        };
+        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var inputValue = new JSONValue("input");
+        var result = expression.Evaluate(context, inputValue);
+        Assert.IsTrue(result.IsObject);
+        Assert.AreEqual(2, result.DictValue.Count);
+        Assert.IsTrue(result.DictValue.ContainsKey("key1"));
+        Assert.AreEqual("value1", result.DictValue["key1"].StringValue);
+        Assert.IsTrue(result.DictValue.ContainsKey("key2"));
+        Assert.AreEqual("value2", result.DictValue["key2"].StringValue);
     }
 
     [TestMethod]

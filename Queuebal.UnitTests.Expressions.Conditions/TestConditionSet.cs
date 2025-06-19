@@ -75,6 +75,25 @@ public class TestConditionSet
         Assert.IsTrue(result);
     }
 
+    [TestMethod]
+    public void test_evaluate_when_has_value_selector()
+    {
+        var conditionSet = new ConditionSet
+        {
+            Conditions = [new IsNullCondition { NegateResult = true }],
+            Operator = ConditionSetOperator.And,
+            ValueSelector = new DataSelectorExpression { Path = "testKey" }
+        };
+
+        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var inputValue = new JSONValue(new Dictionary<string, JSONValue>
+        {
+            { "testKey", new JSONValue("test") }
+        });
+
+        bool result = conditionSet.Evaluate(context, inputValue);
+        Assert.IsTrue(result);
+    }
 
     [TestMethod]
     public void test_evaluate_when_operator_is_and_and_all_conditions_are_false()

@@ -29,4 +29,25 @@ public class TestIsNullCondition
         bool result = condition.Evaluate(context, inputValue);
         Assert.IsFalse(result);
     }
+
+    [TestMethod]
+    public void test_evaluate_with_input_selector()
+    {
+        var condition = new IsNullCondition
+        {
+            ValueSelector = new DataSelectorExpression
+            {
+                Path = "testKey"
+            }
+        };
+
+        var inputValue = new JSONValue(new Dictionary<string, JSONValue>
+        {
+            { "testKey", new JSONValue("testValue") }
+        });
+        var context = new ExpressionContext(new Json.Data.DataProvider());
+
+        bool result = condition.Evaluate(context, inputValue);
+        Assert.IsFalse(result);
+    }
 }
