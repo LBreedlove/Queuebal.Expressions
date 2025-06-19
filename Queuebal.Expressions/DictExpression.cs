@@ -20,7 +20,7 @@ public class DictExpression : Expression
     /// <summary>
     /// The list of dictionary entries evaluated to create the dictionary.
     /// </summary>
-    public required Dictionary<string, Expression> Value { get; set; }
+    public required Dictionary<string, IExpression> Value { get; set; }
 
     /// <summary>
     /// Returns the dictionary stored in this expression.

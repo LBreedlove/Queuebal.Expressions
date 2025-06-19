@@ -9,7 +9,7 @@ namespace Queuebal.Expressions;
 public class IfElseExpressionCondition
 {
     public required ConditionExpression Condition { get; set; }
-    public required Expression IfTrue { get; set; }
+    public required IExpression IfTrue { get; set; }
 }
 
 
@@ -33,7 +33,7 @@ public class IfElseExpression : Expression
     /// <summary>
     /// The value to return if no branches match.
     /// </summary>
-    public Expression? ElseValue { get; set; }
+    public IExpression? ElseValue { get; set; }
 
     /// <summary>
     /// Evaluates the if-else expressions based on their condition, returning the first

@@ -13,7 +13,7 @@ public class TestDictExpression
         // Arrange
         var expression = new DictExpression
         {
-            Value = new Dictionary<string, Expression>
+            Value = new Dictionary<string, IExpression>
             {
                 // this key will be replaced by the Tokenizer with a non-string value
                 { "{replace}", new ValueExpression { Value = new JSONValue("value") } },
@@ -35,7 +35,7 @@ public class TestDictExpression
     {
         var expression = new DictExpression
         {
-            Value = new Dictionary<string, Expression>
+            Value = new Dictionary<string, IExpression>
             {
                 { "key1", new ValueExpression { Value = new JSONValue("value1") } },
                 { "key2", new ValueExpression { Value = new JSONValue("value2") } }

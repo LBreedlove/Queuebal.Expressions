@@ -19,7 +19,7 @@ public class ListExpression : Expression
     /// <summary>
     /// The list of entries evaluated to create the list.
     /// </summary>
-    public required List<Expression> Value { get; set; }
+    public required List<IExpression> Value { get; set; }
 
     /// <summary>
     /// Returns the list stored in this expression.

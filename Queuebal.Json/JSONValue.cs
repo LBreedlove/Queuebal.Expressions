@@ -867,7 +867,7 @@ public class JSONValue
     {
         if (obj == null)
         {
-            return false;
+            return IsNull;
         }
 
         if (object.ReferenceEquals(this, obj))

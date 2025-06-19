@@ -37,7 +37,7 @@ public class DataSelectorExpression : Expression
     /// An optional expression that gets applied to the selected values, before
     /// returning them to the caller.
     /// </summary>
-    public Expression? Modifier { get; set; }
+    public IExpression? Modifier { get; set; }
 
     /// <summary>
     /// Evaluates the expression and returns a list of the results.

@@ -29,7 +29,7 @@ public abstract class Mutation : IMutation
     /// An input expression that can be used to mutate the input value,
     /// before the mutation is evaluated. This is useful for chaining mutations.
     /// </summary>
-    public Expression? InputExpression { get; set; }
+    public IExpression? InputExpression { get; set; }
 
     /// <summary>
     /// Evaluates the mutation and returns the JSONValue result.

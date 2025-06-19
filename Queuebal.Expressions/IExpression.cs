@@ -29,7 +29,7 @@ public abstract class Expression : IExpression
     /// The expression to run to calculate the input value for this expression.
     /// This property is used to support expression chaining.
     /// </summary>
-    public Expression? InputValue { get; set; }
+    public IExpression? InputValue { get; set; }
 
     /// <summary>
     /// Evaluates the expression and returns the result.

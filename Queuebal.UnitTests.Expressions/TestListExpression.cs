@@ -13,7 +13,7 @@ public class TestListExpression
         // Arrange
         var expression = new ListExpression
         {
-            Value = new List<Expression>()
+            Value = new List<IExpression>()
         };
 
         // Act
@@ -30,7 +30,7 @@ public class TestListExpression
         // Arrange
         var expression = new ListExpression
         {
-            Value = new List<Expression>
+            Value = new List<IExpression>
             {
                 new ValueExpression { Value = new JSONValue("value1") },
                 new ValueExpression { Value = new JSONValue("value2") }

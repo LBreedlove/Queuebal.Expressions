@@ -8,12 +8,12 @@ public class DynamicDictEntry
     /// <summary>
     /// The key for the dictionary entry.
     /// </summary>
-    public required Expression Key { get; set; }
+    public required IExpression Key { get; set; }
 
     /// <summary>
     /// The value for the dictionary entry.
     /// </summary>
-    public required Expression Value { get; set; }
+    public required IExpression Value { get; set; }
 
     /// <summary>
     /// An optional condition that indicates if the

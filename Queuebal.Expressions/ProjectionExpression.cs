@@ -14,12 +14,12 @@ public class ProjectionExpression : Expression
     /// <summary>
     /// The expression used to get the items to be projected.
     /// </summary>
-    public required Expression Items { get; set; }
+    public required IExpression Items { get; set; }
 
     /// <summary>
     /// A data map used as the source of values within the projection.
     /// </summary>
-    public required Dictionary<string, Expression> ContextDataMap { get; set; }
+    public required Dictionary<string, IExpression> ContextDataMap { get; set; }
 
     /// <summary>
     /// An optional condition used to filter items before applying the projection.
@@ -37,7 +37,7 @@ public class ProjectionExpression : Expression
     /// Additional context data can be provided through the ContextDataMap, which allows
     /// you to reference other values or expressions within the projection.
     /// </summary>
-    public required Dictionary<string, Expression> Projection { get; set; }
+    public required Dictionary<string, IExpression> Projection { get; set; }
 
     /// <summary>
     /// Executes the projection expression on each item in the input list.

@@ -103,7 +103,7 @@ public class TestProjectionExpression
             {
                 Path = "simple.path.items[:]"
             },
-            ContextDataMap = new Dictionary<string, Expression>
+            ContextDataMap = new Dictionary<string, IExpression>
             {
                 { "parent", new DataSelectorExpression
                     {
@@ -111,7 +111,7 @@ public class TestProjectionExpression
                     }
                 }
             },
-            Projection = new Dictionary<string, Expression>
+            Projection = new Dictionary<string, IExpression>
             {
                 { "item", new DataSelectorExpression
                     {
@@ -135,7 +135,7 @@ public class TestProjectionExpression
             {
                 Path = "simple.path"
             },
-            ContextDataMap = new Dictionary<string, Expression>
+            ContextDataMap = new Dictionary<string, IExpression>
             {
                 { "parent", new DataSelectorExpression
                     {
@@ -143,7 +143,7 @@ public class TestProjectionExpression
                     }
                 }
             },
-            Projection = new Dictionary<string, Expression>
+            Projection = new Dictionary<string, IExpression>
             {
                 { "item", new DataSelectorExpression
                     {
@@ -167,7 +167,7 @@ public class TestProjectionExpression
             {
                 Path = "invalid.path.items[:]"
             },
-            ContextDataMap = new Dictionary<string, Expression>
+            ContextDataMap = new Dictionary<string, IExpression>
             {
                 { "parent", new DataSelectorExpression
                     {
@@ -175,7 +175,7 @@ public class TestProjectionExpression
                     }
                 }
             },
-            Projection = new Dictionary<string, Expression>
+            Projection = new Dictionary<string, IExpression>
             {
                 { "item", new DataSelectorExpression
                     {

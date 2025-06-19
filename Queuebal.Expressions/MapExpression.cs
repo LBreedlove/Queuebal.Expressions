@@ -17,7 +17,7 @@ public class MapExpression : Expression
     /// <summary>
     /// The expression to apply to each value in the source list.
     /// </summary>
-    public required Expression Map { get; set; }
+    public required IExpression Map { get; set; }
 
     /// <summary>
     /// Executes the map expression on each item in the input list.

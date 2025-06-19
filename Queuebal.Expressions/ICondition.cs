@@ -71,7 +71,7 @@ public abstract class BinaryCondition : ICondition
     /// <summary>
     /// The expression to run to calculate the value to compare against.
     /// </summary>
-    public required Expression ComparerValueExpression { get; set; }
+    public required IExpression ComparerValueExpression { get; set; }
 
     /// <summary>
     /// Evaluates the condition and returns a boolean indicating whether the condition is met.
