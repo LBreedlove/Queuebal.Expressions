@@ -5,6 +5,7 @@
 NOTE: Test coverage is really 94%, but coveralls is calculating the percentage wrong, and including files from the build that shouldn't be included.
 
 ![image](https://github.com/user-attachments/assets/bd99a283-ab25-4a9c-a1d0-cd5bc9365ef4)
+![image](https://github.com/user-attachments/assets/807e029f-89a3-47bd-b392-fa6754c24d3a)
 
 # Queuebal.Expressions
 
