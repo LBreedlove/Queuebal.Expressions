@@ -10,7 +10,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Queuebal.Expressions\Queuebal.Expressions.csproj" />
     <ProjectReference Include="..\Queuebal.Expressions.Conditions\Queuebal.Expressions.Conditions.csproj" />
-    <ProjectReference Include="..\Queuebal.Json\Queuebal.Json.csproj" />
     <ProjectReference Include="..\Queuebal.Services\Queuebal.Services.csproj" />
   </ItemGroup>
 
