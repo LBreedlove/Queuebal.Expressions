@@ -2,6 +2,9 @@
 
 [![.NET](https://github.com/LBreedlove/Queuebal.Expressions/actions/workflows/dotnet.yml/badge.svg)](https://github.com/LBreedlove/Queuebal.Expressions/actions/workflows/dotnet.yml)
 
+NOTE: Test coverage is really 94%, but coveralls is calculating the percentage wrong, and including files from the build that shouldn't be included.
+![image](https://github.com/user-attachments/assets/bd99a283-ab25-4a9c-a1d0-cd5bc9365ef4)
+
 # Queuebal.Expressions
 
 Queuebal.Expressions is a .NET library for building, evaluating, and composing data transformation pipelines using expressions that can be configured via JSON. It provides tools for selecting, transforming, and writing data in JSON-like structures, making it ideal for dynamic data processing and ETL scenarios.
