@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queuebal.Expressions.Mutati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queuebal.UnitTests.Expressions.Mutations", "Queuebal.UnitTests.Expressions.Mutations\Queuebal.UnitTests.Expressions.Mutations.csproj", "{F1E6710C-6074-475B-8A42-AB3F0461637A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queuebal.Statements", "Queuebal.Statements\Queuebal.Statements.csproj", "{073C7A80-8F69-4CF9-9224-451F4B4FF30F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -223,6 +225,18 @@ Global
 		{F1E6710C-6074-475B-8A42-AB3F0461637A}.Release|x64.Build.0 = Release|Any CPU
 		{F1E6710C-6074-475B-8A42-AB3F0461637A}.Release|x86.ActiveCfg = Release|Any CPU
 		{F1E6710C-6074-475B-8A42-AB3F0461637A}.Release|x86.Build.0 = Release|Any CPU
+		{073C7A80-8F69-4CF9-9224-451F4B4FF30F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{073C7A80-8F69-4CF9-9224-451F4B4FF30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{073C7A80-8F69-4CF9-9224-451F4B4FF30F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{073C7A80-8F69-4CF9-9224-451F4B4FF30F}.Debug|x64.Build.0 = Debug|Any CPU
+		{073C7A80-8F69-4CF9-9224-451F4B4FF30F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{073C7A80-8F69-4CF9-9224-451F4B4FF30F}.Debug|x86.Build.0 = Debug|Any CPU
+		{073C7A80-8F69-4CF9-9224-451F4B4FF30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{073C7A80-8F69-4CF9-9224-451F4B4FF30F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{073C7A80-8F69-4CF9-9224-451F4B4FF30F}.Release|x64.ActiveCfg = Release|Any CPU
+		{073C7A80-8F69-4CF9-9224-451F4B4FF30F}.Release|x64.Build.0 = Release|Any CPU
+		{073C7A80-8F69-4CF9-9224-451F4B4FF30F}.Release|x86.ActiveCfg = Release|Any CPU
+		{073C7A80-8F69-4CF9-9224-451F4B4FF30F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
