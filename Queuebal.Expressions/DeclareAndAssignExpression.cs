@@ -10,6 +10,8 @@ namespace Queuebal.Expressions;
 /// </summary>
 public class DeclareAndAssignExpression : Expression
 {
+    public static string ExpressionType { get; } = "DeclareAndAssign";
+
     /// <summary>
     /// The name of the variable to declare and assign a value to.
     /// </summary>
