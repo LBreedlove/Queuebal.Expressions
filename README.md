@@ -1,14 +1,6 @@
-[![Coverage Status](https://coveralls.io/repos/github/LBreedlove/Queuebal.Expressions/badge.svg?branch=main)](https://coveralls.io/github/LBreedlove/Queuebal.Expressions?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/LBreedlove/Queuebal.Expressions/badge.svg?branch=main)](https://coveralls.io/github/LBreedlove/Queuebal.Expressions?branch=main&kill_cache=1)
 
 [![.NET](https://github.com/LBreedlove/Queuebal.Expressions/actions/workflows/dotnet.yml/badge.svg)](https://github.com/LBreedlove/Queuebal.Expressions/actions/workflows/dotnet.yml)
-
-NOTE: Test coverage is really 94%, but coveralls is calculating the percentage wrong, and including files from the build that shouldn't be included.
-
-### VS Code Coverage Tree
-![image](https://github.com/user-attachments/assets/bd99a283-ab25-4a9c-a1d0-cd5bc9365ef4)
-
-### Coveralls Coverage Tree
-![image](https://github.com/user-attachments/assets/807e029f-89a3-47bd-b392-fa6754c24d3a)
 
 # Queuebal.Expressions
 
