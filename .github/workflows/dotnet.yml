@@ -41,4 +41,4 @@ jobs:
       uses: coverallsapp/github-action@v2
       with:
         fail-on-error: false
-        files: ./Queuebal.UnitTests.*/coverage/coverage.cobertura.xml
+        file: ./CoverageReport/Cobertura.xml
