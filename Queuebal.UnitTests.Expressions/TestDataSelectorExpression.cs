@@ -168,6 +168,43 @@ public class TestDataSelectorExpression
     }
 
     [TestMethod]
+    public void test_evaluate_when_selected_from_list_and_modifier_is_provided_applies_modifier_to_results()
+    {
+        // Arrange
+        var path = "simple.items[:]";
+        var expression = new DataSelectorExpression()
+        {
+            Path = path,
+            IncludeSelectedPath = true,
+            Modifier = new DataSelectorExpression()
+            {
+                Path = "[:].path",
+                IncludeSelectedPath = false,
+            }
+        };
+        var inputJson = """
+        {
+            "simple": {
+                "items": [
+                    "value", "value2", "value3"
+                ]
+            }
+        }
+        """;
+
+        var inputValue = new JSONValue(System.Text.Json.JsonDocument.Parse(inputJson).RootElement);
+
+        // Act
+        var result = expression.Evaluate(Context, inputValue);
+
+        // Assert
+        Assert.IsTrue(result.IsList);
+        Assert.AreEqual("simple.items[0]", result.ListValue[0].StringValue);
+        Assert.AreEqual("simple.items[1]", result.ListValue[1].StringValue);
+        Assert.AreEqual("simple.items[2]", result.ListValue[2].StringValue);
+    }
+
+    [TestMethod]
     public void test_evaluate_when_expression_has_input_value()
     {
         // Arrange

@@ -28,7 +28,7 @@ public class DynamicDictEntry
     /// }
     /// ```
     /// </remarks>
-    public ICondition? Condition { get; set; }
+    public ConditionExpression? Condition { get; set; }
 }
 
 
@@ -70,11 +70,11 @@ public class DynamicDictExpression : Expression
                 };
 
                 // If the condition evaluates to false, skip this entry.
-                if (!entry.Condition.Evaluate(context, new JSONValue(conditionInput)))
+                if (!entry.Condition.Evaluate(context, new JSONValue(conditionInput)).BooleanValue)
                 {
                     continue;
                 }
-            } // TODO: this closing bracket isn't covered by tests - not sure why
+            }
 
             // Add the evaluated key-value pair to the dictionary.
             output[key.StringValue] = value;
