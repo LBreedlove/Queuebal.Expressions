@@ -341,7 +341,7 @@ public class JSONValue
         }
         else if (value.FieldType == JSONFieldType.String)
         {
-            return DateTime.Parse(value.StringValue);
+            return ConvertStringToDateTime(value.StringValue);
         }
         else if (value.FieldType == JSONFieldType.Integer || value.FieldType == JSONFieldType.Float)
         {
@@ -350,6 +350,41 @@ public class JSONValue
         }
 
         throw new InvalidCastException("Unable to cast JSONValue to a DateTime");
+    }
+
+    /// <summary>
+    /// Converts a string value to a DateTime, taking into account the format of the string.
+    /// </summary>
+    /// <param name="value">The value to convert.</param>
+    /// <returns>A DateTime reflecting the value represented by the string.</returns>
+    private static DateTime ConvertStringToDateTime(string value)
+    {
+        DateTime result;
+        try
+        {
+            // Attempt to parse the string as a DateTime
+            result = DateTime.Parse(value);
+        }
+        catch (FormatException)
+        {
+            // If parsing fails, throw an exception
+            throw new InvalidCastException($"The string '{value}' is not in a valid DateTime format.");
+        }
+
+        if (value.EndsWith("Z", StringComparison.OrdinalIgnoreCase))
+        {
+            // If the string ends with 'Z', it is in UTC format
+            return result.ToUniversalTime();
+        }
+
+        if (value.EndsWith("+00:00") || value.EndsWith("-00:00"))
+        {
+            // If the string ends with '+00:00' or '-00:00', it is in UTC offset format
+            return result.ToUniversalTime();
+        }
+
+        // If ConvertToUtc is false, return the DateTime in the local time zone
+        return DateTime.SpecifyKind(result, DateTimeKind.Local);
     }
 
     /// <summary>
@@ -786,6 +821,11 @@ public class JSONValue
     /// Indicates if the JSONValue stores a string value.
     /// </summary>
     public bool IsString => _fieldType == JSONFieldType.String;
+
+    /// <summary>
+    /// Indicates if the JSONValue stores a boolean value.
+    /// </summary>
+    public bool IsBoolean => _fieldType == JSONFieldType.Boolean;
 
     /// <summary>
     /// Indicates if the JSONValue has a value of null.
