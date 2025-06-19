@@ -102,6 +102,23 @@ public class DataProviderScope
     public string Name => _scopeName;
 
     /// <summary>
+    /// Sets the value for the specified key in the scope.
+    /// </summary>
+    /// <param name="key">The name of the variable to set.</param>
+    /// <param name="newValue">The new value of the key.</param>
+    /// <returns>true if the key was found, otherwise false.</returns>
+    public bool SetValue(string key, JSONValue newValue)
+    {
+        if (_values.ContainsKey(key))
+        {
+            _values[key] = newValue;
+            return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
     /// Adds a JSONValue to the scope.
     /// </summary>
     /// <param name="key">The key for the new value.</param>
@@ -156,6 +173,28 @@ public class DataProvider
     {
         _currentScope = _rootScope;
         _scopes.Add(_rootScope);
+    }
+
+    /// <summary>
+    /// Sets the named variable in the first scope that contains the variable.
+    /// If the variable is not found in any scope, a KeyNotFoundException is thrown.
+    /// </summary>
+    /// <param name="key">The name of the variable to set.</param>
+    /// <param name="value">The value of the variable.</param>
+    /// <returns>The new value of the variable.</returns>
+    public JSONValue SetValue(string key, JSONValue newValue)
+    {
+        for (int idx = _scopes.Count - 1; idx >= 0; idx--)
+        {
+            var scope = _scopes[idx];
+            if (scope.SetValue(key, newValue))
+            {
+                // If the value was set, return the new value.
+                return newValue;
+            }
+        }
+
+        throw new KeyNotFoundException($"The variable '{key}' was not found in any scope.");
     }
 
     /// <summary>
@@ -303,6 +342,17 @@ public class DataProvider
     public JSONValue? GetRootValue(string key)
     {
         return _rootScope.GetValue(key);
+    }
+
+    /// <summary>
+    /// Attempts to get the value from the current scope, with the specified key.
+    /// The current scope is the last scope added to the stack.
+    /// </summary>
+    /// <param name="key">The name of the value to search for.</param>
+    /// <returns>A JSONValue containing the value, if the key is found, otherwise null.</returns>
+    public JSONValue? GetValueInCurrentScope(string key)
+    {
+        return _currentScope.GetValue(key);
     }
 
     /// <summary>
