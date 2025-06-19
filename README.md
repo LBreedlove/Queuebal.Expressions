@@ -1,5 +1,5 @@
 [![.NET](https://github.com/LBreedlove/Queuebal.Expressions/actions/workflows/dotnet.yml/badge.svg)](https://github.com/LBreedlove/Queuebal.Expressions/actions/workflows/dotnet.yml)
-[![Coverage Status](https://coveralls.io/repos/github/LBreedlove/Queuebal.Expressions/badge.svg?branch=main&kill_cache=1)](https://coveralls.io/github/LBreedlove/Queuebal.Expressions?branch=main&kill_cache=1)
+[![Coverage Status](https://coveralls.io/repos/github/LBreedlove/Queuebal.Expressions/badge.svg?branch=main&kill_cache=2)](https://coveralls.io/github/LBreedlove/Queuebal.Expressions?branch=main&kill_cache=2)
 
 # Queuebal.Expressions
 
