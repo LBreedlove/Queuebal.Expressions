@@ -1,4 +1,5 @@
 using Queuebal.Json;
+using Queuebal.Json.Data;
 
 namespace Queuebal.Expressions;
 
@@ -28,7 +29,7 @@ public class ConditionSet : ICondition
     {
         NegateResult = false,
         Operator = ConditionSetOperator.And,
-        Conditions = Array.Empty<ICondition>()
+        Conditions = new List<ICondition>()
     };
 
     /// <summary>
@@ -38,7 +39,7 @@ public class ConditionSet : ICondition
     {
         NegateResult = true,
         Operator = ConditionSetOperator.And,
-        Conditions = Array.Empty<ICondition>()
+        Conditions = new List<ICondition>()
     };
 
     /// <summary>
@@ -54,7 +55,16 @@ public class ConditionSet : ICondition
     /// <summary>
     /// The conditions in this set.
     /// </summary>
-    public required ICondition[] Conditions { get; set; }
+    public required List<ICondition> Conditions { get; set; }
+
+    /// <summary>
+    /// An optional value selector expression that can be used to select a value from the input
+    /// value to be used in the evaluation of the conditions.
+    /// This is useful when the conditions need to be evaluated against a specific part of the input
+    /// value, rather than the entire input value.
+    /// If this is not set, the conditions will be evaluated against the entire input value.
+    /// </summary>
+    public DataSelectorExpression? ValueSelector { get; set; }
 
     /// <summary>
     /// Evaluates the conditions in the set, combining the results based on the specified operator
@@ -74,6 +84,12 @@ public class ConditionSet : ICondition
     public bool Evaluate(ExpressionContext context, JSONValue inputValue)
     {
         bool? result = null;
+        if (ValueSelector != null)
+        {
+            // If a ValueSelector is provided, evaluate it to get the value to use for the conditions.
+            inputValue = ValueSelector.Evaluate(context, inputValue);
+        }
+
         foreach (var condition in Conditions)
         {
             var conditionResult = condition.Evaluate(context, inputValue);

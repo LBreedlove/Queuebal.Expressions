@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Queuebal.Expressions.Conditions\Queuebal.Expressions.Conditions.csproj" />
     <ProjectReference Include="..\Queuebal.Expressions.Mutations\Queuebal.Expressions.Mutations.csproj" />
     <ProjectReference Include="..\Queuebal.Serialization\Queuebal.Serialization.csproj" />
     <ProjectReference Include="..\Queuebal.Services\Queuebal.Services.csproj" />
