@@ -35,6 +35,15 @@ public abstract class UnaryCondition : ICondition
     public bool NegateResult { get; set; } = false;
 
     /// <summary>
+    /// An optional value selector expression that can be used to select a value from the input
+    /// value to be used in the evaluation of the conditions.
+    /// This is useful when the conditions need to be evaluated against a specific part of the input
+    /// value, rather than the entire input value.
+    /// If this is not set, the conditions will be evaluated against the entire input value.
+    /// </summary>
+    public DataSelectorExpression? ValueSelector { get; set; }
+
+    /// <summary>
     /// Evaluates the condition and returns a boolean indicating whether the condition is met.
     /// </summary>
     /// <param name="context">The context the condition is running in.</param>
@@ -42,6 +51,12 @@ public abstract class UnaryCondition : ICondition
     /// <returns></returns>
     public bool Evaluate(ExpressionContext context, JSONValue inputValue)
     {
+        if (ValueSelector != null)
+        {
+            // If a ValueSelector is provided, use it to select the value from the inputValue
+            inputValue = ValueSelector.Evaluate(context, inputValue);
+        }
+
         // Evaluate the condition using the provided context and input value
         bool result = EvaluateCondition(context, inputValue);
 
@@ -74,6 +89,15 @@ public abstract class BinaryCondition : ICondition
     public required IExpression ComparerValueExpression { get; set; }
 
     /// <summary>
+    /// An optional value selector expression that can be used to select a value from the input
+    /// value to be used in the evaluation of the conditions.
+    /// This is useful when the conditions need to be evaluated against a specific part of the input
+    /// value, rather than the entire input value.
+    /// If this is not set, the conditions will be evaluated against the entire input value.
+    /// </summary>
+    public DataSelectorExpression? ValueSelector { get; set; }
+
+    /// <summary>
     /// Evaluates the condition and returns a boolean indicating whether the condition is met.
     /// </summary>
     /// <param name="context">The context the condition is running in.</param>
@@ -83,6 +107,12 @@ public abstract class BinaryCondition : ICondition
     {
         // get the value to compare against by evaluating the ValueExpression
         var comparerValue = ComparerValueExpression.Evaluate(context, inputValue);
+
+        if (ValueSelector != null)
+        {
+            // If a ValueSelector is provided, use it to select the value from the inputValue
+            inputValue = ValueSelector.Evaluate(context, inputValue);
+        }
 
         // Evaluate the condition using the provided context and input value
         bool result = EvaluateCondition(context, inputValue, comparerValue);
