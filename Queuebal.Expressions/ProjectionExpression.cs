@@ -27,8 +27,15 @@ public class ProjectionExpression : Expression
     public ConditionExpression? ItemFilter { get; set; }
 
     /// <summary>
-    /// It's kinda hard to explain...
-    /// TODO: Fix the explanation/documentation.
+    /// The projection is used to transform each item in a collection by applying
+    /// a set of field expressions, producing a new collection of objects with only
+    /// the specified fields and computed values. It allows you to reshape or map input
+    /// data into a new structure, similar to a "select" or "project" operation in query
+    /// languages. Each field in the projection can be a constant, a variable, or another
+    /// expression. The projection is applied to each item in the Items collection. The 
+    /// item data is available in the context of the projection under the key "item".
+    /// Additional context data can be provided through the ContextDataMap, which allows
+    /// you to reference other values or expressions within the projection.
     /// </summary>
     public required Dictionary<string, Expression> Projection { get; set; }
 
