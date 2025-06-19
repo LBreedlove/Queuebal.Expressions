@@ -31,4 +31,3 @@ jobs:
       with:
         fail-on-error: false
         files: ./Queuebal.UnitTests.*/coverage/coverage.cobertura.xml
-        base-path: /home/runner/work/Queuebal.Expressions
