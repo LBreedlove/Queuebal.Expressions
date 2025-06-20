@@ -288,4 +288,31 @@ public class TestDataProvider
         var scopeAccessor = new DataProviderScopeAccess(dataProvider, rootScope!);
         Assert.ThrowsExactly<InvalidOperationException>(() => scopeAccessor.Dispose());
     }
+
+    [TestMethod]
+    public void test_set_value_when_key_exists_updates_value()
+    {
+        var dataProvider = new DataProvider();
+        dataProvider.AddRootValue("test_key", new JSONValue("Initial Value"));
+
+        // Set a new value for the existing key
+        dataProvider.SetValue("test_key", new JSONValue("Updated Value"));
+
+        var value = dataProvider.GetValue("test_key");
+        Assert.IsNotNull(value);
+        Assert.AreEqual("Updated Value", value.Value);
+    }
+
+    [TestMethod]
+    public void test_set_value_when_key_does_not_exist_throws_exception()
+    {
+        var dataProvider = new DataProvider();
+
+        // Act & Assert
+        Assert.ThrowsException<KeyNotFoundException>(() => dataProvider.SetValue("non_existent_key", new JSONValue("Some Value")));
+
+        // Ensure that the key was not added
+        var value = dataProvider.GetValue("non_existent_key");
+        Assert.IsNull(value);
+    }
 }
