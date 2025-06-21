@@ -33,8 +33,7 @@ public class DataWriter : IDataWriter
         JSONValue? outputValue = null;
         foreach (var valuePath in values)
         {
-            var pathSegments = PathSegmenter.GetPathSegments(valuePath.Path);
-            outputValue = WriteValue(ref outputValue, pathSegments, valuePath.Value, new StringBuilder());
+            outputValue = WriteValue(ref outputValue, valuePath.Path, valuePath.Value);
         }
         return outputValue ?? new JSONValue();
     }

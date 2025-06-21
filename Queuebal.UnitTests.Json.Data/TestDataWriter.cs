@@ -300,4 +300,20 @@ public class TestDataWriter
         // Act & Assert
         Assert.ThrowsException<InvalidOperationException>(() => dataWriter.WriteValues(valuePaths));
     }
+
+    [TestMethod]
+    public void test_write_when_field_exists_where_expecting_object_throws_exception()
+    {
+        // Arrange
+        var valuePaths = new[]
+        {
+            new DataWriterValuePath { Path = "simple.value", Value = new JSONValue("test value") },
+            new DataWriterValuePath { Path = "simple.value.item", Value = new JSONValue("test value") }, // this should fail
+        };
+
+        var dataWriter = new DataWriter();
+
+        // Act & Assert
+        Assert.ThrowsException<InvalidOperationException>(() => dataWriter.WriteValues(valuePaths));
+    }
 }

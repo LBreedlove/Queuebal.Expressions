@@ -64,7 +64,7 @@ public class ConditionSet : ICondition
     /// value, rather than the entire input value.
     /// If this is not set, the conditions will be evaluated against the entire input value.
     /// </summary>
-    public DataSelectorExpression? ValueSelector { get; set; }
+    public IExpression? ValueSelector { get; set; }
 
     /// <summary>
     /// Evaluates the conditions in the set, combining the results based on the specified operator

@@ -13,13 +13,13 @@ public class ToDictMutation : Mutation
     /// is not provided, the index of the current item in the list will
     /// be used as the key.
     /// </summary>
-    public DataSelectorExpression? KeySelector { get; set; }
+    public IExpression? KeySelector { get; set; }
 
     /// <summary>
     /// An expression used to select the value for each dictionary entry.
     /// If the ValueSelector is not provided, the item itself will be used as the value.
     /// </summary>
-    public DataSelectorExpression? ValueSelector { get; set; }
+    public IExpression? ValueSelector { get; set; }
 
     /// <summary>
     /// A condition applied to each dictionary value to determine if it

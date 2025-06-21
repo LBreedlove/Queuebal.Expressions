@@ -41,7 +41,7 @@ public abstract class UnaryCondition : ICondition
     /// value, rather than the entire input value.
     /// If this is not set, the conditions will be evaluated against the entire input value.
     /// </summary>
-    public DataSelectorExpression? ValueSelector { get; set; }
+    public IExpression? ValueSelector { get; set; }
 
     /// <summary>
     /// Evaluates the condition and returns a boolean indicating whether the condition is met.
@@ -95,7 +95,7 @@ public abstract class BinaryCondition : ICondition
     /// value, rather than the entire input value.
     /// If this is not set, the conditions will be evaluated against the entire input value.
     /// </summary>
-    public DataSelectorExpression? ValueSelector { get; set; }
+    public IExpression? ValueSelector { get; set; }
 
     /// <summary>
     /// Evaluates the condition and returns a boolean indicating whether the condition is met.
