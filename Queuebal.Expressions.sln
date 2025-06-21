@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queuebal.UnitTests.Expressi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queuebal.UnitTests.Examples", "Queuebal.UnitTests.Examples\Queuebal.UnitTests.Examples.csproj", "{7EFD30CB-E9BF-47E5-957A-AF127AA0BCCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queuebal.Expressions.Tools", "Queuebal.Expressions.Tools\Queuebal.Expressions.Tools.csproj", "{F12D7B9E-B09E-4A70-B064-A9957875B134}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -237,6 +239,18 @@ Global
 		{7EFD30CB-E9BF-47E5-957A-AF127AA0BCCF}.Release|x64.Build.0 = Release|Any CPU
 		{7EFD30CB-E9BF-47E5-957A-AF127AA0BCCF}.Release|x86.ActiveCfg = Release|Any CPU
 		{7EFD30CB-E9BF-47E5-957A-AF127AA0BCCF}.Release|x86.Build.0 = Release|Any CPU
+		{F12D7B9E-B09E-4A70-B064-A9957875B134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F12D7B9E-B09E-4A70-B064-A9957875B134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F12D7B9E-B09E-4A70-B064-A9957875B134}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F12D7B9E-B09E-4A70-B064-A9957875B134}.Debug|x64.Build.0 = Debug|Any CPU
+		{F12D7B9E-B09E-4A70-B064-A9957875B134}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F12D7B9E-B09E-4A70-B064-A9957875B134}.Debug|x86.Build.0 = Debug|Any CPU
+		{F12D7B9E-B09E-4A70-B064-A9957875B134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F12D7B9E-B09E-4A70-B064-A9957875B134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F12D7B9E-B09E-4A70-B064-A9957875B134}.Release|x64.ActiveCfg = Release|Any CPU
+		{F12D7B9E-B09E-4A70-B064-A9957875B134}.Release|x64.Build.0 = Release|Any CPU
+		{F12D7B9E-B09E-4A70-B064-A9957875B134}.Release|x86.ActiveCfg = Release|Any CPU
+		{F12D7B9E-B09E-4A70-B064-A9957875B134}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
