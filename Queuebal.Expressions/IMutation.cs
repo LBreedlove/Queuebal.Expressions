@@ -29,7 +29,7 @@ public abstract class Mutation : IMutation
     /// An input expression that can be used to mutate the input value,
     /// before the mutation is evaluated. This is useful for chaining mutations.
     /// </summary>
-    public IExpression? InputExpression { get; set; }
+    public IExpression? InputValue { get; set; }
 
     /// <summary>
     /// Evaluates the mutation and returns the JSONValue result.
@@ -39,10 +39,10 @@ public abstract class Mutation : IMutation
     /// <returns></returns>
     public JSONValue Evaluate(ExpressionContext context, JSONValue inputValue)
     {
-        if (InputExpression != null)
+        if (InputValue != null)
         {
-            // If an InputExpression is provided, evaluate it first
-            inputValue = InputExpression.Evaluate(context, inputValue);
+            // If an InputValue is provided, evaluate it first
+            inputValue = InputValue.Evaluate(context, inputValue);
         }
 
         // Evaluate the condition using the provided context and input value

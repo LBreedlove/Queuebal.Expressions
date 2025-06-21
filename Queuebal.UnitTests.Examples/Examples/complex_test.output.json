@@ -1,0 +1,50 @@
+{
+    "event": {
+        "id": "order.processing.12345",
+        "type": "order.processing",
+        "timestamp": "2023-10-01T12:13:24Z",
+        "source": "order_service",
+        "data": {
+            "attributes": {
+                "order_id": "12345",
+                "value": 83.21,
+                "created_at": "2023-10-01T12:02:47Z",
+                "updated_at": "2023-10-01T12:13:24Z",
+                "items": [
+                    {
+                        "product_id": "A1",
+                        "quantity": 2,
+                        "unit_price": 19.99
+                    },
+                    {
+                        "product_id": "B2",
+                        "quantity": 1,
+                        "unit_price": 29.99
+                    }
+                ],
+                "ship_to": {
+                    "street": "123 Main St",
+                    "city": "Anytown",
+                    "state": "CA",
+                    "zip": "12345"
+                }
+            },
+            "profile": {
+                "first_name": "John",
+                "last_name": "Doe",
+                "full_name": "John Doe",
+                "email": "john.doe@example.com",
+                "location": {
+                    "street": "456 Elm St",
+                    "city": "Othertown",
+                    "state": "NY",
+                    "zip": "67890"
+                },
+                "custom_attributes": {
+                    "preferred_contact_method": "email",
+                    "loyalty_points": 150
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,183 @@
+{
+    "ExpressionType": "Dict",
+    "Value": {
+        "event": {
+            "ExpressionType": "Dict",
+            "Value": {
+                "id": {
+                    "ExpressionType": "Mutation",
+                    "Mutation": {
+                        "MutationType": "StringJoin",
+                        "Separator": ".",
+                        "InputValue": {
+                            "ExpressionType": "List",
+                            "Value": [
+                                {
+                                    "ExpressionType": "Value",
+                                    "Value": "order"
+                                },
+                                {
+                                    "ExpressionType": "DataSelector",
+                                    "Path": "order.status"
+                                },
+                                {
+                                    "ExpressionType": "DataSelector",
+                                    "Path": "order.id"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "type": {
+                    "ExpressionType": "Mutation",
+                    "Mutation": {
+                        "MutationType": "StringJoin",
+                        "Separator": ".",
+                        "InputValue": {
+                            "ExpressionType": "List",
+                            "Value": [
+                                {
+                                    "ExpressionType": "Value",
+                                    "Value": "order"
+                                },
+                                {
+                                    "ExpressionType": "DataSelector",
+                                    "Path": "order.status"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "timestamp": {
+                    "ExpressionType": "DataSelector",
+                    "Path": "order.updated_at"
+                },
+                "source": {
+                    "ExpressionType": "Value",
+                    "Value": "order_service"
+                },
+                "data": {
+                    "ExpressionType": "Dict",
+                    "Value": {
+                        "attributes": {
+                            "ExpressionType": "Dict",
+                            "Value": {
+                                "order_id": {
+                                    "ExpressionType": "DataSelector",
+                                    "Path": "order.id"
+                                },
+                                "value": {
+                                    "ExpressionType": "DataSelector",
+                                    "Path": "order.pricing.total"
+                                },
+                                "created_at": {
+                                    "ExpressionType": "DataSelector",
+                                    "Path": "order.created_at"
+                                },
+                                "updated_at": {
+                                    "ExpressionType": "DataSelector",
+                                    "Path": "order.updated_at"
+                                },
+                                "items": {
+                                    "ExpressionType": "Filter",
+                                    "Condition": {
+                                        "ConditionSet": {
+                                            "Conditions": [
+                                                {
+                                                    "ConditionType": "Equals",
+                                                    "NegateResult": true,
+                                                    "ValueSelector": {
+                                                        "ExpressionType": "DataSelector",
+                                                        "Path": "removed_from_cart"
+                                                    },
+                                                    "ComparerValue": {
+                                                        "ExpressionType": "Value",
+                                                        "Value": true
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "InputValue": {
+                                        "ExpressionType": "DataSelector",
+                                        "Path": "order.line_items"
+                                    }
+                                },
+                                "ship_to": {
+                                    "ExpressionType": "DataSelector",
+                                    "Path": "order.shipping_address"
+                                }
+                            }
+                        },
+                        "profile": {
+                            "ExpressionType": "Dict",
+                            "Value": {
+                                "first_name": {
+                                    "ExpressionType": "DataSelector",
+                                    "Path": "[0]",
+                                    "InputValue": {
+                                        "ExpressionType": "Mutation",
+                                        "Mutation": {
+                                            "MutationType": "StringSplit",
+                                            "Separators": [" "]
+                                        },
+                                        "InputValue": {
+                                            "ExpressionType": "DataSelector",
+                                            "Path": "order.customer.name"
+                                        }
+                                    }
+                                },
+                                "last_name": {
+                                    "ExpressionType": "DataSelector",
+                                    "Path": "[1]",
+                                    "InputValue": {
+                                        "ExpressionType": "Mutation",
+                                        "Mutation": {
+                                            "MutationType": "StringSplit",
+                                            "Separators": [" "]
+                                        },
+                                        "InputValue": {
+                                            "ExpressionType": "DataSelector",
+                                            "Path": "order.customer.name"
+                                        }
+                                    }
+                                },
+                                "full_name": {
+                                    "ExpressionType": "DataSelector",
+                                    "Path": "order.customer.name"
+                                },
+                                "email": {
+                                    "ExpressionType": "DataSelector",
+                                    "Path": "order.customer.email"
+                                },
+                                "location": {
+                                    "ExpressionType": "DataSelector",
+                                    "Path": "order.billing_address"
+                                },
+                                "custom_attributes": {
+                                    "ExpressionType": "DynamicDict",
+                                    "Entries": [
+                                        {
+                                            "Key": {
+                                                "ExpressionType": "DataSelector",
+                                                "Path": "tag"
+                                            },
+                                            "Value": {
+                                                "ExpressionType": "DataSelector",
+                                                "Path": "value"
+                                            }
+                                        }
+                                    ],
+                                    "InputValue": {
+                                        "ExpressionType": "DataSelector",
+                                        "Path": "order.customer.tags"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

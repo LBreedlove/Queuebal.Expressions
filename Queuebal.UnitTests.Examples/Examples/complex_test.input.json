@@ -1,0 +1,52 @@
+{
+    "order": {
+        "id": "12345",
+        "customer": {
+            "name": "John Doe",
+            "email": "john.doe@example.com",
+            "tags": [
+                { "tag": "preferred_contact_method", "value": "email" },
+                { "tag": "loyalty_points", "value": 150 }
+            ]
+        },
+        "line_items": [
+            {
+                "product_id": "A1",
+                "quantity": 2,
+                "unit_price": 19.99
+            },
+            {
+                "product_id": "B2",
+                "quantity": 1,
+                "unit_price": 29.99
+            },
+            {
+                "product_id": "C3",
+                "quantity": 1,
+                "unit_price": 9.99,
+                "removed_from_cart": true
+            }
+        ],
+        "shipping_address": {
+            "street": "123 Main St",
+            "city": "Anytown",
+            "state": "CA",
+            "zip": "12345"
+        },
+        "billing_address": {
+            "street": "456 Elm St",
+            "city": "Othertown",
+            "state": "NY",
+            "zip": "67890"
+        },
+        "pricing": {
+            "subtotal": 69.97,
+            "tax": 5.25,
+            "shipping": 7.99,
+            "total": 83.21
+        },
+        "status": "processing",
+        "created_at": "2023-10-01T12:02:47Z",
+        "updated_at": "2023-10-01T12:13:24Z"
+    }
+}

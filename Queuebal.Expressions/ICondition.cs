@@ -86,7 +86,7 @@ public abstract class BinaryCondition : ICondition
     /// <summary>
     /// The expression to run to calculate the value to compare against.
     /// </summary>
-    public required IExpression ComparerValueExpression { get; set; }
+    public required IExpression ComparerValue { get; set; }
 
     /// <summary>
     /// An optional value selector expression that can be used to select a value from the input
@@ -106,7 +106,7 @@ public abstract class BinaryCondition : ICondition
     public bool Evaluate(ExpressionContext context, JSONValue inputValue)
     {
         // get the value to compare against by evaluating the ValueExpression
-        var comparerValue = ComparerValueExpression.Evaluate(context, inputValue);
+        var comparerValue = ComparerValue.Evaluate(context, inputValue);
 
         if (ValueSelector != null)
         {

@@ -13,7 +13,7 @@ public class TestAddHoursMutation
     {
         var mutation = new AddHoursMutation
         {
-            InputExpression = new MutationExpression
+            InputValue = new MutationExpression
             {
                 // convert the input string to a DateTime, UTC
                 Mutation = new ToDateTimeMutation()

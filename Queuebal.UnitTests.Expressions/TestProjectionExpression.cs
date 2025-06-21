@@ -68,7 +68,7 @@ public class TestProjectionExpression
                 Conditions = [
                     new EqualsCondition
                     {
-                        ComparerValueExpression = new ValueExpression { Value = new JSONValue("item1") }
+                        ComparerValue = new ValueExpression { Value = new JSONValue("item1") }
                     }
                 ]
             }

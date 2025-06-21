@@ -13,7 +13,7 @@ public class TestEqualsCondition
     {
         var condition = new EqualsCondition
         {
-            ComparerValueExpression = new ValueExpression { Value = new("test") }
+            ComparerValue = new ValueExpression { Value = new("test") }
         };
 
         var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
@@ -28,7 +28,7 @@ public class TestEqualsCondition
     {
         var condition = new EqualsCondition
         {
-            ComparerValueExpression = new ValueExpression { Value = new("test") }
+            ComparerValue = new ValueExpression { Value = new("test") }
         };
 
         var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
@@ -45,7 +45,7 @@ public class TestEqualsCondition
         var condition = new EqualsCondition
         {
             NegateResult = true,
-            ComparerValueExpression = new ValueExpression { Value = new("test") }
+            ComparerValue = new ValueExpression { Value = new("test") }
         };
 
         var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
