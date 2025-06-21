@@ -800,7 +800,7 @@ public class JSONValue
     /// <summary>
     /// Indicates if the JSONValue stores an object/dictionary value.
     /// </summary>
-    public bool IsObject => _fieldType == JSONFieldType.Dictionary;
+    public bool IsDict => _fieldType == JSONFieldType.Dictionary;
 
     /// <summary>
     /// Indicates if the JSONValue stores a numeric value (float or integer).

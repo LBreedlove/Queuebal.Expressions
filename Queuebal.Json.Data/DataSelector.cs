@@ -85,7 +85,7 @@ public class DataSelector : IDataSelector
                 }
                 yield break;
             }
-            else if (!currentReadNode.IsObject)
+            else if (!currentReadNode.IsDict)
             {
                 if (isFirstSegment)
                 {

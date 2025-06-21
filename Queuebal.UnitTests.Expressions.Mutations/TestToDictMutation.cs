@@ -34,7 +34,7 @@ public class TestToDictMutation
         var result = mutation.Evaluate(context, inputValue);
 
         // Assert
-        Assert.IsTrue(result.IsObject);
+        Assert.IsTrue(result.IsDict);
         var dict = result.DictValue;
 
         Assert.AreEqual(3, dict.Count);
@@ -59,7 +59,7 @@ public class TestToDictMutation
         var result = mutation.Evaluate(context, inputValue);
 
         // Assert
-        Assert.IsTrue(result.IsObject);
+        Assert.IsTrue(result.IsDict);
         Assert.AreEqual(0, result.DictValue.Count);
     }
 
@@ -128,7 +128,7 @@ public class TestToDictMutation
         var result = mutation.Evaluate(context, input);
 
         // Assert
-        Assert.IsTrue(result.IsObject);
+        Assert.IsTrue(result.IsDict);
         var dict = result.DictValue;
 
         Assert.AreEqual(3, dict.Count);

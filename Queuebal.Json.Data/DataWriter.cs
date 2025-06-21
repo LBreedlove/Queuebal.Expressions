@@ -76,7 +76,7 @@ public class DataWriter : IDataWriter
         else if (!pathSegments.Any())
         {
             // if the path is empty, we just return the value
-            if (outputValue.IsObject || outputValue.IsList)
+            if (outputValue.IsDict || outputValue.IsList)
             {
                 // if the output value is an object or a list, we cannot write to an empty path
                 throw new InvalidOperationException("Cannot write to an empty path when an object or list already exists.");
@@ -118,7 +118,7 @@ public class DataWriter : IDataWriter
             }
 
             // this is an object property segment
-            if (!currentNode.IsObject)
+            if (!currentNode.IsDict)
             {
                 // attempted to access a property on a non-object - return NotFound
                 throw new InvalidOperationException($"Cannot write to path '{segment}' because the current node is not an object.");

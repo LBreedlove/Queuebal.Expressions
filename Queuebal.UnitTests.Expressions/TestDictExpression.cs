@@ -49,7 +49,7 @@ public class TestDictExpression
         var result = expression.Evaluate(context, inputValue);
 
         // Assert
-        Assert.IsTrue(result.IsObject);
+        Assert.IsTrue(result.IsDict);
         Assert.AreEqual(2, result.DictValue.Count);
 
         Assert.IsTrue(result.DictValue.ContainsKey("key1"));

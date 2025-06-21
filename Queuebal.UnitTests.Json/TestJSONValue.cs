@@ -402,7 +402,7 @@ public class TestJSONValue
             { "key3", new JSONValue(false) }
         });
         var clone = source.Clone();
-        Assert.IsTrue(clone.IsObject);
+        Assert.IsTrue(clone.IsDict);
         Assert.AreEqual(3, clone.DictValue.Count);
         Assert.AreEqual("value1", clone.DictValue["key1"].StringValue);
         Assert.AreEqual(123, clone.DictValue["key2"].IntValue);

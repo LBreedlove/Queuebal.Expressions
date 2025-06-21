@@ -65,7 +65,7 @@ public class TestDynamicDictExpression
         var inputValue = new JSONValue("input");
         var result = expression.Evaluate(context, inputValue);
 
-        Assert.IsTrue(result.IsObject);
+        Assert.IsTrue(result.IsDict);
         Assert.AreEqual(1, result.DictValue.Count);
 
         Assert.IsTrue(result.DictValue.ContainsKey("key2"));
@@ -101,7 +101,7 @@ public class TestDynamicDictExpression
         var context = new ExpressionContext(new Json.Data.DataProvider());
         var inputValue = new JSONValue("input");
         var result = expression.Evaluate(context, inputValue);
-        Assert.IsTrue(result.IsObject);
+        Assert.IsTrue(result.IsDict);
         Assert.AreEqual(2, result.DictValue.Count);
         Assert.IsTrue(result.DictValue.ContainsKey("key1"));
         Assert.AreEqual("value1", result.DictValue["key1"].StringValue);
@@ -133,7 +133,7 @@ public class TestDynamicDictExpression
         var inputValue = new JSONValue("input");
         var result = expression.Evaluate(context, inputValue);
 
-        Assert.IsTrue(result.IsObject);
+        Assert.IsTrue(result.IsDict);
         Assert.AreEqual(2, result.DictValue.Count);
 
         Assert.IsTrue(result.DictValue.ContainsKey("key1"));

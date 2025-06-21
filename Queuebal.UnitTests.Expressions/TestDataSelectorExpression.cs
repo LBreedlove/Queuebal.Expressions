@@ -84,7 +84,7 @@ public class TestDataSelectorExpression
         var result = expression.Evaluate(Context, inputValue);
 
         // Assert
-        Assert.IsTrue(result.IsObject);
+        Assert.IsTrue(result.IsDict);
         Assert.AreEqual("value", result.DictValue["value"].StringValue);
         Assert.AreEqual("simple.path", result.DictValue["path"].StringValue);
     }
@@ -108,7 +108,7 @@ public class TestDataSelectorExpression
         var result = expression.Evaluate(Context, inputValue);
 
         // Assert
-        Assert.IsTrue(result.IsObject);
+        Assert.IsTrue(result.IsDict);
         Assert.AreEqual(inputValue, result.DictValue);
     }
 
