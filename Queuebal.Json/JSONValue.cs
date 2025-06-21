@@ -865,7 +865,7 @@ public class JSONValue
     /// <returns>true if the provided object is the equivalent of the JSONValue, otherwise false.</returns>
     public override bool Equals(object? obj)
     {
-        if (obj == null)
+        if (obj is null)
         {
             return IsNull;
         }
@@ -1026,7 +1026,7 @@ public class JSONValue
     public override string ToString()
     {
         var value = Value;
-        if (value == null)
+        if (value is null)
         {
             return "null";
         }
