@@ -63,7 +63,7 @@ public class TestProjectionExpression
     {
         return new ConditionExpression
         {
-            ConditionSet = new ConditionSet
+            Condition = new ConditionSet
             {
                 Conditions = [
                     new EqualsCondition

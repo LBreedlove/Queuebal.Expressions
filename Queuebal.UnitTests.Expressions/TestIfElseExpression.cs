@@ -19,7 +19,7 @@ public class TestIfElseExpression
                 {
                     Condition = new ConditionExpression
                     {
-                        ConditionSet = ConditionSet.AlwaysFalse,
+                        Condition = ConditionSet.AlwaysFalse,
                     },
                     IfTrue = new ValueExpression { Value = new JSONValue("Condition A - False") }
                 },
@@ -27,7 +27,7 @@ public class TestIfElseExpression
                 {
                     Condition = new ConditionExpression
                     {
-                        ConditionSet = ConditionSet.AlwaysFalse,
+                        Condition = ConditionSet.AlwaysFalse,
                     },
                     IfTrue = new ValueExpression { Value = new JSONValue("Condition B - False") }
                 },
@@ -35,7 +35,7 @@ public class TestIfElseExpression
                 {
                     Condition = new ConditionExpression
                     {
-                        ConditionSet = ConditionSet.AlwaysTrue,
+                        Condition = ConditionSet.AlwaysTrue,
                     },
                     IfTrue = new ValueExpression { Value = new JSONValue("Condition C - True") }
                 }
@@ -61,7 +61,7 @@ public class TestIfElseExpression
                 {
                     Condition = new ConditionExpression
                     {
-                        ConditionSet = ConditionSet.AlwaysFalse,
+                        Condition = ConditionSet.AlwaysFalse,
                     },
                     IfTrue = new ValueExpression { Value = new JSONValue("Condition A - False") }
                 },
@@ -88,7 +88,7 @@ public class TestIfElseExpression
                 {
                     Condition = new ConditionExpression
                     {
-                        ConditionSet = ConditionSet.AlwaysFalse,
+                        Condition = ConditionSet.AlwaysFalse,
                     },
                     IfTrue = new ValueExpression { Value = new JSONValue("Condition A - False") }
                 },

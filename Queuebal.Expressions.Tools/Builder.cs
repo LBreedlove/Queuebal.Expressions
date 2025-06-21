@@ -57,7 +57,12 @@ public static class Builder
     /// </summary>
     /// <param name="path">The path the data selector will select from.</param>
     /// <returns>A new DataSelectorExpression with the specified path.</returns>
-    public static DataSelectorExpression ds(string path) => new DataSelectorExpression { Path = path };
+    public static DataSelectorExpression ds(string path, IExpression? inputValue = null) =>
+        new DataSelectorExpression
+        {
+            Path = path,
+            InputValue = inputValue,
+        };
 
     /// <summary>
     /// Represents a key value pair, for use when building a DictExpression.
@@ -73,20 +78,49 @@ public static class Builder
     /// </summary>
     /// <param name="keyValues">The key value pairs to use to build the DictExpression value.</param>
     /// <returns>A new DictExpression containing the provided keyvalue pairs.</returns>
-    public static DictExpression dict(params kv[] keyValues) => new DictExpression
-    {
-        Value = keyValues.ToDictionary(kvp => kvp.k, kvp => kvp.v)
-    };
+    public static DictExpression dict(params kv[] keyValues) =>
+        new DictExpression
+        {
+            Value = keyValues.ToDictionary(kvp => kvp.k, kvp => kvp.v)
+        };
+
+    public static DictExpression dict_with_input(IExpression inputValue, params kv[] keyValues) =>
+        new DictExpression
+        {
+            InputValue = inputValue,
+            Value = keyValues.ToDictionary(kvp => kvp.k, kvp => kvp.v)
+        };
 
     /// <summary>
     /// Builds a ListExpression using the values provided as args.
     /// </summary>
     /// <param name="expressions">The expressions to include in the list value.</param>
     /// <returns>A new ListExpression containing the provided expressions.</returns>
-    public static ListExpression list(params IExpression[] expressions) => new ListExpression
-    {
-        Value = expressions.ToList()
-    };
+    public static ListExpression list(params IExpression[] expressions) =>
+        new ListExpression
+        {
+            Value = expressions.ToList()
+        };
+
+    public static ListExpression list_with_input(IExpression inputValue, params IExpression[] expressions) =>
+        new ListExpression
+        {
+            InputValue = inputValue,
+            Value = expressions.ToList(),
+        };
+
+    /// <summary>
+    /// Builds a FilterExpression using the provided condition and input value. 
+    /// </summary>
+    /// <param name="condition">The condition that determines if an input value is included in the output.</param>
+    /// <param name="inputValues">A list expression containing the values to filter.</param>
+    /// <returns>A new filter expression.</returns>
+    public static FilterExpression filter(ConditionExpression condition, IExpression? inputValues = null) =>
+        new FilterExpression
+        {
+            InputValue = inputValues,
+            Condition = condition,
+        };
 
     /// <summary>
     /// Represents a key value pair, for use when building a DynamicDictExpression.
@@ -112,6 +146,20 @@ public static class Builder
     };
 
     /// <summary>
+    /// Builds a DynamicDictExpression using the given key value pairs as the entries in the dict.
+    /// </summary>
+    /// <param name="keyValues">The key value pairs to include in the DynamicDictExpression Entries.</param>
+    /// <returns>A new DynamicDictExpression containing the given key value pair entries.</returns>
+    public static DynamicDictExpression dyn_dict_with_input(IExpression inputValue, params dyn_kv[] keyValues) => new DynamicDictExpression
+    {
+        InputValue = inputValue,
+        Entries = keyValues.Select
+        (
+            kvp => new DynamicDictEntry { Key = kvp.k, Value = kvp.v, Condition = kvp.c }
+        ).ToList()
+    };
+
+    /// <summary>
     /// A class used to build condition expressions.
     /// </summary>
     public static class Conditions
@@ -121,10 +169,10 @@ public static class Builder
         /// </summary>
         /// <param name="conditionSet">The condition set to wrap in an expression.</param>
         /// <returns>A new ConditionExpression containing the given condition set.</returns>
-        public static ConditionExpression exp(ConditionSet conditionSet) =>
+        public static ConditionExpression exp(ICondition condition) =>
             new ConditionExpression
             {
-                ConditionSet = conditionSet
+                Condition = condition
             };
 
         /// <summary>
@@ -173,7 +221,7 @@ public static class Builder
         /// <param name="valueSelector">The expression used to select/build the value to compare to the ComparerValue.</param>
         /// <param name="comparer">The expression used to select/build the value to compare to the input value.</param>
         /// <returns>A new ICondition representing the EqualsCondition.</returns>
-        public static ICondition eq(IExpression valueSelector, IExpression comparer) =>
+        public static ICondition eq(IExpression comparer, IExpression? valueSelector = null) =>
             new EqualsCondition
             {
                 ValueSelector = valueSelector,
@@ -186,7 +234,7 @@ public static class Builder
         /// <param name="valueSelector">The expression used to select/build the value to compare to the ComparerValue.</param>
         /// <param name="comparer">The expression used to select/build the value to compare to the input value.</param>
         /// <returns>A new ICondition representing the not EqualsCondition.</returns>
-        public static ICondition not_eq(IExpression valueSelector, IExpression comparer) =>
+        public static ICondition not_eq(IExpression comparer, IExpression? valueSelector = null) =>
             new EqualsCondition
             {
                 NegateResult = true,
@@ -199,7 +247,7 @@ public static class Builder
         /// </summary>
         /// <param name="valueSelector">The expression used to select/build the value to check for null.</param>
         /// <returns>A new IsNullCondition.</returns>
-        public static ICondition is_null(IExpression valueSelector) =>
+        public static ICondition is_null(IExpression? valueSelector = null) =>
             new IsNullCondition
             {
                 ValueSelector = valueSelector
@@ -230,12 +278,15 @@ public static class Builder
         /// </summary>
         /// <param name="inputValue">The value to split.</param>
         /// <param name="separators">The separators used to split the string.</param>
-        /// <returns>An IMutation representing the StringSplitMutation.</returns>
-        public static IMutation split(IExpression inputValue, params string[] separators) =>
-            new StringSplitMutation
+        /// <returns>An IExpression representing the StringSplitMutation.</returns>
+        public static IExpression split(IExpression inputValue, params string[] separators) =>
+            new MutationExpression
             {
-                Separators = separators.ToList(),
-                InputValue = inputValue,
+                Mutation = new StringSplitMutation
+                {
+                    Separators = separators.ToList(),
+                    InputValue = inputValue,
+                }
             };
 
         /// <summary>
@@ -244,15 +295,19 @@ public static class Builder
         /// <param name="separator">The separator used to join the strings.</param>
         /// <param name="values">The expressions used to select/build the strings to join.</param>
         /// <returns>An IMutation representing the StringJoinMutation.</returns>
-        public static IMutation join(string separator, params IExpression[] values) =>
-            new StringJoinMutation
+        public static IExpression join(string separator, params IExpression[] values) =>
+            new MutationExpression
             {
-                Separator = separator,
-                InputValue = new ListExpression
+                Mutation = new StringJoinMutation
                 {
-                    Value = values.ToList()
+                    Separator = separator,
+                    InputValue = new ListExpression
+                    {
+                        Value = values.ToList()
+                    }
                 }
             };
+
         // TODO: Add other Mutations
     }
 }

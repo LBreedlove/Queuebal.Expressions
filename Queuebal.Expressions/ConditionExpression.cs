@@ -10,9 +10,9 @@ public class ConditionExpression : Expression
     public static string ExpressionType { get; } = "Condition";
 
     /// <summary>
-    /// The condition set that this expression evaluates.
+    /// The condition this expression evaluates.
     /// </summary>
-    public required ConditionSet ConditionSet { get; set; }
+    public required ICondition Condition { get; set; }
 
     /// <summary>
     /// Evaluates the condition expression and returns a boolean JSONValue indicating whether the condition is met.
@@ -22,6 +22,6 @@ public class ConditionExpression : Expression
     /// <returns>true if the conditiono is met, otherwise false.</returns>
     protected override JSONValue EvaluateExpression(ExpressionContext context, JSONValue inputValue)
     {
-        return ConditionSet.Evaluate(context, inputValue);
+        return Condition.Evaluate(context, inputValue);
     }
 }
