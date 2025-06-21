@@ -103,7 +103,7 @@ public class TestToDictMutation
                             {
                                 Path = "value2"
                             },
-                            ComparerValueExpression = new ValueExpression
+                            ComparerValue = new ValueExpression
                             {
                                 Value = new JSONValue("data2")
                             },

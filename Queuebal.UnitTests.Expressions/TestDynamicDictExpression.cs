@@ -47,7 +47,7 @@ public class TestDynamicDictExpression
                                 new EqualsCondition
                                 {
                                     // This condition will evaluate to false
-                                    ComparerValueExpression = new ValueExpression { Value = new JSONValue("value3") }
+                                    ComparerValue = new ValueExpression { Value = new JSONValue("value3") }
                                 }
                             }
                         }
@@ -62,7 +62,7 @@ public class TestDynamicDictExpression
         };
 
         var context = new ExpressionContext(new Json.Data.DataProvider());
-        var inputValue = new JSONValue("input");
+        var inputValue = new List<JSONValue> { new JSONValue("input") };
         var result = expression.Evaluate(context, inputValue);
 
         Assert.IsTrue(result.IsDict);
@@ -99,7 +99,7 @@ public class TestDynamicDictExpression
             }
         };
         var context = new ExpressionContext(new Json.Data.DataProvider());
-        var inputValue = new JSONValue("input");
+        var inputValue = new List<JSONValue> { new JSONValue("input") };
         var result = expression.Evaluate(context, inputValue);
         Assert.IsTrue(result.IsDict);
         Assert.AreEqual(2, result.DictValue.Count);
@@ -130,7 +130,7 @@ public class TestDynamicDictExpression
         };
 
         var context = new ExpressionContext(new Json.Data.DataProvider());
-        var inputValue = new JSONValue("input");
+        var inputValue = new List<JSONValue> { new JSONValue("input") };
         var result = expression.Evaluate(context, inputValue);
 
         Assert.IsTrue(result.IsDict);

@@ -19,7 +19,7 @@ public class TestFilterExpression
                     Conditions = [
                         new EqualsCondition
                         {
-                            ComparerValueExpression = new ValueExpression { Value = new JSONValue("test") }
+                            ComparerValue = new ValueExpression { Value = new JSONValue("test") }
                         }
                     ]
                 }
@@ -44,7 +44,7 @@ public class TestFilterExpression
                     Conditions = [
                         new EqualsCondition
                         {
-                            ComparerValueExpression = new ValueExpression { Value = new JSONValue("test") }
+                            ComparerValue = new ValueExpression { Value = new JSONValue("test") }
                         }
                     ]
                 }

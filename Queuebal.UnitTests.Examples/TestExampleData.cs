@@ -3,6 +3,8 @@ using System.Reflection;
 using System.Text.Json;
 
 using Queuebal.Expressions;
+using Queuebal.Expressions.Conditions;
+using Queuebal.Expressions.Mutations;
 using Queuebal.Json;
 using Queuebal.Json.Data;
 using Queuebal.Serialization;
@@ -107,6 +109,14 @@ public class TestExampleData
                 new DataProvider().AddValue("var_name", "with Variable"),
             }
         };
+
+        // this sucks. We have to reference a type from the Conditions assembly and the Mutations assembly
+        // for them to be loaded.
+        var inputValue = new JSONValue("test");
+        var mutation = new StringSplitMutation { Separators = new List<string> { "." } };
+        var condition = new EqualsCondition { ComparerValue = new ValueExpression { Value = "test" } };
+        mutation.Evaluate(new ExpressionContext(new DataProvider()), inputValue);
+        condition.Evaluate(new ExpressionContext(new DataProvider()), inputValue);
 
         // build the type registry used to deserialize the expressions
         var expressionTypeRegistry = TypeRegistryService<IExpression>.BuildFromCurrentAppDomain("ExpressionType");

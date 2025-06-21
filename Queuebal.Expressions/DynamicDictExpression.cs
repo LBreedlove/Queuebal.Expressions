@@ -50,34 +50,42 @@ public class DynamicDictExpression : Expression
     /// </summary>
     protected override JSONValue EvaluateExpression(ExpressionContext context, JSONValue inputValue)
     {
-        var output = new Dictionary<string, JSONValue>();
-        foreach (var entry in Entries)
+        if (!inputValue.IsList)
         {
-            // Evaluate the key and value expressions for each entry.
-            var key = entry.Key.Evaluate(context, inputValue);
-            if (!key.IsString)
-            {
-                throw new InvalidOperationException("DynamicDict keys must evaluate to a string.");
-            }
+            throw new InvalidOperationException("DynamicDict expression can only be applied to a list input value.");
+        }
 
-            var value = entry.Value.Evaluate(context, inputValue);
-            if (entry.Condition != null)
+        var output = new Dictionary<string, JSONValue>();
+        foreach (var item in inputValue.ListValue)
+        {
+            foreach (var entry in Entries)
             {
-                // Evaluate the condition for the entry.
-                var conditionInput = new Dictionary<string, JSONValue>
+                // Evaluate the key and value expressions for each entry.
+                var key = entry.Key.Evaluate(context, item);
+                if (!key.IsString)
+                {
+                    throw new InvalidOperationException("DynamicDict keys must evaluate to a string.");
+                }
+
+                var value = entry.Value.Evaluate(context, item);
+                if (entry.Condition != null)
+                {
+                    // Evaluate the condition for the entry.
+                    var conditionInput = new Dictionary<string, JSONValue>
                 {
                     { key.StringValue, value }
                 };
 
-                // If the condition evaluates to false, skip this entry.
-                if (!entry.Condition.Evaluate(context, new JSONValue(conditionInput)).BooleanValue)
-                {
-                    continue;
+                    // If the condition evaluates to false, skip this entry.
+                    if (!entry.Condition.Evaluate(context, new JSONValue(conditionInput)).BooleanValue)
+                    {
+                        continue;
+                    }
                 }
-            }
 
-            // Add the evaluated key-value pair to the dictionary.
-            output[key.StringValue] = value;
+                // Add the evaluated key-value pair to the dictionary.
+                output[key.StringValue] = value;
+            }
         }
 
         return output;
