@@ -40,7 +40,7 @@ public class TestDynamicDictExpression
                     Key   = new ValueExpression { Value = new JSONValue("key1") },
                     Value = new ValueExpression { Value = new JSONValue("value1") },
                     Condition = new ConditionExpression{
-                        ConditionSet = new ConditionSet
+                        Condition = new ConditionSet
                         {
                             Conditions = new List<ICondition>
                             {
@@ -88,7 +88,7 @@ public class TestDynamicDictExpression
                     Value = new ValueExpression { Value = new JSONValue("value1") },
                     Condition = new ConditionExpression
                     {
-                        ConditionSet = ConditionSet.AlwaysTrue
+                        Condition = ConditionSet.AlwaysTrue
                     }
                 },
                 new DynamicDictEntry

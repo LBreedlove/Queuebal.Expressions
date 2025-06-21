@@ -30,7 +30,7 @@ public class TestExpressionSerialization
         var json = JsonSerializer.Serialize<IExpression>(
             new ConditionExpression
             {
-                ConditionSet = new ConditionSet
+                Condition = new ConditionSet
                 {
                     Conditions = [condition],
                     Operator = ConditionSetOperator.And

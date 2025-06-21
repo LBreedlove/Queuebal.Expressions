@@ -91,7 +91,7 @@ public class TestToDictMutation
             ValueSelector = new DataSelectorExpression { Path = "other" },
             Condition = new ConditionExpression
             {
-                ConditionSet = new ConditionSet
+                Condition = new ConditionSet
                 {
                     Conditions = new List<ICondition>
                     {

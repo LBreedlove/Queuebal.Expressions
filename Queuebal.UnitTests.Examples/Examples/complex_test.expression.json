@@ -81,7 +81,8 @@
                                 "items": {
                                     "ExpressionType": "Filter",
                                     "Condition": {
-                                        "ConditionSet": {
+                                        "Condition": {
+                                            "ConditionType": "ConditionSet",
                                             "Conditions": [
                                                 {
                                                     "ConditionType": "Equals",

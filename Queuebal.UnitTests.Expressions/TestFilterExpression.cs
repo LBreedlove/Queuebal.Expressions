@@ -14,7 +14,7 @@ public class TestFilterExpression
         {
             Condition = new ConditionExpression
             {
-                ConditionSet = new ConditionSet
+                Condition = new ConditionSet
                 {
                     Conditions = [
                         new EqualsCondition
@@ -39,7 +39,7 @@ public class TestFilterExpression
         {
             Condition = new ConditionExpression
             {
-                ConditionSet = new ConditionSet
+                Condition = new ConditionSet
                 {
                     Conditions = [
                         new EqualsCondition
