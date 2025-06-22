@@ -126,6 +126,34 @@ dotnet test
 
 ---
 
+## Serialization
+To support polymorphic deserialization, you will need to register the available `IExpression` types along with their `ExpressionType` discriminator value. The `TypeRegistryService` can handle this for you. You will also need to setup a `TypeResolver`; in order to support deserializing multiple types of polymorphic values, the `Serialization` project provides a `CompositeTypeResolver` that lets you register multiple base types to deserialize.
+You will also need to register a `JsonConverter` to deserialize the `JSONValue` type. The example below demonstrates how you can setup your `JsonSerializerOptions` to support this.
+
+```csharp
+private IExpression DeserializeExpression(string json)
+{
+    // build the type registry used to serialize the expressions
+    var expressionTypeRegistry = TypeRegistryService<IExpression>.BuildFromCurrentAppDomain("ExpressionType");
+    var conditionTypeRegistry = TypeRegistryService<ICondition>.BuildFromCurrentAppDomain("ConditionType");
+    var mutationTypeRegistry = TypeRegistryService<IMutation>.BuildFromCurrentAppDomain("MutationType");
+    var typeResolver = new CompositeTypeResolver()
+        .AddTypeRegistry(typeof(IExpression), expressionTypeRegistry)
+        .AddTypeRegistry(typeof(ICondition), conditionTypeRegistry)
+        .AddTypeRegistry(typeof(IMutation), mutationTypeRegistry);
+
+    var options = new JsonSerializerOptions
+    {
+        TypeInfoResolver = typeResolver,
+    };
+
+    options.Converters.Add(new JSONValueConverter());
+    return JsonSerializer.Deserialize<IExpression>(json, options) ?? throw new InvalidOperationException("Failed to deserialize the expression");
+}
+```
+
+---
+
 ## What's Left
 * Add new `Mutation` types
 * Add new `Condition` types
@@ -134,7 +162,6 @@ dotnet test
 * Improve the README to provide examples:
   * `DataWriter` and `DataSelector` path format.
   * Examples of chained expressions.
-  * How to setup `JsonSerializerOptions` correctly.
 * Publish a NuGet package.
 
 ## Extending
