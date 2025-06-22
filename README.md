@@ -1,5 +1,5 @@
 [![.NET](https://github.com/LBreedlove/Queuebal.Expressions/actions/workflows/dotnet.yml/badge.svg)](https://github.com/LBreedlove/Queuebal.Expressions/actions/workflows/dotnet.yml)
-[![Coverage Status](https://coveralls.io/repos/github/LBreedlove/Queuebal.Expressions/badge.svg?branch=main&kill_cache=7)](https://coveralls.io/github/LBreedlove/Queuebal.Expressions?branch=main&kill_cache=7)
+[![Coverage Status](https://coveralls.io/repos/github/LBreedlove/Queuebal.Expressions/badge.svg?branch=main&kill_cache=8)](https://coveralls.io/github/LBreedlove/Queuebal.Expressions?branch=main&kill_cache=8)
 
 # Queuebal.Expressions
 
@@ -125,6 +125,16 @@ dotnet test
 ```
 
 ---
+
+## What's Left
+* Add new `Mutation` types
+* Add new `Condition` types
+* Increase code coverage of `JSONValue`, `JSONValueConverter`, and `Queuebal.Expressions.Tools`.
+* Add more examples to `Queuebal.UnitTests.Examples`.
+* Improve the README to provide examples:
+  * `DataWriter` and `DataSelector` path format.
+  * Examples of chained expressions.
+  * How to setup `JsonSerializerOptions` correctly.
 
 ## Extending
 
