@@ -135,6 +135,7 @@ dotnet test
   * `DataWriter` and `DataSelector` path format.
   * Examples of chained expressions.
   * How to setup `JsonSerializerOptions` correctly.
+* Publish a NuGet package.
 
 ## Extending
 
