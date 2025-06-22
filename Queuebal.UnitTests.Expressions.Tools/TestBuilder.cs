@@ -135,24 +135,24 @@ public class TestBuilder
     /// <param name="expression">The expression to serialize.</param>
     /// <returns>The JSON representing the serialized expression.</returns>
     private string SerializeExpression(IExpression expression)
-{
-    // build the type registry used to serialize the expressions
-    var expressionTypeRegistry = TypeRegistryService<IExpression>.BuildFromCurrentAppDomain("ExpressionType");
-    var conditionTypeRegistry = TypeRegistryService<ICondition>.BuildFromCurrentAppDomain("ConditionType");
-    var mutationTypeRegistry = TypeRegistryService<IMutation>.BuildFromCurrentAppDomain("MutationType");
-    var typeResolver = new CompositeTypeResolver()
-        .AddTypeRegistry(typeof(IExpression), expressionTypeRegistry)
-        .AddTypeRegistry(typeof(ICondition), conditionTypeRegistry)
-        .AddTypeRegistry(typeof(IMutation), mutationTypeRegistry);
-
-    var options = new JsonSerializerOptions
     {
-        TypeInfoResolver = typeResolver,
-    };
+        // build the type registry used to serialize the expressions
+        var expressionTypeRegistry = TypeRegistryService<IExpression>.BuildFromCurrentAppDomain("ExpressionType");
+        var conditionTypeRegistry = TypeRegistryService<ICondition>.BuildFromCurrentAppDomain("ConditionType");
+        var mutationTypeRegistry = TypeRegistryService<IMutation>.BuildFromCurrentAppDomain("MutationType");
+        var typeResolver = new CompositeTypeResolver()
+            .AddTypeRegistry(typeof(IExpression), expressionTypeRegistry)
+            .AddTypeRegistry(typeof(ICondition), conditionTypeRegistry)
+            .AddTypeRegistry(typeof(IMutation), mutationTypeRegistry);
 
-    options.Converters.Add(new JSONValueConverter());
-    return JsonSerializer.Serialize(expression, options);
-}
+        var options = new JsonSerializerOptions
+        {
+            TypeInfoResolver = typeResolver,
+        };
+
+        options.Converters.Add(new JSONValueConverter());
+        return JsonSerializer.Serialize(expression, options);
+    }
 
     /// <summary>
     /// Deserializes the JSON representing an expression.
