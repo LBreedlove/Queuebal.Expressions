@@ -137,10 +137,11 @@ private IExpression DeserializeExpression(string json)
     var expressionTypeRegistry = TypeRegistryService<IExpression>.BuildFromCurrentAppDomain("ExpressionType");
     var conditionTypeRegistry = TypeRegistryService<ICondition>.BuildFromCurrentAppDomain("ConditionType");
     var mutationTypeRegistry = TypeRegistryService<IMutation>.BuildFromCurrentAppDomain("MutationType");
+
     var typeResolver = new CompositeTypeResolver()
-        .AddTypeRegistry(typeof(IExpression), expressionTypeRegistry)
-        .AddTypeRegistry(typeof(ICondition), conditionTypeRegistry)
-        .AddTypeRegistry(typeof(IMutation), mutationTypeRegistry);
+        .AddTypeRegistry(expressionTypeRegistry)
+        .AddTypeRegistry(conditionTypeRegistry)
+        .AddTypeRegistry(mutationTypeRegistry);
 
     var options = new JsonSerializerOptions
     {

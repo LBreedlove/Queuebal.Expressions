@@ -6,6 +6,11 @@ namespace Queuebal.Services;
 public interface ITypeRegistryService
 {
     /// <summary>
+    /// Gets the base type for the type registry.
+    /// </summary>
+    Type BaseType { get; }
+
+    /// <summary>
     /// Gets the field name used to discriminate between different types in the type map.
     /// </summary>
     string DiscriminatorField { get; }
@@ -48,6 +53,11 @@ public class TypeRegistryService<TBaseType> : ITypeRegistryService where TBaseTy
     /// Gets the field name used to discriminate between different types in the type map.
     /// </summary>
     public string DiscriminatorField => _discriminatorField;
+
+    /// <summary>
+    /// Gets the BaseType for the registry.
+    /// </summary>
+    public Type BaseType => typeof(TBaseType);
 
     /// <summary>
     /// Gets the registered type mappings.

@@ -19,8 +19,8 @@ public class TestExpressionSerialization
         var expressionTypeRegistry = TypeRegistryService<IExpression>.BuildFromCurrentAppDomain("ExpressionType");
         var conditionTypeRegistry = TypeRegistryService<ICondition>.BuildFromCurrentAppDomain("ConditionType");
         var typeResolver = new CompositeTypeResolver()
-            .AddTypeRegistry(typeof(IExpression), expressionTypeRegistry)
-            .AddTypeRegistry(typeof(ICondition), conditionTypeRegistry);
+            .AddTypeRegistry(expressionTypeRegistry)
+            .AddTypeRegistry(conditionTypeRegistry);
 
         var condition = new IsNullCondition
         {

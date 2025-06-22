@@ -123,9 +123,9 @@ public class TestExampleData
         var conditionTypeRegistry = TypeRegistryService<ICondition>.BuildFromCurrentAppDomain("ConditionType");
         var mutationTypeRegistry = TypeRegistryService<IMutation>.BuildFromCurrentAppDomain("MutationType");
         var typeResolver = new CompositeTypeResolver()
-            .AddTypeRegistry(typeof(IExpression), expressionTypeRegistry)
-            .AddTypeRegistry(typeof(ICondition), conditionTypeRegistry)
-            .AddTypeRegistry(typeof(IMutation), mutationTypeRegistry);
+            .AddTypeRegistry(expressionTypeRegistry)
+            .AddTypeRegistry(conditionTypeRegistry)
+            .AddTypeRegistry(mutationTypeRegistry);
 
         // Iterate through all the input files in the Examples directory
         foreach (var file in Directory.GetFiles("Examples", "*.input.json"))

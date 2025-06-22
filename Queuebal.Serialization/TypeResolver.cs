@@ -15,11 +15,11 @@ public class CompositeTypeResolver : DefaultJsonTypeInfoResolver
     private readonly object _syncLock = new();
     private readonly Dictionary<Type, ITypeRegistryService> _typeRegistries = new();
 
-    public CompositeTypeResolver AddTypeRegistry(Type baseType, ITypeRegistryService typeRegistry)
+    public CompositeTypeResolver AddTypeRegistry(ITypeRegistryService typeRegistry)
     {
         lock (_syncLock)
         {
-            _typeRegistries[baseType] = typeRegistry;
+            _typeRegistries[typeRegistry.BaseType] = typeRegistry;
         }
         return this;
     }
