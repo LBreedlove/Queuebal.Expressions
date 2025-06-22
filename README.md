@@ -148,7 +148,7 @@ private IExpression DeserializeExpression(string json)
     };
 
     options.Converters.Add(new JSONValueConverter());
-    return JsonSerializer.Deserialize<IExpression>(json, options) ?? throw new InvalidOperationException("Failed to deserialize the expression");
+    return JsonSerializer.Deserialize<IExpression>(json, options);
 }
 ```
 
