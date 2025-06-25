@@ -15,6 +15,11 @@ public class CountExpression : Expression
     public static string ExpressionType { get; } = "Count";
 
     /// <summary>
+    /// The value to count the number of items in.
+    /// </summary>
+    public required IExpression Value { get; set; }
+
+    /// <summary>
     /// Indicates whether or not 'falsey' elements should be excluded from the count.
     /// Falsey elements:
     ///   * A boolean field with a value of false.
@@ -27,9 +32,10 @@ public class CountExpression : Expression
 
     protected override JSONValue EvaluateExpression(ExpressionContext context, JSONValue inputValue)
     {
+        var value = Value.Evaluate(context, inputValue);
         return ExcludeFalsey
-            ? CountNonFalseyValues(inputValue)
-            : CountValues(inputValue);
+            ? CountNonFalseyValues(value)
+            : CountValues(value);
     }
 
     /// <summary>
@@ -38,7 +44,7 @@ public class CountExpression : Expression
     /// <param name="inputValue">The value to count the items in.</param>
     /// <returns>The number of non-falsey items in the value.</returns>
     /// <exception cref="InvalidOperationException">Thrown when a non-string/list/dict value is provided.</exception>
-    private int CountNonFalseyValues(JSONValue inputValue) => inputValue.FieldType switch
+    private static int CountNonFalseyValues(JSONValue inputValue) => inputValue.FieldType switch
     {
         JSONFieldType.String => inputValue.StringValue.Length,
         JSONFieldType.List => inputValue.ListValue.Where(i => !IsFalsey(i)).Count(),
@@ -52,7 +58,7 @@ public class CountExpression : Expression
     /// <param name="inputValue">The value to count the items in.</param>
     /// <returns>The number of items in the value.</returns>
     /// <exception cref="InvalidOperationException">Thrown when a non-string/list/dict value is provided.</exception>
-    private int CountValues(JSONValue inputValue) => inputValue.FieldType switch
+    private static int CountValues(JSONValue inputValue) => inputValue.FieldType switch
     {
         JSONFieldType.String => inputValue.StringValue.Length,
         JSONFieldType.List => inputValue.ListValue.Count,
@@ -65,13 +71,13 @@ public class CountExpression : Expression
     /// </summary>
     /// <param name="value">The value to check for a 'falsey' value.</param>
     /// <returns>true if the value is 'falsey', otherwise false.</returns>
-    private bool IsFalsey(JSONValue value) => value.FieldType switch
+    private static bool IsFalsey(JSONValue value) => value.FieldType switch
     {
         JSONFieldType.Null => true,
         JSONFieldType.String => string.IsNullOrEmpty(value.StringValue),
         JSONFieldType.Boolean => !value.BooleanValue,
         JSONFieldType.Integer => value.IntValue == 0,
-        JSONFieldType.Float => value.FloatValue == 0.0f,
+        JSONFieldType.Float => value.FloatValue == 0.0f || value.FloatValue == float.NaN,
         JSONFieldType.List => value.ListValue.Count == 0,
         JSONFieldType.Dictionary => value.DictValue.Count == 0,
         _ => false,

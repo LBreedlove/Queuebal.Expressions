@@ -21,8 +21,9 @@ public class TestCountExpression
     public void test_evaluate_when_non_container_type_provided_throws()
     {
         // Arrange
-        var inputValue = 123;
-        var expression = new CountExpression();
+        var inputValue = new JSONValue();
+        var value = new ValueExpression { Value = 123 };
+        var expression = new CountExpression { Value = value };
 
         // Act & Assert
         Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(Context, inputValue));
@@ -32,8 +33,9 @@ public class TestCountExpression
     public void test_evaluate_when_non_container_type_provided_and_exclude_falsey_throws()
     {
         // Arrange
-        var inputValue = 0;
-        var expression = new CountExpression { ExcludeFalsey = true };
+        var inputValue = new JSONValue();
+        var value = new ValueExpression { Value = 0 };
+        var expression = new CountExpression { ExcludeFalsey = true, Value = value };
 
         // Act & Assert
         Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(Context, inputValue));
@@ -43,83 +45,92 @@ public class TestCountExpression
     public void test_evaluate_when_string_value_provided_returns_length()
     {
         // Arrange
-        var inputValue = "test value";
-        var expression = new CountExpression();
+        var inputValue = new JSONValue();
+        var value = new ValueExpression { Value = "test value" };
+        var expression = new CountExpression { Value = value };
 
         // Act
         var result = expression.Evaluate(Context, inputValue).IntValue;
 
         // Assert
-        Assert.AreEqual(inputValue.Length, result);
+        Assert.AreEqual(value.Value.StringValue.Length, result);
     }
 
     [TestMethod]
     public void test_evaluate_when_string_value_provided_and_exclude_falsey_returns_length()
     {
         // Arrange
-        var inputValue = "test value";
-        var expression = new CountExpression { ExcludeFalsey = true };
+        var inputValue = new JSONValue();
+        var value = new ValueExpression { Value = "test value" };
+        var expression = new CountExpression { ExcludeFalsey = true, Value = value };
 
         // Act
         var result = expression.Evaluate(Context, inputValue).IntValue;
 
         // Assert
-        Assert.AreEqual(inputValue.Length, result);
+        Assert.AreEqual(value.Value.StringValue.Length, result);
     }
 
     [TestMethod]
     public void test_evaluate_when_list_value_provided_returns_length()
     {
         // Arrange
-        var inputValue = new List<JSONValue>
-        {
-            123,
-            false,
-            0,
-            new Dictionary<string, JSONValue>
+        var inputValue = new JSONValue();
+        var value = new ValueExpression {
+            Value = new List<JSONValue>
             {
-                { "key", new JSONValue() },
-            },
-            "test value",
-            new List<JSONValue>(),
-            new List<JSONValue>
-            {
+                123,
+                false,
+                0,
+                new Dictionary<string, JSONValue>
+                {
+                    { "key", new JSONValue() },
+                },
                 "test value",
+                new List<JSONValue>(),
+                new List<JSONValue>
+                {
+                    "test value",
+                }
             }
         };
 
-        var expression = new CountExpression();
+        var expression = new CountExpression { Value = value };
 
         // Act
         var result = expression.Evaluate(Context, inputValue).IntValue;
 
         // Assert
-        Assert.AreEqual(inputValue.Count, result);
+        Assert.AreEqual(value.Value.ListValue.Count, result);
     }
 
     [TestMethod]
     public void test_evaluate_when_list_value_provided_and_exclude_falsey_returns_length_excluding_falsey_items()
     {
         // Arrange
-        var inputValue = new List<JSONValue>
+        var inputValue = new JSONValue();
+        var value = new ValueExpression
         {
-            123,
-            false,
-            0,
-            new Dictionary<string, JSONValue>
+            Value = new List<JSONValue>
             {
-                { "key", new JSONValue() },
-            },
-            "test value",
-            new List<JSONValue>(),
-            new List<JSONValue>
-            {
+                123,
+                false,
+                0,
+                new Dictionary<string, JSONValue>
+                {
+                    { "key", new JSONValue() },
+                },
                 "test value",
-            },
-            new Dictionary<string, JSONValue>(),
+                new List<JSONValue>(),
+                new List<JSONValue>
+                {
+                    "test value",
+                },
+                new Dictionary<string, JSONValue>(),
+            }
         };
 
-        var expression = new CountExpression { ExcludeFalsey = true };
+        var expression = new CountExpression { ExcludeFalsey = true, Value = value };
 
         // Act
         var result = expression.Evaluate(Context, inputValue).IntValue;
@@ -132,54 +143,62 @@ public class TestCountExpression
     public void test_evaluate_when_dict_value_provided_returns_length()
     {
         // Arrange
-        var inputValue = new Dictionary<string, JSONValue>
+        var inputValue = new JSONValue();
+        var value = new ValueExpression
         {
-            {"1", 123},
-            {"2", false},
-            {"3", 0},
-            {"4", new Dictionary<string, JSONValue>
+            Value = new Dictionary<string, JSONValue>
             {
-                { "key", new JSONValue() },
-            }},
-            {"5", "test value"},
-            {"6", new List<JSONValue>()},
-            {"7", new List<JSONValue>
-            {
-                "test value",
-            }}
+                { "1", 123 },
+                { "2", false },
+                { "3", 0 },
+                { "4", new Dictionary<string, JSONValue>
+                {
+                    { "key", new JSONValue() },
+                } },
+                { "5", "test value" },
+                { "6", new List<JSONValue>() },
+                { "7", new List<JSONValue>
+                {
+                    "test value",
+                } }
+            }
         };
 
-        var expression = new CountExpression();
+        var expression = new CountExpression { Value = value };
 
         // Act
         var result = expression.Evaluate(Context, inputValue).IntValue;
 
         // Assert
-        Assert.AreEqual(inputValue.Count, result);
+        Assert.AreEqual(value.Value.DictValue.Count, result);
     }
 
     [TestMethod]
     public void test_evaluate_when_dict_value_provided_and_exclude_falsey_returns_length_excluding_falsey_items()
     {
         // Arrange
-        var inputValue = new Dictionary<string, JSONValue>
+        var inputValue = new JSONValue();
+        var value = new ValueExpression
         {
-            {"1", 123},
-            {"2", false},
-            {"3", 0},
-            {"4", new Dictionary<string, JSONValue>
+            Value = new Dictionary<string, JSONValue>
             {
-                { "key", new JSONValue() },
-            }},
-            {"5", "test value"},
-            {"6", new List<JSONValue>()},
-            {"7", new List<JSONValue>
-            {
-                "test value",
-            }}
+                { "1", 123 },
+                { "2", false },
+                { "3", 0 },
+                { "4", new Dictionary<string, JSONValue>
+                {
+                    { "key", new JSONValue() },
+                } },
+                { "5", "test value" },
+                { "6", new List<JSONValue>() },
+                { "7", new List<JSONValue>
+                {
+                    "test value",
+                } }
+            }
         };
 
-        var expression = new CountExpression { ExcludeFalsey = true };
+        var expression = new CountExpression { ExcludeFalsey = true, Value = value };
 
         // Act
         var result = expression.Evaluate(Context, inputValue).IntValue;
