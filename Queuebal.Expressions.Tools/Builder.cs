@@ -265,7 +265,61 @@ public static class Builder
                 ValueSelector = valueSelector
             };
 
-        // TODO: Add other Conditions
+        public static ICondition is_greater_than(IExpression comparer, IExpression? valueSelector = null) =>
+            new GreaterThanCondition
+            {
+                ComparerValue = comparer,
+                ValueSelector = valueSelector,
+            };
+
+        public static ICondition is_greater_than_or_equal(IExpression comparer, IExpression? valueSelector = null) =>
+            new GreaterThanOrEqualCondition
+            {
+                ComparerValue = comparer,
+                ValueSelector = valueSelector,
+            };
+
+        public static ICondition is_less_than(IExpression comparer, IExpression? valueSelector = null) =>
+            new LessThanCondition
+            {
+                ComparerValue = comparer,
+                ValueSelector = valueSelector,
+            };
+
+        public static ICondition is_less_than_or_equal(IExpression comparer, IExpression? valueSelector = null) =>
+            new LessThanOrEqualCondition
+            {
+                ComparerValue = comparer,
+                ValueSelector = valueSelector,
+            };
+
+        public static ICondition is_length_greater_than(IExpression comparer, IExpression? valueSelector = null) =>
+            new LengthIsGreaterThanCondition
+            {
+                ComparerValue = comparer,
+                ValueSelector = valueSelector,
+            };
+
+        public static ICondition is_length_greater_than_or_equal(IExpression comparer, IExpression? valueSelector = null) =>
+            new LengthIsGreaterThanOrEqualCondition
+            {
+                ComparerValue = comparer,
+                ValueSelector = valueSelector,
+            };
+
+        public static ICondition is_length_less_than(IExpression comparer, IExpression? valueSelector = null) =>
+            new LengthIsLessThanCondition
+            {
+                ComparerValue = comparer,
+                ValueSelector = valueSelector,
+            };
+
+        public static ICondition is_length_less_than_or_equal(IExpression comparer, IExpression? valueSelector = null) =>
+            new LengthIsLessThanOrEqualCondition
+            {
+                ComparerValue = comparer,
+                ValueSelector = valueSelector,
+            };
     }
 
     /// <summary>
