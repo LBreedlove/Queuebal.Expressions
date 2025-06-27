@@ -25,9 +25,14 @@ public class FilterExpression : Expression
     /// </summary>
     protected override JSONValue EvaluateExpression(ExpressionContext context, JSONValue inputValue)
     {
-        if (!inputValue.IsList)
+        if (!inputValue.IsList && !inputValue.IsDict)
         {
-            throw new InvalidOperationException("Filter expression can only be applied to a list input value.");
+            throw new InvalidOperationException("Filter expression can only be applied to a list or dict input value.");
+        }
+
+        if (inputValue.IsDict)
+        {
+            return FilterDict(context, inputValue);
         }
 
         var results = new List<JSONValue>();
@@ -42,5 +47,25 @@ public class FilterExpression : Expression
         }
 
         return results;
+    }
+
+    private JSONValue FilterDict(ExpressionContext context, JSONValue inputValue)
+    {
+        var output = new Dictionary<string, JSONValue>();
+        foreach (var kvp in inputValue.DictValue)
+        {
+            var conditionValue = new Dictionary<string, JSONValue>
+            {
+                { "key", kvp.Key },
+                { "value", kvp.Value },
+            };
+
+            if (Condition.Evaluate(context, conditionValue).BooleanValue)
+            {
+                output.Add(kvp.Key, kvp.Value);
+            }
+        }
+
+        return output;
     }
 }
