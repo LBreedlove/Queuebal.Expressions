@@ -11,13 +11,8 @@ public static class ExpressionConverter
     /// </summary>
     /// <param name="value"></param>
     /// <returns></returns>
-    public static IExpression ToExpression(this Dictionary<string, object?>? source)
+    public static IExpression ToExpression(this Dictionary<string, object?> source)
     {
-        if (source == null)
-        {
-            return new ValueExpression { Value = new JSONValue() };
-        }
-
         var output = new Dictionary<string, IExpression>();
         foreach (var kvp in source)
         {
@@ -29,6 +24,7 @@ public static class ExpressionConverter
                 bool value => new ValueExpression { Value = value },
                 float value => new ValueExpression { Value = value },
                 double value => new ValueExpression { Value = value },
+                DateTime value => new ValueExpression { Value = value },
                 JSONValue value => new ValueExpression { Value = value },
 
                 Dictionary<string, object?> value => value.ToExpression(),
@@ -45,13 +41,8 @@ public static class ExpressionConverter
         return new DictExpression { Value = output };
     }
 
-    public static IExpression ToExpression(this List<object?>? source)
+    public static IExpression ToExpression(this List<object?> source)
     {
-        if (source == null)
-        {
-            return new ValueExpression { Value = new() };
-        }
-
         var output = new List<IExpression>();
         foreach (var entry in source)
         {
@@ -63,6 +54,7 @@ public static class ExpressionConverter
                 bool value => new ValueExpression { Value = value },
                 float value => new ValueExpression { Value = value },
                 double value => new ValueExpression { Value = value },
+                DateTime value => new ValueExpression { Value = value },
                 JSONValue value => new ValueExpression { Value = value },
 
                 Dictionary<string, object?> value => value.ToExpression(),

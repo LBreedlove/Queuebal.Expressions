@@ -32,6 +32,9 @@ public class TestBuilder
                     },
                     new q.kv { k = "timestamp", v = q.ds("order.created_at") },
                     new q.kv { k = "source", v = q.val("order_service") },
+                    new q.kv { k = "schema_version", v = q.val(123) },
+                    new q.kv { k = "redacted", v = q.val(false) },
+                    new q.kv { k = "ingest_discount", v = q.val(3.14) },
                     new q.kv
                     {
                         k = "data",
