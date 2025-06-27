@@ -13,38 +13,56 @@ public class RangeExpression : Expression
     public static string ExpressionType { get; } = "Range";
 
     /// <summary>
-    /// The start of the range.
+    /// The start of the range. This expression must evaluate to a number.
     /// </summary>
-    public required int Start { get; set; }
+    public required IExpression Start { get; set; }
 
     /// <summary>
-    /// The number of elements in the range.
+    /// The number of elements in the range. This expression must evaluate to a number.
     /// </summary>
-    public required int Count { get; set; }
+    public required IExpression Count { get; set; }
 
     /// <summary>
-    /// Indicates how the value should be incremented in the range.
+    /// Indicates how the value should be incremented in the range. This expression must evaluate to a number.
     /// Defaults to 1.
     /// </summary>
-    public int Step { get; set; } = 1;
+    public IExpression Step { get; set; } = new ValueExpression { Value = 1};
 
     /// <summary>
     /// Evaluates the range expression and returns a list of integers from Start to End.
     /// </summary>
     protected override JSONValue EvaluateExpression(ExpressionContext context, JSONValue inputValue)
     {
-        if (Start < 0 || Count < 0)
+        var start = Start.Evaluate(context, inputValue);
+        if (!start.IsNumber)
         {
-            throw new InvalidOperationException("Start and Count must be non-negative integers.");
+            throw new InvalidOperationException("Range Start must evaluate to a number");
         }
 
-        var range = new List<JSONValue>(capacity: Count);
+        var count = Count.Evaluate(context, inputValue);
+        if (!count.IsNumber)
+        {
+            throw new InvalidOperationException("Range Count must evaluate to a number");
+        }
 
-        int value = Start;
-        for (int index = 0; index < Count; ++index)
+        var step = Step.Evaluate(context, inputValue);
+        if (!step.IsNumber)
+        {
+            throw new InvalidOperationException("Range Step must evaluate to a number");
+        }
+
+        if (start.IntValue < 0 || count.IntValue < 0)
+        {
+            throw new InvalidOperationException("Range Start and Count must be non-negative integers.");
+        }
+
+        var range = new List<JSONValue>(capacity: (int)count.IntValue);
+
+        int value = (int)start.IntValue;
+        for (int index = 0; index < (int)count.IntValue; ++index)
         {
             range.Add(value);
-            value += Step;
+            value += (int)step.IntValue;
         }
 
         return new JSONValue(range);
