@@ -16,8 +16,12 @@ Queuebal.Expressions is a .NET library for building, evaluating, and composing d
 ## Solution Structure
 
 - **Queuebal.Expressions:** Core expression types and evaluation logic.
+- **Queuebal.Expressions.Conditions:** Various condition types.
+- **Queuebal.Expressions.Mutations:** Various mutation types.
+- **Queuebal.Expressions.Tools:** Tools for making it easier to build expressions.
 - **Queuebal.Json:** JSON value abstraction and helpers.
 - **Queuebal.Json.Data:** DataSelector and DataWriter for path-based JSON access and mutation.
+- **Queuebal.Serialization:** TypeConverter utility for handling polymorphic deserialization, as well as the `JSONValueConverter` for writing JSON values to a JSON serializer.
 - **Queuebal.UnitTests.\***: Unit tests for all components.
 
 ---
