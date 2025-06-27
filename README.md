@@ -158,7 +158,8 @@ private IExpression DeserializeExpression(string json)
 ## What's Left
 * Add new `Mutation` types
 * Add new `Condition` types
-* Increase code coverage of `JSONValue`, `JSONValueConverter`, and `Queuebal.Expressions.Tools`.
+* Add remaining mutations to the `Builder`.
+* Increase code coverage of `JSONValue`, `JSONValueConverter`.
 * Add more examples to `Queuebal.UnitTests.Examples`.
 * Improve the README to provide examples:
   * `DataWriter` and `DataSelector` path format.
