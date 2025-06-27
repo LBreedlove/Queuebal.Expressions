@@ -29,14 +29,7 @@ public static class Builder
     /// </summary>
     /// <param name="value">The value to populate in the ValueExpression.</param>
     /// <returns>A new ValueExpression containing the given value.</returns>
-    public static IExpression val(int value) => new ValueExpression { Value = value };
-
-    /// <summary>
-    /// Builds a ValueExpression with the provided value.
-    /// </summary>
-    /// <param name="value">The value to populate in the ValueExpression.</param>
-    /// <returns>A new ValueExpression containing the given value.</returns>
-    public static IExpression val(float value) => new ValueExpression { Value = value };
+    public static IExpression val(long value) => new ValueExpression { Value = value };
 
     /// <summary>
     /// Builds a ValueExpression with the provided value.
