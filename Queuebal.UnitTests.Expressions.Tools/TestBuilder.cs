@@ -1,11 +1,14 @@
 ﻿#pragma warning disable CS8981, IDE0005
 
 using Queuebal.Expressions;
+using Queuebal.Json;
 using Queuebal.Services;
 using Queuebal.Serialization;
 
 using q = Queuebal.Expressions.Tools.Builder;
 using System.Text.Json;
+using Queuebal.Expressions.Conditions;
+using System.Net.Http.Headers;
 
 namespace Queuebal.UnitTests.Expressions.Tools;
 
@@ -130,6 +133,183 @@ public class TestBuilder
         var deserialized = DeserializeExpression(json);
         var deserializedJson = SerializeExpression(deserialized);
         Assert.AreEqual(json, deserializedJson);
+    }
+
+    [TestMethod]
+    public void test_dict_with_input_builds_dict_expression()
+    {
+        var expression = q.dict_with_input(q.val(123));
+        Assert.IsInstanceOfType<DictExpression>(expression);
+        Assert.IsNotNull(expression.InputValue);
+    }
+
+    [TestMethod]
+    public void test_list_with_input_builds_list_expression()
+    {
+        var expression = q.list_with_input(q.val(123));
+        Assert.IsInstanceOfType<ListExpression>(expression);
+        Assert.IsNotNull(expression.InputValue);
+    }
+
+    [TestMethod]
+    public void test_dyn_dict_builds_dict_expression()
+    {
+        var expression = q.dyn_dict();
+        Assert.IsInstanceOfType<DynamicDictExpression>(expression);
+        Assert.IsNull(expression.InputValue);
+    }
+
+    [TestMethod]
+    public void test_conditions_all_builds_all_condition()
+    {
+        var condition = q.Conditions.all
+        (
+            new EqualsCondition { ComparerValue = q.val(123) },
+            new IsNullCondition { NegateResult = true }
+        );
+
+        var result = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 123);
+        Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void test_conditions_any_builds_any_of_condition()
+    {
+        var condition = q.Conditions.any
+        (
+            new EqualsCondition { ComparerValue = q.val(123) },
+            new IsNullCondition()
+        );
+
+        var result = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue());
+        Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void test_conditions_none_of_builds_none_of_condition()
+    {
+        var condition = q.Conditions.none
+        (
+            new EqualsCondition { ComparerValue = q.val(123) },
+            new IsNullCondition()
+        );
+
+        var result = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 456);
+        Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void test_eq_builds_equals_condition()
+    {
+        var condition = q.Conditions.eq(q.val(123));
+        Assert.IsInstanceOfType<EqualsCondition>(condition);
+    }
+
+    [TestMethod]
+    public void test_not_eq_builds_equals_condition_with_negate_result_true()
+    {
+        var condition = q.Conditions.not_eq(q.val(123));
+        Assert.IsInstanceOfType<EqualsCondition>(condition);
+        var result = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 456);
+        Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void test_is_null_builds_is_null_condition()
+    {
+        var condition = q.Conditions.is_null();
+        Assert.IsInstanceOfType<IsNullCondition>(condition);
+        var result = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue());
+        Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void test_not_null_builds_is_null_condition_with_negate_result_true()
+    {
+        var condition = q.Conditions.not_null();
+        Assert.IsInstanceOfType<IsNullCondition>(condition);
+        var result = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue());
+        Assert.IsFalse(result);
+    }
+
+    [TestMethod]
+    public void test_is_greater_than_builds_is_greater_than_condition()
+    {
+        var condition = q.Conditions.is_greater_than(q.val(37));
+        Assert.IsInstanceOfType<GreaterThanCondition>(condition);
+
+        var result1 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 37);
+        Assert.IsFalse(result1);
+
+        var result2 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 38);
+        Assert.IsTrue(result2);
+    }
+
+    [TestMethod]
+    public void test_is_greater_than_or_equal_builds_is_greater_than_or_equal_condition()
+    {
+        var condition = q.Conditions.is_greater_than_or_equal(q.val(37));
+        Assert.IsInstanceOfType<GreaterThanOrEqualCondition>(condition);
+
+        var result1 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 37);
+        Assert.IsTrue(result1);
+
+        var result2 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 38);
+        Assert.IsTrue(result2);
+    }
+
+    [TestMethod]
+    public void test_is_less_than_builds_is_greater_than_condition()
+    {
+        var condition = q.Conditions.is_less_than(q.val(37));
+        Assert.IsInstanceOfType<LessThanCondition>(condition);
+
+        var result1 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 37);
+        Assert.IsFalse(result1);
+
+        var result2 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 36);
+        Assert.IsTrue(result2);
+    }
+
+    [TestMethod]
+    public void test_is_less_than_or_equal_builds_is_greater_than_or_equal_condition()
+    {
+        var condition = q.Conditions.is_less_than_or_equal(q.val(37));
+        Assert.IsInstanceOfType<LessThanOrEqualCondition>(condition);
+
+        var result1 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 37);
+        Assert.IsTrue(result1);
+
+        var result2 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 36);
+        Assert.IsTrue(result2);
+    }
+
+    [TestMethod]
+    public void test_is_length_greater_than_builds_is_length_greater_than_condition()
+    {
+        var condition = q.Conditions.is_length_greater_than(new ValueExpression { Value = new List<JSONValue> { 123 } });
+        Assert.IsInstanceOfType<LengthIsGreaterThanCondition>(condition);
+    }
+
+    [TestMethod]
+    public void test_is_length_greater_than_or_equal_builds_is_length_greater_than_or_equal_condition()
+    {
+        var condition = q.Conditions.is_length_greater_than_or_equal(new ValueExpression { Value = new List<JSONValue> { 123 } });
+        Assert.IsInstanceOfType<LengthIsGreaterThanOrEqualCondition>(condition);
+    }
+
+    [TestMethod]
+    public void test_is_length_less_than_builds_is_length_less_than_condition()
+    {
+        var condition = q.Conditions.is_length_less_than(new ValueExpression { Value = new List<JSONValue> { 123 } });
+        Assert.IsInstanceOfType<LengthIsLessThanCondition>(condition);
+    }
+
+    [TestMethod]
+    public void test_is_length_less_than_or_equal_builds_is_length_less_than_or_equal_condition()
+    {
+        var condition = q.Conditions.is_length_less_than_or_equal(new ValueExpression { Value = new List<JSONValue> { 123 } });
+        Assert.IsInstanceOfType<LengthIsLessThanOrEqualCondition>(condition);
     }
 
     /// <summary>

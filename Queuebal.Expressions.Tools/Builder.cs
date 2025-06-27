@@ -251,7 +251,7 @@ public static class Builder
         /// </summary>
         /// <param name="valueSelector">The expression used to select/build the value to check for null.</param>
         /// <returns>A new not IsNullCondition.</returns>
-        public static ICondition not_null(IExpression valueSelector) =>
+        public static ICondition not_null(IExpression? valueSelector = null) =>
             new IsNullCondition
             {
                 NegateResult = true,
