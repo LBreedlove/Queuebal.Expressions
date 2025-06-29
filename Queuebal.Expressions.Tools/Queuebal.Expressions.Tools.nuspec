@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Queuebal.Expressions.Tools</id>
+    <version>1.0.0</version>
+    <authors>Lucas Breedlove</authors>
+    <owners>Lucas Breedlove</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/LBreedlove/Queuebal.Expressions</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Support for building Queuebal.Expressions, mutations, and conditions.</description>
+    <copyright>Copyright © 2025 Lucas Breedlove</copyright>
+    <tags>expressions etl</tags>
+    <dependencies>
+      <dependency id="Queuebal.Expressions" version="1.0.0" />
+      <dependency id="Queuebal.Expressions.Mutations" version="1.0.0" />
+      <dependency id="Queuebal.Expressions.Conditions" version="1.0.0" />
+      <dependency id="Queuebal.Json" version="1.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin/Release/netstandard2.1/Queuebal.Expressions.Tools.dll" target="lib/netstandard2.1/" />
+    <file src="bin/Release/netstandard2.1/Queuebal.Expressions.Tools.xml" target="lib/netstandard2.1/" />
+  </files>
+</package>

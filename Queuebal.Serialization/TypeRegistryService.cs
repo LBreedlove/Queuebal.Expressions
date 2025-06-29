@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Queuebal.Services;
+namespace Queuebal.Serialization;
 
 
 public interface ITypeRegistryService
@@ -189,6 +189,19 @@ public class TypeRegistryService<TBaseType> : ITypeRegistryService where TBaseTy
 
         foreach (var assembly in assemblies)
         {
+            if (assembly is null)
+            {
+                // the compiler thinks assembly can be null for some reason...
+                continue;
+            }
+
+            if (assembly.FullName?.StartsWith("Queuebal.UnitTests") ?? false)
+            {
+                // we have an InvalidExpression class that will attempt to
+                // register that needs to be skipped
+                continue;
+            }
+
             foreach (var type in assembly.GetTypes())
             {
                 if (type.IsAssignableTo(typeof(TBaseType)) && !type.IsAbstract)

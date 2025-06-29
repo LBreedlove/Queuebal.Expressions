@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Queuebal.Json.Data</id>
+    <version>1.0.0</version>
+    <authors>Lucas Breedlove</authors>
+    <owners>Lucas Breedlove</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/LBreedlove/Queuebal.Expressions</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Data access for Queuebal.Json objects.</description>
+    <copyright>Copyright © 2025 Lucas Breedlove</copyright>
+    <tags>json</tags>
+    <dependencies>
+      <dependency id="Queuebal.Json" version="1.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin/Release/netstandard2.1/Queuebal.Json.Data.dll" target="lib/netstandard2.1/" />
+    <file src="bin/Release/netstandard2.1/Queuebal.Json.Data.xml" target="lib/netstandard2.1/" />
+  </files>
+</package>

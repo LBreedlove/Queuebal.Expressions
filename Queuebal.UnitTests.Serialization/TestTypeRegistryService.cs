@@ -1,8 +1,8 @@
 ﻿using Queuebal.Expressions;
 using Queuebal.Json;
-using Queuebal.Services;
+using Queuebal.Serialization;
 
-namespace Queuebal.UnitTests.Services;
+namespace Queuebal.UnitTests.Serialization;
 
 [TestClass]
 public class TestTypeRegistryService

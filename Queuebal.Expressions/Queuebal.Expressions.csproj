@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../Queuebal.Core/Queuebal.Core.csproj" />
     <ProjectReference Include="../Queuebal.Json/Queuebal.Json.csproj" />
     <ProjectReference Include="../Queuebal.Json.Data/Queuebal.Json.Data.csproj" />
   </ItemGroup>
