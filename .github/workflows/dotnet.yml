@@ -42,11 +42,3 @@ jobs:
       with:
         fail-on-error: false
         file: ./coveragereport/Cobertura.xml
-    - name: publish on version change
-      id: publish_nuget
-      uses: brandedoutcast/publish-nuget@v2
-      with:
-        PROJECT_FILE_PATH: Queuebal.Expressions/Queuebal.Expressions.csproj
-        BUILD_CONFIGURATION: Release
-        PACKAGE_NAME: Queuebal.Expressions
-        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
