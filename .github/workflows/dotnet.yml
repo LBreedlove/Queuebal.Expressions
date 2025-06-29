@@ -42,3 +42,9 @@ jobs:
       with:
         fail-on-error: false
         file: ./coveragereport/Cobertura.xml
+    - name: Publish NuGet
+      uses: brandedoutcast/publish-nuget@v2.5.5
+      with:
+        PROJECT_FILE_PATH: Queuebal.Expressions/Queuebal.Expressions.csproj
+        VERSION_FILE_PATH: Directory.Build.props
+        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
