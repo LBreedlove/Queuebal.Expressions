@@ -29,6 +29,10 @@ public class TestJSONValue
                 24,
                 false,
             }},
+            { "key7", new Dictionary<string, object?>
+            {
+                { "key8", "dict value" }
+            }}
         };
 
         var expected = new JSONValue(new Dictionary<string, JSONValue>()
@@ -44,6 +48,11 @@ public class TestJSONValue
                 new(24),
                 new(false),
             })},
+            { "key7", new(new Dictionary<string, JSONValue>
+                {
+                    { "key8", new JSONValue("dict value") }
+                }
+            )}
         });
 
         var destValue = (JSONValue)source;
@@ -58,7 +67,11 @@ public class TestJSONValue
             "value1 - string value",
             true,
             3.14,
-            42
+            42,
+            new Dictionary<string, object?>
+            {
+                { "key1", "value2 - string value" }
+            }
         };
 
         var destValue = (JSONValue)sourceValue;
@@ -68,7 +81,11 @@ public class TestJSONValue
                 new("value1 - string value"),
                 new(true),
                 new(3.14),
-                new(42)
+                new(42),
+                new Dictionary<string, JSONValue>
+                {
+                    { "key1", new("value2 - string value") }
+                }
             }
         );
 
@@ -84,20 +101,27 @@ public class TestJSONValue
                 "value1 - string value",
                 true,
                 3.14,
-                42
+                42,
             }
         );
 
         var destValue = (List<object?>)sourceValue;
-        var expected = new List<object?>
+        var expected = new List<object>
         {
             "value1 - string value",
             true,
             3.14,
-            (long)42
+            (long)42,
         };
 
         CollectionAssert.AreEquivalent(expected, destValue);
+    }
+
+    [TestMethod]
+    public void test_explicit_cast_to_dictionary_when_source_not_dictionary_throws()
+    {
+        var source = new JSONValue(true);
+        Assert.ThrowsExactly<InvalidCastException>(() => (Dictionary<string, object?>)source);
     }
 
     [TestMethod]
@@ -122,6 +146,12 @@ public class TestJSONValue
                             new(37),
                         }
                     )
+                },
+                {
+                    "key_dict", new Dictionary<string, JSONValue>
+                    {
+                        { "value3", "dict string value" },
+                    }
                 }
            }
        );
@@ -141,7 +171,13 @@ public class TestJSONValue
                     14.3,
                     (long)37,
                 }
-            }
+            },
+            {
+                "key_dict", new Dictionary<string, object?>
+                {
+                    { "value3", "dict string value" },
+                }
+            },
         };
 
         var dest = (Dictionary<string, object?>)source;
@@ -154,6 +190,47 @@ public class TestJSONValue
 #pragma warning disable CS8600
         CollectionAssert.AreEqual((List<object?>)expected["key_list"], (List<object?>)dest["key_list"]);
 #pragma warning restore CS8600
+    }
+
+    [TestMethod]
+    public void test_explicit_cast_to_jsonvalue_dict()
+    {
+        var source = new JSONValue(
+           new Dictionary<string, JSONValue>
+           {
+                { "key_string", new("value1 - string value") },
+                { "key_bool", new(true) },
+                { "key_float", new(3.14) },
+                { "key_int", new(42) },
+                {
+                    "key_list",
+                    new
+                    (
+                        new List<JSONValue>
+                        {
+                            new("value2 - string value"),
+                            new(false),
+                            new(14.3),
+                            new(37),
+                        }
+                    )
+                },
+                {
+                    "key_dict", new Dictionary<string, JSONValue>
+                    {
+                        { "value3", "dict string value" },
+                    }
+                }
+           }
+       );
+
+        var dest = (Dictionary<string, JSONValue>)source;
+
+        // CollectionAssert.AreEquivalent doesn't work when the dict contains a list.
+        Assert.AreEqual(source.DictValue["key_string"], dest["key_string"]);
+        Assert.AreEqual(source.DictValue["key_bool"], dest["key_bool"]);
+        Assert.AreEqual(source.DictValue["key_float"], dest["key_float"]);
+        Assert.AreEqual(source.DictValue["key_int"], dest["key_int"]);
     }
 
     [TestMethod]
@@ -297,7 +374,7 @@ public class TestJSONValue
     [TestMethod]
     public void test_explicit_cast_to_datetime_when_value_is_invalid()
     {
-        var source = new JSONValue("invalid date");
+        var source = new JSONValue(true);
         Assert.Throws<InvalidCastException>(() => (DateTime)source);
     }
 
@@ -308,6 +385,7 @@ public class TestJSONValue
         {
             new JSONValue("item1"),
             new JSONValue(new List<JSONValue> { new JSONValue("subitem1"), new JSONValue(42) }),
+            new JSONValue(),
             new JSONValue(true)
         });
 
@@ -315,11 +393,19 @@ public class TestJSONValue
         {
             new JSONValue("item1"),
             new JSONValue(new List<JSONValue> { new JSONValue("subitem1"), new JSONValue(42) }),
+            new JSONValue(),
             new JSONValue(true)
         });
 
-        var result = (List<JSONValue>)source;
+        var result = (List<object?>)source;
         Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void test_explict_cast_to_list_when_value_is_not_list()
+    {
+        var source = new JSONValue(true);
+        Assert.ThrowsExactly<InvalidCastException>(() => (List<object?>)source);
     }
 
     [TestMethod]
@@ -409,4 +495,51 @@ public class TestJSONValue
         Assert.IsFalse(clone.DictValue["key3"].BooleanValue);
     }
 
+    [TestMethod]
+    public void test_get_hash_code_for_all_types()
+    {
+        var datetimeValue = new JSONValue(DateTime.UtcNow);
+        var datetimeValue2 = new JSONValue(DateTime.Now);
+        var boolValue = new JSONValue(true);
+        var boolValue2 = new JSONValue(false);
+        var stringValue = new JSONValue("test");
+        var stringValue2 = new JSONValue("hello");
+        var floatValue = new JSONValue(3.14);
+        var floatValue2 = new JSONValue(37.14);
+        var intValue = new JSONValue(42);
+        var intValue2 = new JSONValue(37);
+        var listValue = new JSONValue(new List<JSONValue>{ new("test list 1") });
+        var listValue2 = new JSONValue(new List<JSONValue>{ new("test list 2") });
+        var dictValue = new JSONValue(new Dictionary<string, JSONValue>
+        {
+            { "key1", "value1" }
+        });
+        var dictValue2 = new JSONValue(new Dictionary<string, JSONValue>
+        {
+            { "key2", "value2" }
+        });
+
+        var datetimeValueHashCode = datetimeValue.GetHashCode();
+        var datetimeValue2HashCode = datetimeValue2.GetHashCode();
+        var boolValueHashCode = boolValue.GetHashCode();
+        var boolValue2HashCode = boolValue2.GetHashCode();
+        var stringValueHashCode = stringValue.GetHashCode();
+        var stringValue2HashCode = stringValue2.GetHashCode();
+        var floatValueHashCode = floatValue.GetHashCode();
+        var floatValue2HashCode = floatValue2.GetHashCode();
+        var intValueHashCode = intValue.GetHashCode();
+        var intValue2HashCode = intValue2.GetHashCode();
+        var listValueHashCode = listValue.GetHashCode();
+        var listValue2HashCode = listValue2.GetHashCode();
+        var dictValueHashCode = dictValue.GetHashCode();
+        var dictValueHashCode2 = dictValue2.GetHashCode();
+
+        Assert.AreNotEqual(datetimeValueHashCode, datetimeValue2HashCode);
+        Assert.AreNotEqual(boolValueHashCode, boolValue2HashCode);
+        Assert.AreNotEqual(stringValueHashCode, stringValue2HashCode);
+        Assert.AreNotEqual(floatValueHashCode, floatValue2HashCode);
+        Assert.AreNotEqual(intValueHashCode, intValue2HashCode);
+        Assert.AreNotEqual(listValueHashCode, listValue2HashCode);
+        Assert.AreNotEqual(dictValueHashCode, dictValueHashCode2);
+    }
 }

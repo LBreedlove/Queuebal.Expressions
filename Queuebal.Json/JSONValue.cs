@@ -623,15 +623,7 @@ public class JSONValue
             {
                 result.Add((List<object?>)listValue);
             }
-            else if (valueType == typeof(List<object>))
-            {
-                result.Add((List<object?>)listValue);
-            }
             else if (valueType == typeof(Dictionary<string, object?>))
-            {
-                result.Add((Dictionary<string, object?>)listValue);
-            }
-            else if (valueType == typeof(Dictionary<string, object>))
             {
                 result.Add((Dictionary<string, object?>)listValue);
             }
@@ -995,6 +987,11 @@ public class JSONValue
         }
 
         var compare = DictValue;
+        if (compare.Count != value.Count)
+        {
+            return false;
+        }
+
         foreach (var keyValue in value)
         {
             if (!compare.ContainsKey(keyValue.Key))
@@ -1008,13 +1005,6 @@ public class JSONValue
             }
         }
 
-        foreach (var keyValue in _dictValue)
-        {
-            if (!value.ContainsKey(keyValue.Key))
-            {
-                return false;
-            }
-        }
         return true;
     }
 
