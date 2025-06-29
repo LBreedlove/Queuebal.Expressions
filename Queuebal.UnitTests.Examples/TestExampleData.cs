@@ -31,7 +31,7 @@ public class TestExampleData
         // expectedResult is a JSONValue containing the expected result of the transformation.
         if (inputData.Length < 3)
         {
-            Assert.Fail("Input data does not contain enough elements. Expected at least 2 elements.");
+            Assert.Fail("Input data does not contain enough elements. Expected at least 3 elements.");
             return;
         }
 

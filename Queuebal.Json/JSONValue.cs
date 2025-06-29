@@ -503,12 +503,7 @@ public class JSONValue
         }
 
         Dictionary<string, JSONValue> output = new();
-        if (value._dictValue == null)
-        {
-            return output;
-        }
-
-        foreach (var keyValue in value._dictValue)
+        foreach (var keyValue in value.DictValue)
         {
             output[keyValue.Key] = keyValue.Value;
         }
@@ -915,10 +910,10 @@ public class JSONValue
                 valueHashCode = _dateTimeValue.GetHashCode();
                 break;
             case JSONFieldType.List:
-                valueHashCode = (_listValue ?? new()).GetHashCode();
+                valueHashCode = _listValue?.GetHashCode() ?? 0;
                 break;
             case JSONFieldType.Dictionary:
-                valueHashCode = (_dictValue ?? new()).GetHashCode();
+                valueHashCode = _dictValue?.GetHashCode() ?? 0;
                 break;
             case JSONFieldType.Null:
                 valueHashCode = 0;
@@ -939,11 +934,6 @@ public class JSONValue
         if (object.ReferenceEquals(this._listValue, value))
         {
             return true;
-        }
-
-        if (_fieldType != JSONFieldType.List)
-        {
-            return false;
         }
 
         var compare = ListValue;
@@ -971,19 +961,9 @@ public class JSONValue
     /// <returns>true if the two dictionaries are equal/equivalent, otherwise false.</returns>
     private bool DictValueEquals(Dictionary<string, JSONValue> value)
     {
-        if (_dictValue == null)
-        {
-            return false;
-        }
-
         if (object.ReferenceEquals(_dictValue, value))
         {
             return true;
-        }
-
-        if (_fieldType != JSONFieldType.Dictionary)
-        {
-            return false;
         }
 
         var compare = DictValue;

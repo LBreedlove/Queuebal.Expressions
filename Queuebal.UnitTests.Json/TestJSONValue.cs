@@ -372,7 +372,14 @@ public class TestJSONValue
     }
 
     [TestMethod]
-    public void test_explicit_cast_to_datetime_when_value_is_invalid()
+    public void test_explicit_cast_to_datetime_when_string_is_invalid()
+    {
+        var source = new JSONValue("invalid datetime");
+        Assert.Throws<InvalidCastException>(() => (DateTime)source);
+    }
+
+    [TestMethod]
+    public void test_explicit_cast_to_datetime_when_value_is_invalid_type()
     {
         var source = new JSONValue(true);
         Assert.Throws<InvalidCastException>(() => (DateTime)source);
@@ -386,7 +393,11 @@ public class TestJSONValue
             new JSONValue("item1"),
             new JSONValue(new List<JSONValue> { new JSONValue("subitem1"), new JSONValue(42) }),
             new JSONValue(),
-            new JSONValue(true)
+            new JSONValue(true),
+            new JSONValue(new Dictionary<string, JSONValue>
+            {
+                { "key1", "value1" },
+            })
         });
 
         var expected = new JSONValue(new List<JSONValue>
@@ -394,11 +405,38 @@ public class TestJSONValue
             new JSONValue("item1"),
             new JSONValue(new List<JSONValue> { new JSONValue("subitem1"), new JSONValue(42) }),
             new JSONValue(),
-            new JSONValue(true)
+            new JSONValue(true),
+            new JSONValue(new Dictionary<string, JSONValue>
+            {
+                { "key1", "value1" },
+            })
         });
 
         var result = (List<object?>)source;
         Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void test_explicit_cast_to_list_of_jsonvalue()
+    {
+        var source = new JSONValue(new List<JSONValue>
+        {
+            new JSONValue("item1"),
+            new JSONValue(new List<JSONValue> { new JSONValue("subitem1"), new JSONValue(42) }),
+            new JSONValue(),
+            new JSONValue(true),
+        });
+
+        var expected = new List<JSONValue>
+        {
+            new JSONValue("item1"),
+            new JSONValue(new List<JSONValue> { new JSONValue("subitem1"), new JSONValue(42) }),
+            new JSONValue(),
+            new JSONValue(true),
+        };
+
+        var result = (List<JSONValue>)source;
+        CollectionAssert.AreEqual(expected, result);
     }
 
     [TestMethod]
