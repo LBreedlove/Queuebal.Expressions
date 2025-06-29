@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Queuebal.Expressions.Conditions</id>
+    <version>1.0.0</version>
+    <authors>Lucas Breedlove</authors>
+    <owners>Lucas Breedlove</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/LBreedlove/Queuebal.Expressions</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Conditions for use in Queuebal.Expressions expressions.</description>
+    <copyright>Copyright © 2025 Lucas Breedlove</copyright>
+    <tags>expressions etl</tags>
+    <dependencies>
+      <dependency id="Queuebal.Expressions" version="1.0.0" />
+      <dependency id="Queuebal.Json" version="1.0.0" />
+      <dependency id="Queuebal.Json.Data" version="1.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin/Release/netstandard2.1/Queuebal.Expressions.Conditions.dll" target="lib/netstandard2.1/" />
+    <file src="bin/Release/netstandard2.1/Queuebal.Expressions.Conditions.xml" target="lib/netstandard2.1/" />
+  </files>
+</package>

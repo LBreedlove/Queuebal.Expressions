@@ -8,7 +8,6 @@ using Queuebal.Expressions.Mutations;
 using Queuebal.Json;
 using Queuebal.Json.Data;
 using Queuebal.Serialization;
-using Queuebal.Services;
 
 namespace Queuebal.UnitTests.Examples;
 
