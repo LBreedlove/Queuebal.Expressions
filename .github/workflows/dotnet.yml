@@ -45,49 +45,42 @@ jobs:
     - name: Publish NuGet - Json
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
-        fail-on-error: false
-        PROJECT_FILE_PATH: Queuebal.Json/Queuebal.Json.csproj
-        VERSION_FILE_PATH: Directory.Build.props
+        PROJECT_FILE_PATH: ./Queuebal.Json/Queuebal.Json.csproj
+        VERSION_FILE_PATH: ./Directory.Build.props
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
     - name: Publish NuGet - Json Data
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
-        fail-on-error: false
-        PROJECT_FILE_PATH: Queuebal.Json.Data/Queuebal.Json.Data.csproj
-        VERSION_FILE_PATH: Directory.Build.props
+        PROJECT_FILE_PATH: ./Queuebal.Json.Data/Queuebal.Json.Data.csproj
+        VERSION_FILE_PATH: ./Directory.Build.props
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
     - name: Publish NuGet - Expressions
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
-        fail-on-error: false
-        PROJECT_FILE_PATH: Queuebal.Expressions/Queuebal.Expressions.csproj
-        VERSION_FILE_PATH: Directory.Build.props
+        PROJECT_FILE_PATH: ./Queuebal.Expressions/Queuebal.Expressions.csproj
+        VERSION_FILE_PATH: ./Directory.Build.props
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
     - name: Publish NuGet - Conditions
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
-        fail-on-error: false
-        PROJECT_FILE_PATH: Queuebal.Expressions.Conditions/Queuebal.Expressions.Conditions.csproj
-        VERSION_FILE_PATH: Directory.Build.props
+        PROJECT_FILE_PATH: ./Queuebal.Expressions.Conditions/Queuebal.Expressions.Conditions.csproj
+        VERSION_FILE_PATH: ./Directory.Build.props
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
     - name: Publish NuGet - Mutations
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
-        fail-on-error: false
-        PROJECT_FILE_PATH: Queuebal.Expressions.Mutations/Queuebal.Expressions.Mutations.csproj
-        VERSION_FILE_PATH: Directory.Build.props
+        PROJECT_FILE_PATH: ./Queuebal.Expressions.Mutations/Queuebal.Expressions.Mutations.csproj
+        VERSION_FILE_PATH: ./Directory.Build.props
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
     - name: Publish NuGet - Serialization
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
-        fail-on-error: false
-        PROJECT_FILE_PATH: Queuebal.Serialization/Queuebal.Serialization.csproj
-        VERSION_FILE_PATH: Directory.Build.props
+        PROJECT_FILE_PATH: ./Queuebal.Serialization/Queuebal.Serialization.csproj
+        VERSION_FILE_PATH: ./Directory.Build.props
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
     - name: Publish NuGet - Tools
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
-        fail-on-error: false
-        PROJECT_FILE_PATH: Queuebal.Expressions.Tools/Queuebal.Expressions.Tools.csproj
-        VERSION_FILE_PATH: Directory.Build.props
+        PROJECT_FILE_PATH: ./Queuebal.Expressions.Tools/Queuebal.Expressions.Tools.csproj
+        VERSION_FILE_PATH: ./Directory.Build.props
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
