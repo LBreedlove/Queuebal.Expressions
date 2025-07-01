@@ -23,7 +23,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore -c Release
     - name: Test
       run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./coverage/
     - name: ReportGenerator
@@ -43,16 +43,16 @@ jobs:
         fail-on-error: false
         file: ./coveragereport/Cobertura.xml
     - name: Publish NuGet - Json
-      run: dotnet nuget push *.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./Queuebal.Json/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
     - name: Publish NuGet - Json Data
-      run: dotnet nuget push Queuebal.Json.Data/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./Queuebal.Json.Data/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
     - name: Publish NuGet - Expressions
-      run: dotnet nuget push Queuebal.Expressions/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./Queuebal.Expressions/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
     - name: Publish NuGet - Conditions
-      run: dotnet nuget push Queuebal.Expressions.Conditions/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./Queuebal.Expressions.Conditions/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
     - name: Publish NuGet - Mutations
-      run: dotnet nuget push Queuebal.Expressions.Mutations/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./Queuebal.Expressions.Mutations/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
     - name: Publish NuGet - Serialization
-      run: dotnet nuget push Queuebal.Serialization/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./Queuebal.Serialization/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
     - name: Publish NuGet - Tools
-      run: dotnet nuget push Queuebal.Expressions.Tools/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./Queuebal.Expressions.Tools/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
