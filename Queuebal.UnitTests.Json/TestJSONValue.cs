@@ -14,6 +14,34 @@ public class TestJSONValue
     }
 
     [TestMethod]
+    public void test_is_long_on_long_value()
+    {
+        var value = new JSONValue(((long)Int32.MaxValue) + 100);
+        Assert.IsTrue(value.IsLong);
+    }
+
+    [TestMethod]
+    public void test_is_long_on_int_value()
+    {
+        var value = new JSONValue(((long)Int32.MaxValue) - 100);
+        Assert.IsFalse(value.IsLong);
+    }
+
+    [TestMethod]
+    public void test_is_long_on_float_value()
+    {
+        var value = new JSONValue(3.14);
+        Assert.IsFalse(value.IsLong);
+    }
+
+    [TestMethod]
+    public void test_is_float_on_int_value()
+    {
+        var value = new JSONValue(42);
+        Assert.IsFalse(value.IsFloat);
+    }
+
+    [TestMethod]
     public void test_implicit_cast_from_dictionary()
     {
         var source = new Dictionary<string, object?>()

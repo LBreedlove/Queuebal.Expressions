@@ -101,7 +101,7 @@ public class TestToDictMutation
                             NegateResult = true,
                             ValueSelector = new DataSelectorExpression
                             {
-                                Path = "value2"
+                                Path = "value"
                             },
                             ComparerValue = new ValueExpression
                             {

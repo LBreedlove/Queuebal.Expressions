@@ -72,7 +72,8 @@ public class ToDictMutation : Mutation
             {
                 var conditionInput = new JSONValue(new Dictionary<string, JSONValue>
                 {
-                    { key, value }
+                    { "key", key },
+                    { "value", value },
                 });
 
                 if (!Condition.Evaluate(context, conditionInput).BooleanValue)

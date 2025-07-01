@@ -805,6 +805,11 @@ public class JSONValue
     public bool IsInteger => _fieldType == JSONFieldType.Integer;
 
     /// <summary>
+    /// Indicates if the number stored in the IntValue field is a long value.
+    /// </summary>
+    public bool IsLong => _fieldType == JSONFieldType.Integer && IntValue > Int32.MaxValue;
+
+    /// <summary>
     /// Indicates if the JSONValue stores a string value.
     /// </summary>
     public bool IsString => _fieldType == JSONFieldType.String;
