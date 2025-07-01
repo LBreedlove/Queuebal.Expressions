@@ -22,8 +22,8 @@ jobs:
         dotnet-version: 9.0.x
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore -c Release
+    - name: Build Debug
+      run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./coverage/
     - name: ReportGenerator
@@ -42,6 +42,8 @@ jobs:
       with:
         fail-on-error: false
         file: ./coveragereport/Cobertura.xml
+    - name: Build Release
+      run: dotnet build --no-restore -c Release
     - name: Publish NuGet - Json
       run: dotnet nuget push ./Queuebal.Json/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
     - name: Publish NuGet - Json Data
