@@ -103,14 +103,15 @@ public static class Tokenizer
         {
             var c = inputValue[index];
             var nextChar = index + 1 < inputValue.Length ? inputValue[index + 1] : '\0';
+            var nextNextChar = index + 2 < inputValue.Length ? inputValue[index + 2] : '\0';
 
-            if (c == '{' && nextChar == '{')
+            if (c == '$' && nextChar == '{' && nextNextChar == '{')
             {
-                currentTokenText.Append(c);
-                ++index; // Skip the next '{' since we are treating '{{' as a literal
+                currentTokenText.Append("${");
+                index += 2;
                 continue;
             }
-            
+
             if (c == '}' && nextChar == '}')
             {
                 currentTokenText.Append(c);
@@ -118,7 +119,7 @@ public static class Tokenizer
                 continue;
             }
 
-            if (c == '{')
+            if (c == '$' && nextChar == '{')
             {
                 if (currentTokenText.Length > 0)
                 {
@@ -136,17 +137,21 @@ public static class Tokenizer
 
                 inPlaceholder = true;
                 currentTokenText.Append(c);
+                currentTokenText.Append(nextChar);
+
+                // skip nextChar since we consumed it.
+                ++index;
             }
             else if (c == '}')
             {
                 if (!inPlaceholder)
                 {
-                    // If we encounter '}' without a matching '{', it's an error
+                    // If we encounter '}' without a matching '${', it's an error
                     throw new FormatException("Unmatched '}' found in input.");
                 }
 
-                // Skip the opening '{' char, we didn't add the closing '}' to currentTokenText
-                var tokenText = currentTokenText.ToString().Substring(1, currentTokenText.Length - 1);
+                // Skip the opening '${' chars, we didn't add the closing '}' to currentTokenText
+                var tokenText = currentTokenText.ToString().Substring(2, currentTokenText.Length - 2);
                 var replacementValue = dataProvider.GetValue(tokenText);
                 if (replacementValue == null)
                 {

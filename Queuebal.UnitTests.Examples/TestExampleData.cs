@@ -104,7 +104,7 @@ public class TestExampleData
             {
                 "Sample Test Case",
                 new JSONValue("Original Data"),
-                new ValueExpression { Value = new JSONValue("Transformed Data {var_name}") },
+                new ValueExpression { Value = new JSONValue("Transformed Data ${var_name}") },
                 new DataProvider().AddValue("var_name", "with Variable"),
             }
         };

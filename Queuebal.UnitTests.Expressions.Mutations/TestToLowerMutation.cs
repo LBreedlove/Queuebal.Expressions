@@ -57,7 +57,7 @@ public class TestToLowerMutation
         var context = new ExpressionContext(new Json.Data.DataProvider());
         context.DataProvider.AddValue("output", new JSONValue("New output value"));
 
-        var inputValue = new JSONValue("{OUTPUT}");
+        var inputValue = new JSONValue("${OUTPUT}");
         var result = mutation.Evaluate(context, inputValue);
 
         Assert.IsTrue(result.IsString);

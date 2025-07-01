@@ -1,4 +1,4 @@
 {
     "ExpressionType": "Value",
-    "Value": "Expected Value {var_name}"
+    "Value": "Expected Value ${var_name}"
 }
