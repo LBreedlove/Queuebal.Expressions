@@ -43,7 +43,7 @@ jobs:
         fail-on-error: false
         file: ./coveragereport/Cobertura.xml
     - name: Publish NuGet - Json
-      run: dotnet nuget push Queuebal.Json/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push *.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
     - name: Publish NuGet - Json Data
       run: dotnet nuget push Queuebal.Json.Data/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
     - name: Publish NuGet - Expressions
