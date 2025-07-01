@@ -27,7 +27,7 @@ public class TestTokenizer
     [TestMethod]
     public void test_get_tokens_when_opening_bracket_is_escaped_is_not_replaced()
     {
-        var text = "this is a test ${{ with an escaped opening bracket";
+        var text = "this is a test \\${ with an escaped opening bracket";
         var dataProvider = new DataProvider();
         var tokens = Tokenizer.GetTokens(text, dataProvider).ToList();
 

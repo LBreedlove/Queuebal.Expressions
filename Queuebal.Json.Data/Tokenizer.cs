@@ -103,13 +103,25 @@ public static class Tokenizer
         {
             var c = inputValue[index];
             var nextChar = index + 1 < inputValue.Length ? inputValue[index + 1] : '\0';
-            var nextNextChar = index + 2 < inputValue.Length ? inputValue[index + 2] : '\0';
 
-            if (c == '$' && nextChar == '{' && nextNextChar == '{')
+            if (c == '\\')
             {
-                currentTokenText.Append("${");
-                index += 2;
-                continue;
+                if (nextChar == '$')
+                {
+                    currentTokenText.Append("$");
+                    ++index;
+                    continue;
+                }
+                else if (nextChar == '\\')
+                {
+                    currentTokenText.Append('\\');
+                    ++index;
+                    continue;
+                }
+                else
+                {
+                    throw new FormatException($"Unrecognized escape sequence: \\{nextChar}");
+                }
             }
 
             if (c == '}' && nextChar == '}')
