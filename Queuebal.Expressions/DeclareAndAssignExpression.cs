@@ -20,7 +20,7 @@ public class DeclareAndAssignExpression : Expression
     /// <summary>
     /// The expression that evaluates to the value to assign to the variable.
     /// </summary>
-    public required IExpression ValueExpression { get; set; }
+    public required IExpression Value { get; set; }
 
     /// <summary>
     /// Executes the declaration and assignment statement.
