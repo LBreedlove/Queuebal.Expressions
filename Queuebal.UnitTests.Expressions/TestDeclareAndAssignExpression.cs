@@ -18,7 +18,7 @@ public class TestDeclareAndAssignExpression
         var expression = new DeclareAndAssignExpression
         {
             VariableName = "existingVar",
-            ValueExpression = new ValueExpression { Value = new JSONValue(100) }
+            Value = new ValueExpression { Value = new JSONValue(100) }
         };
 
         // Act & Assert
@@ -33,7 +33,7 @@ public class TestDeclareAndAssignExpression
         var expression = new DeclareAndAssignExpression
         {
             VariableName = "newVar",
-            ValueExpression = new ValueExpression { Value = new JSONValue(100) }
+            Value = new ValueExpression { Value = new JSONValue(100) }
         };
         // Act
         var result = expression.Evaluate(context, new JSONValue());
