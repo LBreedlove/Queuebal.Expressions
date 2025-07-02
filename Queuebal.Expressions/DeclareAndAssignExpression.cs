@@ -33,7 +33,7 @@ public class DeclareAndAssignExpression : Expression
             throw new InvalidOperationException($"Variable '{VariableName}' is already declared.");
         }
 
-        var newValue = ValueExpression.Evaluate(context, inputValue);
+        var newValue = Value.Evaluate(context, inputValue);
         context.DataProvider.AddValue(VariableName, newValue);
         return newValue;
     }
