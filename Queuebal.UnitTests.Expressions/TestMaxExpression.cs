@@ -17,13 +17,12 @@ public class TestMaxExpression
     public ExpressionContext Context { get; }
 
     [TestMethod]
-    public void test_evaluate_when_lvalue_is_not_number_or_string()
+    public void test_evaluate_when_values_is_not_list()
     {
         // Arrange
         var expression = new MaxExpression
         {
-            LValue = new ValueExpression { Value = new List<JSONValue> { 123 } },
-            RValue = new ValueExpression { Value = 123 }
+            Values = new ValueExpression { Value = 123 },
         };
 
         // Act & Assert
@@ -31,13 +30,12 @@ public class TestMaxExpression
     }
 
     [TestMethod]
-    public void test_evaluate_when_rvalue_is_not_number_or_string()
+    public void test_evaluate_when_lvalue_is_not_number_or_string()
     {
         // Arrange
         var expression = new MaxExpression
         {
-            LValue = new ValueExpression { Value = 123 },
-            RValue = new ValueExpression { Value = new List<JSONValue> { 123 } }
+            Values = new ValueExpression { Value = new List<JSONValue> { new List<JSONValue> { 123 } } },
         };
 
         // Act & Assert
@@ -50,22 +48,7 @@ public class TestMaxExpression
         // Arrange
         var expression = new MaxExpression
         {
-            LValue = new ValueExpression { Value = 123 },
-            RValue = new ValueExpression { Value = "test" }
-        };
-
-        // Act & Assert
-        Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(Context, new JSONValue()));
-    }
-
-    [TestMethod]
-    public void test_evaluate_when_lvalue_is_string_and_rvalue_is_number()
-    {
-        // Arrange
-        var expression = new MaxExpression
-        {
-            LValue = new ValueExpression { Value = "test" },
-            RValue = new ValueExpression { Value = 123 }
+            Values = new ValueExpression { Value = new List<JSONValue> { 123, "test" } },
         };
 
         // Act & Assert
@@ -78,8 +61,7 @@ public class TestMaxExpression
         // Arrange
         var expression = new MaxExpression
         {
-            LValue = new ValueExpression { Value = 456 },
-            RValue = new ValueExpression { Value = 123 }
+            Values = new ValueExpression { Value = new List<JSONValue> { 456, 123 } },
         };
 
         // Act
@@ -96,8 +78,7 @@ public class TestMaxExpression
         // Arrange
         var expression = new MaxExpression
         {
-            LValue = new ValueExpression { Value = "hello" },
-            RValue = new ValueExpression { Value = "world" }
+            Values = new ValueExpression { Value = new List<JSONValue>{ "hello", "world" } },
         };
 
         // Act
@@ -113,8 +94,7 @@ public class TestMaxExpression
         // Arrange
         var expression = new MaxExpression
         {
-            LValue = new ValueExpression { Value = "world" },
-            RValue = new ValueExpression { Value = "hello" }
+            Values = new ValueExpression { Value = new List<JSONValue>{ "world", "hello" } },
         };
 
         // Act

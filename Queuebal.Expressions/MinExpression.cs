@@ -15,39 +15,39 @@ public class MinExpression : Expression
     public static string ExpressionType { get; } = "Min";
 
     /// <summary>
-    /// The first value to compare.
+    /// The values to compare.
     /// </summary>
-    public required IExpression LValue { get; set; }
-
-    /// <summary>
-    /// The second value to compare.
-    /// </summary>
-    public required IExpression RValue { get; set; }
+    public required IExpression Values { get; set; }
 
     protected override JSONValue EvaluateExpression(ExpressionContext context, JSONValue inputValue)
     {
-        var lvalue = LValue.Evaluate(context, inputValue);
-        if (!lvalue.IsNumber && !lvalue.IsString)
+        var values = Values.Evaluate(context, inputValue);
+        if (!values.IsList || !values.ListValue.Any())
+        {
+            throw new InvalidOperationException("Min values must evaluate to a non-empty list.");
+        }
+
+        var minValue = values.ListValue[0];
+        if (!minValue.IsNumber && !minValue.IsString)
         {
             throw new InvalidOperationException("Min can only compare numerical and string values");
         }
 
-        var rvalue = RValue.Evaluate(context, inputValue);
-        if (!rvalue.IsNumber && !rvalue.IsString)
+        foreach (var value in values.ListValue.Skip(1))
         {
-            throw new InvalidOperationException("Min can only compare numerical and string values");
+            if (value.FieldType != minValue.FieldType)
+            {
+                throw new InvalidOperationException("Min can only compare values of the same type");
+            }
+
+            minValue = MinValue(minValue, value);
         }
 
-        if (lvalue.IsNumber && !rvalue.IsNumber)
-        {
-            throw new InvalidOperationException("Min can only compare values of the same type");
-        }
+        return minValue;
+    }
 
-        if (lvalue.IsString && !rvalue.IsString)
-        {
-            throw new InvalidOperationException("Min can only compare values of the same type");
-        }
-
+    private JSONValue MinValue(JSONValue lvalue, JSONValue rvalue)
+    {
         if (lvalue.IsNumber)
         {
             return Math.Min(lvalue.FloatValue, rvalue.FloatValue);

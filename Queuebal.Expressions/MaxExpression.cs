@@ -15,39 +15,39 @@ public class MaxExpression : Expression
     public static string ExpressionType { get; } = "Max";
 
     /// <summary>
-    /// The first value to compare.
+    /// The values to compare.
     /// </summary>
-    public required IExpression LValue { get; set; }
-
-    /// <summary>
-    /// The second value to compare.
-    /// </summary>
-    public required IExpression RValue { get; set; }
+    public required IExpression Values { get; set; }
 
     protected override JSONValue EvaluateExpression(ExpressionContext context, JSONValue inputValue)
     {
-        var lvalue = LValue.Evaluate(context, inputValue);
-        if (!lvalue.IsNumber && !lvalue.IsString)
+        var values = Values.Evaluate(context, inputValue);
+        if (!values.IsList || !values.ListValue.Any())
+        {
+            throw new InvalidOperationException("Max values must evaluate to a non-empty list.");
+        }
+
+        var maxValue = values.ListValue[0];
+        if (!maxValue.IsNumber && !maxValue.IsString)
         {
             throw new InvalidOperationException("Max can only compare numerical and string values");
         }
 
-        var rvalue = RValue.Evaluate(context, inputValue);
-        if (!rvalue.IsNumber && !rvalue.IsString)
+        foreach (var value in values.ListValue.Skip(1))
         {
-            throw new InvalidOperationException("Max can only compare numerical and string values");
+            if (value.FieldType != maxValue.FieldType)
+            {
+                throw new InvalidOperationException("Max can only compare values of the same type");
+            }
+
+            maxValue = MaxValue(maxValue, value);
         }
 
-        if (lvalue.IsNumber && !rvalue.IsNumber)
-        {
-            throw new InvalidOperationException("Max can only compare values of the same type");
-        }
+        return maxValue;
+    }
 
-        if (lvalue.IsString && !rvalue.IsString)
-        {
-            throw new InvalidOperationException("Max can only compare values of the same type");
-        }
-
+    private JSONValue MaxValue(JSONValue lvalue, JSONValue rvalue)
+    {
         if (lvalue.IsNumber)
         {
             return Math.Max(lvalue.FloatValue, rvalue.FloatValue);
