@@ -17,7 +17,7 @@ public class TestProjectionExpression
         var filter = BuildFilterCondition();
         expression.ItemFilter = filter;
        
-        var context = new ExpressionContext(new DataProvider());
+        var context = new ExpressionContext(new VariableProvider());
         var result = expression.Evaluate(context, inputValue);
 
         Assert.IsTrue(result.IsList);
@@ -34,7 +34,7 @@ public class TestProjectionExpression
         var expression = BuildNonListProjectionExpression();
         var inputValue = BuildInputValue();
 
-        var context = new ExpressionContext(new DataProvider());
+        var context = new ExpressionContext(new VariableProvider());
         var result = expression.Evaluate(context, inputValue);
 
         Assert.IsTrue(result.IsList);
@@ -53,7 +53,7 @@ public class TestProjectionExpression
         var expression = BuildMissingProjectionExpression();
         var inputValue = BuildInputValue();
 
-        var context = new ExpressionContext(new DataProvider());
+        var context = new ExpressionContext(new VariableProvider());
         var result = expression.Evaluate(context, inputValue);
 
         Assert.IsTrue(result.IsNull);

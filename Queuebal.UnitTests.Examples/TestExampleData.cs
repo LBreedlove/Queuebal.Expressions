@@ -26,7 +26,7 @@ public class TestExampleData
         // inputData[0] is a string containing the name of the test case.
         // inputData[1] is a JSONValue containing the data to transform.
         // inputData[2] is a deserialized expression to apply to the data to transform.
-        // inputData[3] is an optional DataProvider that can be used for variable substitution in the expression.
+        // inputData[3] is an optional VariableProvider that can be used for variable substitution in the expression.
         // expectedResult is a JSONValue containing the expected result of the transformation.
         if (inputData.Length < 3)
         {
@@ -48,17 +48,17 @@ public class TestExampleData
             return;
         }
 
-        // DataProvider is an optional input we can use for variable substitution if the expression requires it.
-        var dataProvider = new DataProvider();
-        if (inputData.Length > 3 && inputData[3] is DataProvider)
+        // VariableProvider is an optional input we can use for variable substitution if the expression requires it.
+        var variableProvider = new VariableProvider();
+        if (inputData.Length > 3 && inputData[3] is VariableProvider)
         {
-            dataProvider = (DataProvider)inputData[3];
+            variableProvider = (VariableProvider)inputData[3];
         }
 
         var expected = (JSONValue)expectedResult;
 
         // Act
-        var expressionResult = expression.Evaluate(new ExpressionContext(dataProvider), sourceData);
+        var expressionResult = expression.Evaluate(new ExpressionContext(variableProvider), sourceData);
 
         // Assert
         Assert.AreEqual(expected, expressionResult);
@@ -94,7 +94,7 @@ public class TestExampleData
         // result[1][0] is a string containing the name of the test case.
         // result[1][1] is a JSONValue containing the data to transform.
         // result[1][2] is a deserialized expression to apply to the data to transform.
-        // result[1][3] is an optional DataProvider that can be used for variable substitution in the expression.
+        // result[1][3] is an optional VariableProvider that can be used for variable substitution in the expression.
 
         // yield a first test case that should always pass, i.e. test the test method itself
         yield return new object[]
@@ -105,7 +105,7 @@ public class TestExampleData
                 "Sample Test Case",
                 new JSONValue("Original Data"),
                 new ValueExpression { Value = new JSONValue("Transformed Data ${var_name}") },
-                new DataProvider().AddValue("var_name", "with Variable"),
+                new VariableProvider().AddValue("var_name", "with Variable"),
             }
         };
 
@@ -114,8 +114,8 @@ public class TestExampleData
         var inputValue = new JSONValue("test");
         var mutation = new StringSplitMutation { Separators = new List<string> { "." } };
         var condition = new EqualsCondition { ComparerValue = new ValueExpression { Value = "test" } };
-        mutation.Evaluate(new ExpressionContext(new DataProvider()), inputValue);
-        condition.Evaluate(new ExpressionContext(new DataProvider()), inputValue);
+        mutation.Evaluate(new ExpressionContext(new VariableProvider()), inputValue);
+        condition.Evaluate(new ExpressionContext(new VariableProvider()), inputValue);
 
         // build the type registry used to deserialize the expressions
         var expressionTypeRegistry = TypeRegistryService<IExpression>.BuildFromCurrentAppDomain("ExpressionType");
@@ -150,12 +150,12 @@ public class TestExampleData
                 continue; // Skip files that do not have a corresponding expression file
             }
 
-            var dataProviderFile = Path.Combine("Examples", $"{testName}.data_provider.json");
+            var variableProviderFile = Path.Combine("Examples", $"{testName}.data_provider.json");
 
             var inputData = BuildJsonValue(file);
             var outputData = BuildJsonValue(outputFile);
             var expression = BuildExpression(expressionFile, typeResolver);
-            var dataProvider = BuildDataProvider(dataProviderFile);
+            var variableProvider = BuildVariableProvider(variableProviderFile);
 
             yield return new object[]
             {
@@ -165,7 +165,7 @@ public class TestExampleData
                     testName,
                     inputData,
                     expression,
-                    dataProvider,
+                    variableProvider,
                 }
             };
         }
@@ -212,64 +212,64 @@ public class TestExampleData
     }
 
     /// <summary>
-    /// Builds a DataProvider with a single scope from the JSON data in the specified file.
+    /// Builds a VariableProvider with a single scope from the JSON data in the specified file.
     /// </summary>
-    /// <param name="filePath">The path of the file containing the DataProvider data to deserialize.</param>
-    /// <returns>A new DataProvider containing the values from the serialized JSON data.</returns>
-    private static DataProvider BuildDataProvider(string filePath)
+    /// <param name="filePath">The path of the file containing the VariableProvider data to deserialize.</param>
+    /// <returns>A new VariableProvider containing the values from the serialized JSON data.</returns>
+    private static VariableProvider BuildVariableProvider(string filePath)
     {
-        // Read the data provider file and deserialize it into a DataProvider
+        // Read the data provider file and deserialize it into a VariableProvider
         if (!File.Exists(filePath))
         {
-            return new DataProvider(); // Return an empty DataProvider if the file does not exist
+            return new VariableProvider(); // Return an empty VariableProvider if the file does not exist
         }
 
         var fileContent = File.ReadAllText(filePath);
         if (string.IsNullOrWhiteSpace(fileContent))
         {
-            return new DataProvider(); // Return an empty DataProvider if the file is empty
+            return new VariableProvider(); // Return an empty VariableProvider if the file is empty
         }
 
         var jsonData = JsonSerializer.Deserialize<Dictionary<string, object?>>(fileContent);
         if (jsonData is null)
         {
-            return new DataProvider(); // Return an empty DataProvider if the JSON data is null
+            return new VariableProvider(); // Return an empty VariableProvider if the JSON data is null
         }
 
-        var dataProvider = new DataProvider();
+        var variableProvider = new VariableProvider();
         foreach (var kv in jsonData)
         {
             switch (kv.Value)
             {
                 case string strValue:
-                    dataProvider.AddValue(kv.Key, new JSONValue(strValue));
+                    variableProvider.AddValue(kv.Key, new JSONValue(strValue));
                     break;
                 case int intValue:
-                    dataProvider.AddValue(kv.Key, new JSONValue(intValue));
+                    variableProvider.AddValue(kv.Key, new JSONValue(intValue));
                     break;
                 case bool boolValue:
-                    dataProvider.AddValue(kv.Key, new JSONValue(boolValue));
+                    variableProvider.AddValue(kv.Key, new JSONValue(boolValue));
                     break;
                 case double doubleValue:
-                    dataProvider.AddValue(kv.Key, new JSONValue(doubleValue));
+                    variableProvider.AddValue(kv.Key, new JSONValue(doubleValue));
                     break;
                 case List<object?> listValue:
-                    dataProvider.AddValue(kv.Key, (JSONValue)listValue);
+                    variableProvider.AddValue(kv.Key, (JSONValue)listValue);
                     break;
                 case Dictionary<string, object?> dictValue:
-                    dataProvider.AddValue(kv.Key, (JSONValue)dictValue);
+                    variableProvider.AddValue(kv.Key, (JSONValue)dictValue);
                     break;
                 case JsonElement jsonElement:
                     // If the value is a JsonElement, convert it to JSONValue
-                    dataProvider.AddValue(kv.Key, new JSONValue(jsonElement));
+                    variableProvider.AddValue(kv.Key, new JSONValue(jsonElement));
                     break;
                 case null:
-                    dataProvider.AddValue(kv.Key, new JSONValue());
+                    variableProvider.AddValue(kv.Key, new JSONValue());
                     break;
                 default:
                     throw new InvalidOperationException($"Unsupported value type: {kv.Value.GetType()} for key: {kv.Key}");
             }
         }
-        return dataProvider;
+        return variableProvider;
     }
 }

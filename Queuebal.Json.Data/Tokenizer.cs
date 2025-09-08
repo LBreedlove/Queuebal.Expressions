@@ -44,14 +44,14 @@ public static class Tokenizer
     /// and returns the concatenated string as a JSONValue.
     /// </summary>
     /// <param name="inputValue">The input string to tokenize and get the replacement value(s) for.</param>
-    /// <param name="dataProvider">The DataProvider to use to find the replacement values.</param>
+    /// <param name="variableProvider">The VariableProvider to use to find the replacement values.</param>
     /// <returns>A JSONValue representing the result of the evaluation.</returns>
     /// <exception cref="KeyNotFoundException">Thrown when a placeholder token is found, but its value
-    /// was not found in the DataProvider.
+    /// was not found in the VariableProvider.
     /// </exception>
-    public static JSONValue Evaluate(string inputValue, DataProvider dataProvider)
+    public static JSONValue Evaluate(string inputValue, VariableProvider variableProvider)
     {
-        var tokens = GetTokens(inputValue, dataProvider);
+        var tokens = GetTokens(inputValue, variableProvider);
         if (!tokens.Any())
         {
             return inputValue;
@@ -92,10 +92,10 @@ public static class Tokenizer
     /// Gets the tokens from the input value.
     /// </summary>
     /// <param name="inputValue"></param>
-    /// <param name="dataProvider"></param>
+    /// <param name="variableProvider"></param>
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
-    public static IEnumerable<Token> GetTokens(string inputValue, DataProvider dataProvider)
+    public static IEnumerable<Token> GetTokens(string inputValue, VariableProvider variableProvider)
     {
         bool inPlaceholder = false;
         var currentTokenText = new StringBuilder();
@@ -164,7 +164,7 @@ public static class Tokenizer
 
                 // Skip the opening '${' chars, we didn't add the closing '}' to currentTokenText
                 var tokenText = currentTokenText.ToString().Substring(2, currentTokenText.Length - 2);
-                var replacementValue = dataProvider.GetValue(tokenText);
+                var replacementValue = variableProvider.GetValue(tokenText);
                 if (replacementValue == null)
                 {
                     throw new KeyNotFoundException($"Token '{tokenText}' has no replacement value.");

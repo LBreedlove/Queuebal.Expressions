@@ -66,7 +66,7 @@ public class TestJoinExpression
         };
 
         // Act & Assert
-        Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue()));
+        Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue()));
     }
 
     [TestMethod]
@@ -84,7 +84,7 @@ public class TestJoinExpression
         };
 
         // Act & Assert
-        Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue()));
+        Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue()));
     }
 
     [TestMethod]
@@ -102,7 +102,7 @@ public class TestJoinExpression
         };
 
         // Act & Assert
-        Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue()));
+        Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue()));
     }
 
     [TestMethod]
@@ -120,7 +120,7 @@ public class TestJoinExpression
         };
 
         // Act & Assert
-        Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue()));
+        Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue()));
     }
 
     [TestMethod]
@@ -138,7 +138,7 @@ public class TestJoinExpression
         };
 
         // Act & Assert
-        Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue()));
+        Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue()));
     }
 
     [TestMethod]
@@ -156,7 +156,7 @@ public class TestJoinExpression
         };
 
         // Act & Assert
-        Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue()));
+        Assert.ThrowsExactly<InvalidOperationException>(() => expression.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue()));
     }
 
     [TestMethod]
@@ -181,7 +181,7 @@ public class TestJoinExpression
             {
                 new JoinField { FieldName = "email", Alias = "emailAddress" }
             }
-        }.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue("not used"));
+        }.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue("not used"));
 
         Assert.IsNotNull(result);
         var expected = new List<JSONValue>
@@ -225,7 +225,7 @@ public class TestJoinExpression
             {
                 new JoinField { FieldName = "*" }
             }
-        }.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue("not used"));
+        }.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue("not used"));
 
         Assert.IsNotNull(result);
         var expected = new List<JSONValue>
@@ -272,7 +272,7 @@ public class TestJoinExpression
                 new JoinField { FieldName = "userIdentifier" },
                 new JoinField { FieldName = "email", Alias = "emailAddress" }
             }
-        }.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue("not used"));
+        }.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue("not used"));
 
         Assert.IsNotNull(result);
         var expected = new List<JSONValue>

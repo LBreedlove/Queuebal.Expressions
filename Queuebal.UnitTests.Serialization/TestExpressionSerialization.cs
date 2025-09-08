@@ -52,7 +52,7 @@ public class TestExpressionSerialization
         Assert.IsNotNull(deserialized);
         Assert.IsInstanceOfType<ConditionExpression>(deserialized);
 
-        var result = deserialized.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue("test"));
+        var result = deserialized.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue("test"));
         Assert.IsTrue(result.BooleanValue); // true because NegateResult is true and inputValue is not null
     }
 }

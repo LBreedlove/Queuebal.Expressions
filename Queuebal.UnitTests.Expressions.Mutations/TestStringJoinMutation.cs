@@ -10,7 +10,7 @@ public class TestStringJoinMutation
 {
     public TestStringJoinMutation()
     {
-        Context = new ExpressionContext(new Json.Data.DataProvider());
+        Context = new ExpressionContext(new Json.Data.VariableProvider());
     }
 
     /// <summary>

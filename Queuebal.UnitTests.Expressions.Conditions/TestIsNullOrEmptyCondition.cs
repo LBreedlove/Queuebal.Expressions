@@ -8,7 +8,7 @@ namespace Queuebal.UnitTests.Expressions.Conditions;
 [TestClass]
 public class TestIsNullOrEmptyCondition
 {
-    private ExpressionContext Context { get; } = new ExpressionContext(new Json.Data.DataProvider());
+    private ExpressionContext Context { get; } = new ExpressionContext(new Json.Data.VariableProvider());
 
     [TestMethod]
     public void test_evaluate_when_value_is_null()

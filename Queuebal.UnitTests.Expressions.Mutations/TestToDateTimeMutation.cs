@@ -13,7 +13,7 @@ public class TestToDateTimeMutation
     {
         var mutation = new ToDateTimeMutation();
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new JSONValue("2023-10-01T12:00:00Z");
         var result = mutation.Evaluate(context, inputValue);
 
@@ -26,7 +26,7 @@ public class TestToDateTimeMutation
     {
         var mutation = new ToDateTimeMutation();
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new JSONValue("2023-10-01T12:00:00+00:00");
         var result = mutation.Evaluate(context, inputValue);
 
@@ -39,7 +39,7 @@ public class TestToDateTimeMutation
     {
         var mutation = new ToDateTimeMutation();
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new JSONValue("2023-10-01T12:00:00-07:00");
         var result = mutation.Evaluate(context, inputValue);
 
@@ -55,7 +55,7 @@ public class TestToDateTimeMutation
     {
         var mutation = new ToDateTimeMutation { ConvertToUtc = false };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new JSONValue("2023-10-01T12:00:00-07:00");
         var result = mutation.Evaluate(context, inputValue);
 
@@ -79,7 +79,7 @@ public class TestToDateTimeMutation
     {
         var mutation = new ToDateTimeMutation();
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new JSONValue("not a date time");
 
         Assert.ThrowsException<FormatException>(() => mutation.Evaluate(context, inputValue));
@@ -90,7 +90,7 @@ public class TestToDateTimeMutation
     {
         var mutation = new ToDateTimeMutation();
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new JSONValue(1727808000.0); // This is the Unix timestamp for 2024-10-01T18:40:00Z
         var result = mutation.Evaluate(context, inputValue);
 
@@ -104,7 +104,7 @@ public class TestToDateTimeMutation
     {
         var mutation = new ToDateTimeMutation();
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new JSONValue(1727808000); // This is the Unix timestamp for 2024-10-01T18:40:00Z
         var result = mutation.Evaluate(context, inputValue);
 
@@ -117,7 +117,7 @@ public class TestToDateTimeMutation
     {
         var mutation = new ToDateTimeMutation();
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new JSONValue(true); // Boolean is not a valid date time input
 
         Assert.ThrowsException<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));

@@ -8,7 +8,7 @@ namespace Queuebal.UnitTests.Expressions.Conditions;
 [TestClass]
 public class TestLessThanOrEqualCondition
 {
-    ExpressionContext Context { get; } = new ExpressionContext(new Json.Data.DataProvider());
+    ExpressionContext Context { get; } = new ExpressionContext(new Json.Data.VariableProvider());
 
     [TestMethod]
     public void test_evaluate_when_input_value_is_greater_than_comparer()

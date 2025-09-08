@@ -49,7 +49,7 @@ public class TestExpression
         }
         """;
         var inputValue = new JSONValue(System.Text.Json.JsonDocument.Parse(inputJson).RootElement);
-        var context = new ExpressionContext(new DataProvider());
+        var context = new ExpressionContext(new VariableProvider());
 
         // Act
         var result = expression.Evaluate(context, inputValue);

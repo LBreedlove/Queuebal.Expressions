@@ -4,43 +4,43 @@ namespace Queuebal.Json.Data;
 
 
 /// <summary>Provides disposable access to a data provider scope.</summary>
-public class DataProviderScopeAccess : IDisposable
+public class VariableProviderScopeAccess : IDisposable
 {
     /// <summary>Is the scope access disposed of yet.</summary>
     private int _disposed = 0;
 
-    /// <summary>The DataProvider the scope was added to.</summary>
-    private readonly DataProvider _dataProvider;
+    /// <summary>The VariableProvider the scope was added to.</summary>
+    private readonly VariableProvider _variableProvider;
 
-    /// <summary>The DataProviderScope that was added to the DataProvider.</summary>
-    private readonly DataProviderScope _scope;
+    /// <summary>The VariableProviderScope that was added to the VariableProvider.</summary>
+    private readonly VariableProviderScope _scope;
 
     /// <summary>
-    /// Initializes a new instance of the DataProviderScopeAccess object, and pushes
-    /// the scope onto the scope stack of the given DataProvider.
+    /// Initializes a new instance of the VariableProviderScopeAccess object, and pushes
+    /// the scope onto the scope stack of the given VariableProvider.
     /// </summary>
-    /// <param name="dataProvider">The DataProvider to add the scope to.</param>
-    /// <param name="scope">The scope to add to the DataProvider.</param>
-    public DataProviderScopeAccess(DataProvider dataProvider, DataProviderScope scope)
+    /// <param name="variableProvider">The VariableProvider to add the scope to.</param>
+    /// <param name="scope">The scope to add to the VariableProvider.</param>
+    public VariableProviderScopeAccess(VariableProvider variableProvider, VariableProviderScope scope)
     {
-        _dataProvider = dataProvider;
+        _variableProvider = variableProvider;
         _scope = scope;
 
-        _dataProvider.PushScope(scope);
+        _variableProvider.PushScope(scope);
     }
 
-    ~DataProviderScopeAccess()
+    ~VariableProviderScopeAccess()
     {
         Dispose(false);
     }
 
     /// <summary>
-    /// Gets the scope that was added to the DataProvider.
+    /// Gets the scope that was added to the VariableProvider.
     /// </summary>
-    public DataProviderScope Scope => _scope;
+    public VariableProviderScope Scope => _scope;
 
     /// <summary>
-    /// Disposes of the DataProviderScopeAccess and removes the DataProviderScope from the DataProvider.
+    /// Disposes of the VariableProviderScopeAccess and removes the VariableProviderScope from the VariableProvider.
     /// </summary>
     public void Dispose()
     {
@@ -48,7 +48,7 @@ public class DataProviderScopeAccess : IDisposable
     }
 
     /// <summary>
-    /// Disposes of the DataProviderScopeAccess and removes the DataProviderScope from the DataProvider.
+    /// Disposes of the VariableProviderScopeAccess and removes the VariableProviderScope from the VariableProvider.
     /// </summary>
     private void Dispose(bool disposing)
     {
@@ -59,16 +59,16 @@ public class DataProviderScopeAccess : IDisposable
 
         if (disposing)
         {
-            _dataProvider.RemoveScope(_scope);
+            _variableProvider.RemoveScope(_scope);
         }
     }
 }
 
 
 /// <summary>
-/// Defines a Scope for a DataProvider to store values in.
+/// Defines a Scope for a VariableProvider to store values in.
 /// </summary>
-public class DataProviderScope
+public class VariableProviderScope
 {
     /// <summary>
     /// The name of the scope.
@@ -81,10 +81,10 @@ public class DataProviderScope
     private readonly Dictionary<string, JSONValue> _values = new();
 
     /// <summary>
-    /// Initializes a new instance of a DataProviderScope, with the specified name.
+    /// Initializes a new instance of a VariableProviderScope, with the specified name.
     /// </summary>
     /// <param name="scopeName">The name of the new scope.</param>
-    public DataProviderScope(string scopeName, Dictionary<string, JSONValue>? values = null)
+    public VariableProviderScope(string scopeName, Dictionary<string, JSONValue>? values = null)
     {
         _scopeName = scopeName;
         if (values != null)
@@ -97,7 +97,7 @@ public class DataProviderScope
     }
 
     /// <summary>
-    /// Gets the name of the DataProviderScope.
+    /// Gets the name of the VariableProviderScope.
     /// </summary>
     public string Name => _scopeName;
 
@@ -125,7 +125,7 @@ public class DataProviderScope
     /// <param name="value">The value to add.</param>
     /// <returns>The current scope.</returns>
     /// <remarks>If a value with the given key already exists, it will be overwritten.</remarks>
-    public DataProviderScope AddValue(string key, JSONValue value)
+    public VariableProviderScope AddValue(string key, JSONValue value)
     {
         _values[key] = value;
         return this;
@@ -137,7 +137,7 @@ public class DataProviderScope
     /// <param name="values">The values to add to the scope.</param>
     /// <returns>The current scope.</returns>
     /// <remarks>If a value with the given key already exists, it will be overwritten.</remarks>
-    public DataProviderScope AddValues(Dictionary<string, JSONValue> values)
+    public VariableProviderScope AddValues(Dictionary<string, JSONValue> values)
     {
         foreach (var keyValue in values)
         {
@@ -158,18 +158,18 @@ public class DataProviderScope
 
 
 /// <summary>
-/// Provides access to data stored in memory, using a stack of DataProviderScopes to
+/// Provides access to data stored in memory, using a stack of VariableProviderScopes to
 /// store and access values.
 /// </summary>
-public class DataProvider
+public class VariableProvider
 {
-    private readonly DataProviderScope _rootScope = new DataProviderScope("__root");
-    private readonly List<DataProviderScope> _scopes = new();
-    private readonly Dictionary<string, List<DataProviderScope>> _scopesMap = new();
-    private DataProviderScope _currentScope;
+    private readonly VariableProviderScope _rootScope = new VariableProviderScope("__root");
+    private readonly List<VariableProviderScope> _scopes = new();
+    private readonly Dictionary<string, List<VariableProviderScope>> _scopesMap = new();
+    private VariableProviderScope _currentScope;
 
-    /// <summary>Initializes a new instance of the DataProvider class.</summary>
-    public DataProvider()
+    /// <summary>Initializes a new instance of the VariableProvider class.</summary>
+    public VariableProvider()
     {
         _currentScope = _rootScope;
         _scopes.Add(_rootScope);
@@ -202,9 +202,9 @@ public class DataProvider
     /// </summary>
     /// <param name="key">The key of the value to add.</param>
     /// <param name="value">The value to add.</param>
-    /// <returns>The current DataProvider.</returns>
+    /// <returns>The current VariableProvider.</returns>
     /// <remarks>If a value with the given key already exists, it will be overwritten.</remarks>
-    public DataProvider AddRootValue(string key, JSONValue value)
+    public VariableProvider AddRootValue(string key, JSONValue value)
     {
         _rootScope.AddValue(key, value);
         return this;
@@ -214,9 +214,9 @@ public class DataProvider
     /// Adds a dictionary of values to the root scope.
     /// </summary>
     /// <param name="values">The values to add to the root scope.</param>
-    /// <returns>The current DataProvider.</returns>
+    /// <returns>The current VariableProvider.</returns>
     /// <remarks>If a value with the given key already exists, it will be overwritten.</remarks>
-    public DataProvider AddRootValues(Dictionary<string, JSONValue> values)
+    public VariableProvider AddRootValues(Dictionary<string, JSONValue> values)
     {
         _rootScope.AddValues(values);
         return this;
@@ -224,7 +224,7 @@ public class DataProvider
 
     /// <summary>Adds a value to the current scope.</summary>
     /// <remarks>If a value with the given key already exists, it will be overwritten.</remarks>
-    public DataProvider AddValue(string key, JSONValue value)
+    public VariableProvider AddValue(string key, JSONValue value)
     {
         _currentScope.AddValue(key, value);
         return this;
@@ -234,9 +234,9 @@ public class DataProvider
     /// Adds a dictionary of values to the current scope.
     /// </summary>
     /// <param name="values">The values to add to the current scope.</param>
-    /// <returns>The current DataProvider.</returns>
+    /// <returns>The current VariableProvider.</returns>
     /// <remarks>If a value with the given key already exists, it will be overwritten.</remarks>
-    public DataProvider AddValues(Dictionary<string, JSONValue> values)
+    public VariableProvider AddValues(Dictionary<string, JSONValue> values)
     {
         _currentScope.AddValues(values);
         return this;
@@ -247,10 +247,10 @@ public class DataProvider
     /// </summary>
     /// <param name="key">The name of the variable to add.</param>
     /// <param name="value">The value to assign to the variable.</param>
-    /// <returns>The current DataProvider.</returns>
+    /// <returns>The current VariableProvider.</returns>
     /// <remarks>If the currentScope is the rootScope, the key/value will be added to the currentScope.</remarks>
     /// <remarks>If a value with the given key already exists, it will be overwritten.</remarks>
-    public DataProvider AddParentValue(string key, JSONValue value)
+    public VariableProvider AddParentValue(string key, JSONValue value)
     {
         if (_scopes.Count == 1)
         {
@@ -269,8 +269,8 @@ public class DataProvider
     /// Adds a scope to the top of the scope stack.
     /// </summary>
     /// <param name="scope">The scope to add.</param>
-    /// <returns>The current DataProvider.</returns>
-    public DataProvider PushScope(DataProviderScope scope)
+    /// <returns>The current VariableProvider.</returns>
+    public VariableProvider PushScope(VariableProviderScope scope)
     {
         _scopes.Add(scope);
         _currentScope = scope;
@@ -280,8 +280,8 @@ public class DataProvider
     /// <summary>
     /// Removes the last scope added to the scopes stack.
     /// </summary>
-    /// <returns>The current DataProvider.</returns>
-    public DataProvider PopScope()
+    /// <returns>The current VariableProvider.</returns>
+    public VariableProvider PopScope()
     {
         // we don't want to pop the root scope, so make sure there's
         // more than one scope registered.
@@ -295,16 +295,16 @@ public class DataProvider
     }
 
     /// <summary>
-    /// Removes the specified DataProviderScope from the stack of scopes.
+    /// Removes the specified VariableProviderScope from the stack of scopes.
     /// </summary>
     /// <param name="scope">The scope to remove.</param>
-    /// <returns>The current DataProvider.</returns>
-    public DataProvider RemoveScope(DataProviderScope scope)
+    /// <returns>The current VariableProvider.</returns>
+    public VariableProvider RemoveScope(VariableProviderScope scope)
     {
         // we expect the scope to be at the top of the stack, so check there first.
         if (scope == _rootScope)
         {
-            throw new InvalidOperationException("Cannot remove the root scope from the DataProvider.");
+            throw new InvalidOperationException("Cannot remove the root scope from the VariableProvider.");
         }
 
         if (_scopes[^1] == scope)
@@ -315,7 +315,7 @@ public class DataProvider
 
         if (!_scopes.Remove(scope))
         {
-            throw new InvalidOperationException("The specified scope does not belong to the current DataProvider");
+            throw new InvalidOperationException("The specified scope does not belong to the current VariableProvider");
         }
 
         return this;
@@ -328,10 +328,10 @@ public class DataProvider
     /// <param name="scopeName">The scope to add to the </param>
     /// <param name="values"></param>
     /// <returns></returns>
-    public DataProviderScopeAccess WithScope(string scopeName, Dictionary<string, JSONValue>? values = null)
+    public VariableProviderScopeAccess WithScope(string scopeName, Dictionary<string, JSONValue>? values = null)
     {
-        var scope = new DataProviderScope(scopeName, values);
-        return new DataProviderScopeAccess(this, scope);
+        var scope = new VariableProviderScope(scopeName, values);
+        return new VariableProviderScopeAccess(this, scope);
     }
 
     /// <summary>

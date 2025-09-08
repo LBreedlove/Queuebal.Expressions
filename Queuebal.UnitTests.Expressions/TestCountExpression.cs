@@ -9,7 +9,7 @@ public class TestCountExpression
 {
     public TestCountExpression()
     {
-        Context = new ExpressionContext(new DataProvider());
+        Context = new ExpressionContext(new VariableProvider());
     }
 
     /// <summary>

@@ -13,7 +13,7 @@ public class TestToLowerMutation
     {
         var mutation = new ToLowerMutation();
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         var inputValue = new JSONValue(123); // Not a string
         Assert.ThrowsException<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
@@ -24,7 +24,7 @@ public class TestToLowerMutation
     {
         var mutation = new ToLowerMutation();
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // TODO: Get a better test string that requires invariant-culture-specific casing
         var inputValue = new JSONValue("TeST StRiNg");
@@ -39,7 +39,7 @@ public class TestToLowerMutation
     {
         var mutation = new ToLowerMutation { UseInvariantCulture = false };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // TODO: Get a better test string that requires culture-specific casing
         var inputValue = new JSONValue("TeST StRiNg");
@@ -54,8 +54,8 @@ public class TestToLowerMutation
     {
         var mutation = new ToLowerMutation();
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
-        context.DataProvider.AddValue("output", new JSONValue("New output value"));
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
+        context.VariableProvider.AddValue("output", new JSONValue("New output value"));
 
         var inputValue = new JSONValue("${OUTPUT}");
         var result = mutation.Evaluate(context, inputValue);

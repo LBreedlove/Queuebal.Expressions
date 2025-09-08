@@ -20,10 +20,10 @@ public class TestDictExpression
             }
         };
 
-        var dataProvider = new Json.Data.DataProvider();
-        dataProvider.AddValue("replace", new JSONValue(123)); // Non-string value for key
+        var variableProvider = new Json.Data.VariableProvider();
+        variableProvider.AddValue("replace", new JSONValue(123)); // Non-string value for key
 
-        var context = new ExpressionContext(dataProvider);
+        var context = new ExpressionContext(variableProvider);
         var inputValue = new JSONValue("not used");
 
         // Act & Assert
@@ -42,7 +42,7 @@ public class TestDictExpression
             }
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new JSONValue("not used");
 
         // Act

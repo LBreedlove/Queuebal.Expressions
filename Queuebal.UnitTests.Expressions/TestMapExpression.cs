@@ -15,7 +15,7 @@ public class TestMapExpression
             Map = new ValueExpression { Value = new JSONValue("test") }
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new JSONValue("not a list");
 
         Assert.ThrowsException<InvalidOperationException>(() => expression.Evaluate(context, inputValue));
@@ -29,7 +29,7 @@ public class TestMapExpression
             Map = new ValueExpression { Value = new JSONValue("mapped") }
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new List<JSONValue> { new JSONValue("item1"), new JSONValue("item2") };
         var result = expression.Evaluate(context, inputValue);
 
