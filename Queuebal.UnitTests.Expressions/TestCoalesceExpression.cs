@@ -9,7 +9,7 @@ public class TestCoalesceExpression
 {
     public TestCoalesceExpression()
     {
-        Context = new ExpressionContext(new DataProvider());
+        Context = new ExpressionContext(new VariableProvider());
     }
 
     /// <summary>

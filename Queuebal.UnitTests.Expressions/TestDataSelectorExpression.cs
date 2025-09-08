@@ -9,7 +9,7 @@ public class TestDataSelectorExpression
 {
     public TestDataSelectorExpression()
     {
-        Context = new ExpressionContext(new DataProvider());
+        Context = new ExpressionContext(new VariableProvider());
     }
 
     /// <summary>

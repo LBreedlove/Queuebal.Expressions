@@ -16,7 +16,7 @@ public class TestToDictMutation
     public void test_evaluate_when_key_selector_is_null()
     {
         // Arrange
-        var context = new ExpressionContext(new DataProvider());
+        var context = new ExpressionContext(new VariableProvider());
         var mutation = new ToDictMutation
         {
             KeySelector = null,
@@ -47,7 +47,7 @@ public class TestToDictMutation
     public void test_evaluate_when_input_is_null_returns_empty_dict()
     {
         // Arrange
-        var context = new ExpressionContext(new DataProvider());
+        var context = new ExpressionContext(new VariableProvider());
         var mutation = new ToDictMutation
         {
             KeySelector = null,
@@ -67,7 +67,7 @@ public class TestToDictMutation
     public void test_evaluate_when_input_is_not_list_throws_exception()
     {
         // Arrange
-        var context = new ExpressionContext(new DataProvider());
+        var context = new ExpressionContext(new VariableProvider());
         var mutation = new ToDictMutation
         {
             KeySelector = null,
@@ -84,7 +84,7 @@ public class TestToDictMutation
     public void test_evaluate_with_key_selector_and_condition()
     {
         // Arrange
-        var context = new ExpressionContext(new DataProvider());
+        var context = new ExpressionContext(new VariableProvider());
         var mutation = new ToDictMutation
         {
             KeySelector = new DataSelectorExpression { Path = "key" },
@@ -141,7 +141,7 @@ public class TestToDictMutation
     public void test_evaluate_when_non_string_key_selected_throws_exception()
     {
         // Arrange
-        var context = new ExpressionContext(new DataProvider());
+        var context = new ExpressionContext(new VariableProvider());
         var mutation = new ToDictMutation
         {
             KeySelector = new DataSelectorExpression { Path = "key" },

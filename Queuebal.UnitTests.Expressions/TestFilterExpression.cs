@@ -27,7 +27,7 @@ public class TestFilterExpression
             }
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new JSONValue("not a list");
 
         Assert.ThrowsException<InvalidOperationException>(() => expression.Evaluate(context, inputValue));
@@ -52,7 +52,7 @@ public class TestFilterExpression
             }
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new List<JSONValue> { new JSONValue("test"), new JSONValue("not included") };
         var result = expression.Evaluate(context, inputValue);
 
@@ -84,7 +84,7 @@ public class TestFilterExpression
         };
 
         var expression = new FilterExpression { Condition = condition };
-        var result = expression.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), inputValue);
+        var result = expression.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), inputValue);
         Assert.IsNotNull(result);
 
         var expected = new Dictionary<string, JSONValue>

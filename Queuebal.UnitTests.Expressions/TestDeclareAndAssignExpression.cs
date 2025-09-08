@@ -12,8 +12,8 @@ public class TestDeclareAndAssignExpression
     public void test_evaluate_when_variable_already_exists_throws()
     {
         // Arrange
-        var context = new ExpressionContext(new DataProvider());
-        context.DataProvider.AddValue("existingVar", new JSONValue(42));
+        var context = new ExpressionContext(new VariableProvider());
+        context.VariableProvider.AddValue("existingVar", new JSONValue(42));
 
         var expression = new DeclareAndAssignExpression
         {
@@ -29,7 +29,7 @@ public class TestDeclareAndAssignExpression
     public void test_evaluate_when_variable_does_not_exist_creates_and_assigns_value()
     {
         // Arrange
-        var context = new ExpressionContext(new DataProvider());
+        var context = new ExpressionContext(new VariableProvider());
         var expression = new DeclareAndAssignExpression
         {
             VariableName = "newVar",
@@ -39,6 +39,6 @@ public class TestDeclareAndAssignExpression
         var result = expression.Evaluate(context, new JSONValue());
         // Assert
         Assert.AreEqual(new JSONValue(100), result);
-        Assert.AreEqual(new JSONValue(100), context.DataProvider.GetValue("newVar"));
+        Assert.AreEqual(new JSONValue(100), context.VariableProvider.GetValue("newVar"));
     }
 }

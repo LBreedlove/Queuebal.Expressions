@@ -49,14 +49,14 @@ public abstract class Expression : IExpression
         // represents a variable value in the context's data provider
         if (inputValue.IsString)
         {
-            inputValue = Tokenizer.Evaluate(inputValue.StringValue, context.DataProvider);
+            inputValue = Tokenizer.Evaluate(inputValue.StringValue, context.VariableProvider);
         }
 
         // Evaluate the expression with the provided context and input value
         var result = EvaluateExpression(context, inputValue);
         if (result.IsString)
         {
-            result = Tokenizer.Evaluate(result.StringValue, context.DataProvider);
+            result = Tokenizer.Evaluate(result.StringValue, context.VariableProvider);
         }
 
         return result;

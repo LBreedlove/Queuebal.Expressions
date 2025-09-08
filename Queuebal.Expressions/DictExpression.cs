@@ -30,7 +30,7 @@ public class DictExpression : Expression
         var output = new Dictionary<string, JSONValue>();
         foreach (var kv in Value)
         {
-            var key = Tokenizer.Evaluate(kv.Key, context.DataProvider);
+            var key = Tokenizer.Evaluate(kv.Key, context.VariableProvider);
             if (!key.IsString)
             {
                 throw new InvalidOperationException("Dict keys must evaluate to a string.");

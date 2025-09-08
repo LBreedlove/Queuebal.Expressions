@@ -43,7 +43,7 @@ public class TestIfElseExpression
         };
 
         // Act
-        var result = expression.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue());
+        var result = expression.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue());
 
         // Assert
         Assert.AreEqual("Condition C - True", result.StringValue);
@@ -70,7 +70,7 @@ public class TestIfElseExpression
         };
 
         // Act
-        var result = expression.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue());
+        var result = expression.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue());
 
         // Assert
         Assert.AreEqual("Else Value", result.StringValue);
@@ -97,7 +97,7 @@ public class TestIfElseExpression
         };
 
         // Act
-        var result = expression.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue());
+        var result = expression.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue());
 
         // Assert
         Assert.IsTrue(result.IsNull);

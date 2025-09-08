@@ -11,14 +11,14 @@ public class ExpressionContext
     /// <summary>
     /// Initializes a new instance of the <see cref="ExpressionContext"/> class.
     /// </summary>
-    /// <param name="dataProvider">The dataprovider used to resolve variable values when evaluating an expression.</param>
-    public ExpressionContext(DataProvider dataProvider)
+    /// <param name="variableProvider">The dataprovider used to resolve variable values when evaluating an expression.</param>
+    public ExpressionContext(VariableProvider variableProvider)
     {
-        DataProvider = dataProvider;
+        VariableProvider = variableProvider;
     }
 
     /// <summary>
-    /// The DataProvider used when evaluating expressions.
+    /// The VariableProvider used when evaluating expressions.
     /// </summary>
-    public DataProvider DataProvider { get; }
+    public VariableProvider VariableProvider { get; }
 }

@@ -17,7 +17,7 @@ public class TestConditionSet
             Operator = ConditionSetOperator.And
         };
 
-        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.DataProvider()), new JSONValue("test"));
+        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.VariableProvider()), new JSONValue("test"));
         Assert.IsFalse(result);
     }
 
@@ -30,7 +30,7 @@ public class TestConditionSet
             Operator = ConditionSetOperator.And
         };
 
-        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.DataProvider()), new JSONValue("test"));
+        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.VariableProvider()), new JSONValue("test"));
         Assert.IsFalse(result);
     }
 
@@ -44,7 +44,7 @@ public class TestConditionSet
             Operator = ConditionSetOperator.And
         };
 
-        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.DataProvider()), new JSONValue("test"));
+        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.VariableProvider()), new JSONValue("test"));
         Assert.IsTrue(result);
     }
 
@@ -58,7 +58,7 @@ public class TestConditionSet
             Operator = ConditionSetOperator.Or
         };
 
-        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.DataProvider()), new JSONValue());
+        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.VariableProvider()), new JSONValue());
         Assert.IsTrue(result);
     }
 
@@ -71,7 +71,7 @@ public class TestConditionSet
             Operator = ConditionSetOperator.Or
         };
 
-        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.DataProvider()), new JSONValue());
+        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.VariableProvider()), new JSONValue());
         Assert.IsTrue(result);
     }
 
@@ -85,7 +85,7 @@ public class TestConditionSet
             ValueSelector = new DataSelectorExpression { Path = "testKey" }
         };
 
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
         var inputValue = new JSONValue(new Dictionary<string, JSONValue>
         {
             { "testKey", new JSONValue("test") }
@@ -104,7 +104,7 @@ public class TestConditionSet
             Operator = ConditionSetOperator.Or
         };
 
-        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.DataProvider()), new JSONValue());
+        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.VariableProvider()), new JSONValue());
         Assert.IsFalse(result);
     }
 
@@ -117,7 +117,7 @@ public class TestConditionSet
             Operator = ConditionSetOperator.And
         };
 
-        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.DataProvider()), new JSONValue("test"));
+        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.VariableProvider()), new JSONValue("test"));
         Assert.IsTrue(result); // Default behavior is to return true when there are no conditions
     }
 
@@ -131,7 +131,7 @@ public class TestConditionSet
             NegateResult = true,
         };
 
-        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.DataProvider()), new JSONValue("test"));
+        bool result = conditionSet.Evaluate(new ExpressionContext(new Queuebal.Json.Data.VariableProvider()), new JSONValue("test"));
         Assert.IsFalse(result);
     }
 

@@ -23,7 +23,7 @@ public class TestDynamicDictExpression
             }
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new List<JSONValue> { new JSONValue("input") };
         Assert.ThrowsException<InvalidOperationException>(() => expression.Evaluate(context, inputValue));
     }
@@ -43,7 +43,7 @@ public class TestDynamicDictExpression
             }
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new JSONValue("input");
         Assert.ThrowsException<InvalidOperationException>(() => expression.Evaluate(context, inputValue));
     }
@@ -83,7 +83,7 @@ public class TestDynamicDictExpression
             }
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new List<JSONValue> { new JSONValue("input") };
         var result = expression.Evaluate(context, inputValue);
 
@@ -120,7 +120,7 @@ public class TestDynamicDictExpression
                 }
             }
         };
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new List<JSONValue> { new JSONValue("input") };
         var result = expression.Evaluate(context, inputValue);
         Assert.IsTrue(result.IsDict);
@@ -151,7 +151,7 @@ public class TestDynamicDictExpression
             }
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new List<JSONValue> { new JSONValue("input") };
         var result = expression.Evaluate(context, inputValue);
 
@@ -185,7 +185,7 @@ public class TestDynamicDictExpression
             }
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new List<JSONValue> { new JSONValue("input") };
 
         // Act
@@ -224,7 +224,7 @@ public class TestDynamicDictExpression
             }
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new List<JSONValue> { new JSONValue("input") };
 
         // Act & Assert
@@ -264,7 +264,7 @@ public class TestDynamicDictExpression
             }
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
         var inputValue = new List<JSONValue> { new JSONValue("input") };
 
         // Act

@@ -17,7 +17,7 @@ public class TestCullMutation
         {
             MaxDepth = new ValueExpression { Value = new JSONValue(1) }
         };
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
         var inputValue = new JSONValue("not a dict");
         var result = mutation.Evaluate(context, inputValue);
         Assert.AreEqual(inputValue, result);
@@ -30,7 +30,7 @@ public class TestCullMutation
         {
             MaxDepth = new ValueExpression { Value = new JSONValue("not a number") }
         };
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
         var inputValue = new JSONValue(new Dictionary<string, JSONValue>());
         Assert.ThrowsException<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
     }
@@ -42,7 +42,7 @@ public class TestCullMutation
         {
             MaxDepth = new ValueExpression { Value = new JSONValue(1) }
         };
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
         var inputValue = new JSONValue();
         var result = mutation.Evaluate(context, inputValue);
         Assert.IsTrue(result.IsNull);
@@ -56,7 +56,7 @@ public class TestCullMutation
             MaxDepth = new ValueExpression { Value = new JSONValue(1) }
         };
 
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
 
         var inputValue = new JSONValue(new List<JSONValue>
         {
@@ -94,7 +94,7 @@ public class TestCullMutation
         {
             MaxDepth = new ValueExpression { Value = new JSONValue(0) }
         };
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
         var inputValue = new JSONValue(new Dictionary<string, JSONValue>());
         Assert.ThrowsException<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
     }
@@ -107,7 +107,7 @@ public class TestCullMutation
             MaxDepth = new ValueExpression { Value = new JSONValue(1) }
         };
 
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
 
         var inputValue = new JSONValue(new Dictionary<string, JSONValue>
         {
@@ -143,7 +143,7 @@ public class TestCullMutation
             MaxDepth = new ValueExpression { Value = new JSONValue(2) }
         };
 
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
 
         var inputValue = new JSONValue(new Dictionary<string, JSONValue>
         {
@@ -184,7 +184,7 @@ public class TestCullMutation
             MaxDepth = new ValueExpression { Value = new JSONValue(2) }
         };
 
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
 
         var inputValue = new JSONValue(new Dictionary<string, JSONValue>
         {
@@ -232,7 +232,7 @@ public class TestCullMutation
             MaxDepth = new ValueExpression { Value = new JSONValue(2) }
         };
 
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
 
         var inputValue = new JSONValue(new Dictionary<string, JSONValue>
         {

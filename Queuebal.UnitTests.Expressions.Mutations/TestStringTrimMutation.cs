@@ -7,7 +7,7 @@ namespace Queuebal.UnitTests.Expressions.Mutations;
 [TestClass]
 public class TestStringTrimMutation
 {
-    private ExpressionContext Context { get; } = new ExpressionContext(new Json.Data.DataProvider());
+    private ExpressionContext Context { get; } = new ExpressionContext(new Json.Data.VariableProvider());
 
     [TestMethod]
     public void test_evaluate_when_input_value_is_not_string_throws()

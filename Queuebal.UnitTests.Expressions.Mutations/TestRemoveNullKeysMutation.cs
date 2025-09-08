@@ -10,7 +10,7 @@ public class TestRemoveNullKeysMutation
 {
     public TestRemoveNullKeysMutation()
     {
-        Context = new ExpressionContext(new Json.Data.DataProvider());
+        Context = new ExpressionContext(new Json.Data.VariableProvider());
     }
 
     public ExpressionContext Context { get; }

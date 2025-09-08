@@ -8,7 +8,7 @@ public class TestMaxExpression
 {
     public TestMaxExpression()
     {
-        Context = new ExpressionContext(new Json.Data.DataProvider());
+        Context = new ExpressionContext(new Json.Data.VariableProvider());
     }
 
     /// <summary>

@@ -16,7 +16,7 @@ public class TestEqualsCondition
             ComparerValue = new ValueExpression { Value = new("test") }
         };
 
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
         var inputValue = new JSONValue("test");
 
         bool result = condition.Evaluate(context, inputValue);
@@ -31,7 +31,7 @@ public class TestEqualsCondition
             ComparerValue = new ValueExpression { Value = new("test") }
         };
 
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
         var inputValue = new JSONValue("testing");
 
         bool result = condition.Evaluate(context, inputValue);
@@ -48,7 +48,7 @@ public class TestEqualsCondition
             ComparerValue = new ValueExpression { Value = new("test") }
         };
 
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
         var inputValue = new JSONValue("testing");
 
         bool result = condition.Evaluate(context, inputValue);

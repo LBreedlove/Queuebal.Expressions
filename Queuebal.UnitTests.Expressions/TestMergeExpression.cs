@@ -9,7 +9,7 @@ public class TestMergeExpression
 {
     public TestMergeExpression()
     {
-        Context = new ExpressionContext(new Json.Data.DataProvider());
+        Context = new ExpressionContext(new Json.Data.VariableProvider());
         SourceValue = new JSONValue("not used");
     }
 

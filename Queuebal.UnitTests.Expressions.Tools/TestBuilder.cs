@@ -167,7 +167,7 @@ public class TestBuilder
             new IsNullCondition { NegateResult = true }
         );
 
-        var result = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 123);
+        var result = condition.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), 123);
         Assert.IsTrue(result);
     }
 
@@ -180,7 +180,7 @@ public class TestBuilder
             new IsNullCondition()
         );
 
-        var result = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue());
+        var result = condition.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue());
         Assert.IsTrue(result);
     }
 
@@ -193,7 +193,7 @@ public class TestBuilder
             new IsNullCondition()
         );
 
-        var result = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 456);
+        var result = condition.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), 456);
         Assert.IsTrue(result);
     }
 
@@ -209,7 +209,7 @@ public class TestBuilder
     {
         var condition = q.Conditions.not_eq(q.val(123));
         Assert.IsInstanceOfType<EqualsCondition>(condition);
-        var result = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 456);
+        var result = condition.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), 456);
         Assert.IsTrue(result);
     }
 
@@ -218,7 +218,7 @@ public class TestBuilder
     {
         var condition = q.Conditions.is_null();
         Assert.IsInstanceOfType<IsNullCondition>(condition);
-        var result = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue());
+        var result = condition.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue());
         Assert.IsTrue(result);
     }
 
@@ -227,7 +227,7 @@ public class TestBuilder
     {
         var condition = q.Conditions.not_null();
         Assert.IsInstanceOfType<IsNullCondition>(condition);
-        var result = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue());
+        var result = condition.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue());
         Assert.IsFalse(result);
     }
 
@@ -237,10 +237,10 @@ public class TestBuilder
         var condition = q.Conditions.is_greater_than(q.val(37));
         Assert.IsInstanceOfType<GreaterThanCondition>(condition);
 
-        var result1 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 37);
+        var result1 = condition.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), 37);
         Assert.IsFalse(result1);
 
-        var result2 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 38);
+        var result2 = condition.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), 38);
         Assert.IsTrue(result2);
     }
 
@@ -250,10 +250,10 @@ public class TestBuilder
         var condition = q.Conditions.is_greater_than_or_equal(q.val(37));
         Assert.IsInstanceOfType<GreaterThanOrEqualCondition>(condition);
 
-        var result1 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 37);
+        var result1 = condition.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), 37);
         Assert.IsTrue(result1);
 
-        var result2 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 38);
+        var result2 = condition.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), 38);
         Assert.IsTrue(result2);
     }
 
@@ -263,10 +263,10 @@ public class TestBuilder
         var condition = q.Conditions.is_less_than(q.val(37));
         Assert.IsInstanceOfType<LessThanCondition>(condition);
 
-        var result1 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 37);
+        var result1 = condition.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), 37);
         Assert.IsFalse(result1);
 
-        var result2 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 36);
+        var result2 = condition.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), 36);
         Assert.IsTrue(result2);
     }
 
@@ -276,10 +276,10 @@ public class TestBuilder
         var condition = q.Conditions.is_less_than_or_equal(q.val(37));
         Assert.IsInstanceOfType<LessThanOrEqualCondition>(condition);
 
-        var result1 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 37);
+        var result1 = condition.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), 37);
         Assert.IsTrue(result1);
 
-        var result2 = condition.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), 36);
+        var result2 = condition.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), 36);
         Assert.IsTrue(result2);
     }
 

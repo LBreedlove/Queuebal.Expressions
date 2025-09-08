@@ -17,7 +17,7 @@ public class TestListExpression
         };
 
         // Act
-        var result = expression.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue("not used"));
+        var result = expression.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue("not used"));
 
         // Assert
         Assert.IsTrue(result.IsList);
@@ -38,7 +38,7 @@ public class TestListExpression
         };
 
         // Act
-        var result = expression.Evaluate(new ExpressionContext(new Json.Data.DataProvider()), new JSONValue("not used"));
+        var result = expression.Evaluate(new ExpressionContext(new Json.Data.VariableProvider()), new JSONValue("not used"));
 
         // Assert
         Assert.IsTrue(result.IsList);

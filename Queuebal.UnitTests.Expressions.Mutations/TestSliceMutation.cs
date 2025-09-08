@@ -14,7 +14,7 @@ public class TestSliceMutation
         // Arrange
         var inputValue = 123;
         var mutation = new SliceMutation { Start = 0 };
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // Act & Assert
         Assert.ThrowsExactly<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
@@ -30,7 +30,7 @@ public class TestSliceMutation
             ExpectingString = true,
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // Act
         var result = mutation.Evaluate(context, inputValue);
@@ -50,7 +50,7 @@ public class TestSliceMutation
             ExpectingString = false,
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // Act
         var result = mutation.Evaluate(context, inputValue);
@@ -70,7 +70,7 @@ public class TestSliceMutation
             Step = -1,
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // Act & Assert
         Assert.ThrowsExactly<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
@@ -86,7 +86,7 @@ public class TestSliceMutation
             Start = -1,
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // Act & Assert
         Assert.ThrowsExactly<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
@@ -109,7 +109,7 @@ public class TestSliceMutation
             Stop = 10,
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // Act
         var result = mutation.Evaluate(context, inputValue);
@@ -147,7 +147,7 @@ public class TestSliceMutation
             Step = 2,
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // Act
         var result = mutation.Evaluate(context, inputValue);
@@ -176,7 +176,7 @@ public class TestSliceMutation
             Stop = inputValue.Length + 5,
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // Act
         var result = mutation.Evaluate(context, inputValue);
@@ -199,7 +199,7 @@ public class TestSliceMutation
             Step = 2,
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // Act
         var result = mutation.Evaluate(context, inputValue);

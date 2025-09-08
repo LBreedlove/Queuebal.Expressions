@@ -17,7 +17,7 @@ public class TestStringSplitMutation
             Separators = new List<string> { ";" }
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // Act & Assert
         Assert.ThrowsException<InvalidOperationException>(() => mutation.Evaluate(context, new JSONValue(123)));
@@ -33,7 +33,7 @@ public class TestStringSplitMutation
             RemoveEmptyEntries = true,
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // Act
         var result = mutation.Evaluate(context, new JSONValue("value1;;value2;value3"));
@@ -57,7 +57,7 @@ public class TestStringSplitMutation
             RemoveEmptyEntries = true,
         };
 
-        var context = new ExpressionContext(new Json.Data.DataProvider());
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // Act
         var result = mutation.Evaluate(context, new JSONValue("  value1 ; value2 ; ; value3  "));

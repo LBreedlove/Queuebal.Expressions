@@ -21,7 +21,7 @@ public class TestAddSecondsMutation
             Seconds = new ValueExpression { Value = new JSONValue(5) }
         };
 
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
 
         var inputValue = new JSONValue("2023-10-01T12:00:00Z");
         var result = mutation.Evaluate(context, inputValue);
@@ -39,7 +39,7 @@ public class TestAddSecondsMutation
             Seconds = new ValueExpression { Value = new JSONValue(5) }
         };
 
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
 
         var inputValue = new JSONValue("not a datetime");
         Assert.ThrowsException<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
@@ -53,7 +53,7 @@ public class TestAddSecondsMutation
             Seconds = new ValueExpression { Value = new JSONValue("not a number") }
         };
 
-        var context = new ExpressionContext(new Queuebal.Json.Data.DataProvider());
+        var context = new ExpressionContext(new Queuebal.Json.Data.VariableProvider());
 
         var inputValue = new JSONValue(DateTime.Parse("2023-10-01T17:00:00Z").ToUniversalTime());
         Assert.ThrowsException<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
