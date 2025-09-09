@@ -1,4 +1,4 @@
-[![.NET](https://github.com/LBreedlove/Queuebal.Expressions/actions/workflows/dotnet.yml/badge.svg)](https://github.com/LBreedlove/Queuebal.Expressions/actions/workflows/dotnet.yml)
+[![.NET](https://github.com/LBreedlove/Queuebal.Expressions/actions/workflows/main.yml/badge.svg)](https://github.com/LBreedlove/Queuebal.Expressions/actions/workflows/main.yml)
 [![Coverage Status](https://coveralls.io/repos/github/LBreedlove/Queuebal.Expressions/badge.svg?branch=main&kill_cache=21)](https://coveralls.io/github/LBreedlove/Queuebal.Expressions?branch=main&kill_cache=21)
 
 # Queuebal.Expressions
