@@ -1,5 +1,5 @@
 [![.NET](https://github.com/LBreedlove/Queuebal.Expressions/actions/workflows/main.yml/badge.svg)](https://github.com/LBreedlove/Queuebal.Expressions/actions/workflows/main.yml)
-[![Coverage Status](https://coveralls.io/repos/github/LBreedlove/Queuebal.Expressions/badge.svg?branch=main&kill_cache=21)](https://coveralls.io/github/LBreedlove/Queuebal.Expressions?branch=main&kill_cache=21)
+[![Coverage Status](https://coveralls.io/repos/github/LBreedlove/Queuebal.Expressions/badge.svg?branch=main&kill_cache=22)](https://coveralls.io/github/LBreedlove/Queuebal.Expressions?branch=main&kill_cache=22)
 
 # Queuebal.Expressions
 
@@ -182,4 +182,4 @@ New `Mutation` types should be derived from `Mutation`. The `Mutation` base clas
 
 For more details, see the source code and unit tests in the respective project folders.
 
-Note: This README was written by ChatGPT.
+Note: This README was written by CoPilot.
