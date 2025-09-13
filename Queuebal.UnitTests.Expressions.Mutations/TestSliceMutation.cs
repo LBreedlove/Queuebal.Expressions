@@ -13,7 +13,7 @@ public class TestSliceMutation
     {
         // Arrange
         var inputValue = 123;
-        var mutation = new SliceMutation { Start = 0 };
+        var mutation = new SliceMutation { Start = new ValueExpression { Value = 0 } };
         var context = new ExpressionContext(new Json.Data.VariableProvider());
 
         // Act & Assert
@@ -67,7 +67,7 @@ public class TestSliceMutation
         var inputValue = "hello world";
         var mutation = new SliceMutation
         {
-            Step = -1,
+            Step = new ValueExpression { Value = -1 },
         };
 
         var context = new ExpressionContext(new Json.Data.VariableProvider());
@@ -83,7 +83,7 @@ public class TestSliceMutation
         var inputValue = "hello world";
         var mutation = new SliceMutation
         {
-            Start = -1,
+            Start = new ValueExpression { Value = -1 },
         };
 
         var context = new ExpressionContext(new Json.Data.VariableProvider());
@@ -106,7 +106,7 @@ public class TestSliceMutation
 
         var mutation = new SliceMutation
         {
-            Stop = 10,
+            Stop = new ValueExpression { Value = 10 },
         };
 
         var context = new ExpressionContext(new Json.Data.VariableProvider());
@@ -143,8 +143,8 @@ public class TestSliceMutation
 
         var mutation = new SliceMutation
         {
-            Start = 1,
-            Step = 2,
+            Start = new ValueExpression { Value = 1 },
+            Step = new ValueExpression { Value = 2 },
         };
 
         var context = new ExpressionContext(new Json.Data.VariableProvider());
@@ -173,7 +173,7 @@ public class TestSliceMutation
 
         var mutation = new SliceMutation
         {
-            Stop = inputValue.Length + 5,
+            Stop = new ValueExpression { Value = inputValue.Length + 5 },
         };
 
         var context = new ExpressionContext(new Json.Data.VariableProvider());
@@ -195,8 +195,8 @@ public class TestSliceMutation
         var inputValue = "hello world";
         var mutation = new SliceMutation
         {
-            Start = 1,
-            Step = 2,
+            Start = new ValueExpression { Value = 1 },
+            Step = new ValueExpression { Value = 2 },
         };
 
         var context = new ExpressionContext(new Json.Data.VariableProvider());
@@ -209,5 +209,104 @@ public class TestSliceMutation
         Assert.IsTrue(result.IsString);
         Assert.AreEqual(expected.Length, result.StringValue.Length);
         Assert.AreEqual(expected, result.StringValue);
+    }
+
+    [TestMethod]
+    public void test_evaluate_when_stop_is_negative_and_input_is_string_uses_relative_indexing()
+    {
+        // Arrange
+        var inputValue = "hello world";
+        var mutation = new SliceMutation
+        {
+            Stop = new ValueExpression { Value = -1 },
+        };
+
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
+
+        // Act
+        var result = mutation.Evaluate(context, inputValue);
+
+        // Assert
+        var expected = "hello worl";
+        Assert.IsTrue(result.IsString);
+        Assert.AreEqual(expected.Length, result.StringValue.Length);
+        Assert.AreEqual(expected, result.StringValue);
+    }
+
+    [TestMethod]
+    public void test_evaluate_when_stop_is_negative_and_input_is_list_uses_relative_indexing()
+    {
+        // Arrange
+        var inputValue = new List<JSONValue>
+        {
+            123,
+            "hello",
+            "world",
+            false,
+        };
+
+        var mutation = new SliceMutation
+        {
+            Stop = new ValueExpression { Value = -1 },
+        };
+
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
+
+        // Act
+        var result = mutation.Evaluate(context, inputValue);
+
+        // Assert
+        var expected = new List<JSONValue>
+        {
+            123,
+            "hello",
+            "world",
+        };
+        Assert.IsTrue(result.IsList);
+        CollectionAssert.AreEquivalent(expected, result.ListValue);
+    }
+
+    [TestMethod]
+    public void test_evaluate_when_start_is_not_int_throws()
+    {
+        // Arrange
+        var inputValue = "hello world";
+        var mutation = new SliceMutation
+        {
+            Start = new ValueExpression { Value = "not an int" },
+        };
+
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
+
+        // Act & Assert
+        Assert.ThrowsExactly<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
+    }
+
+    [TestMethod]
+    public void test_evaluate_when_stop_is_not_int_throws()
+    {
+        // Arrange
+        var inputValue = "hello world";
+        var mutation = new SliceMutation
+        {
+            Stop = new ValueExpression { Value = "not an int" },
+        };
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
+        // Act & Assert
+        Assert.ThrowsExactly<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
+    }
+
+    [TestMethod]
+    public void test_evaluate_when_step_is_not_int_throws()
+    {
+        // Arrange
+        var inputValue = "hello world";
+        var mutation = new SliceMutation
+        {
+            Step = new ValueExpression { Value = "not an int" },
+        };
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
+        // Act & Assert
+        Assert.ThrowsExactly<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
     }
 }

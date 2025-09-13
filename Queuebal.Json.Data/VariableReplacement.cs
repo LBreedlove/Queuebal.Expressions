@@ -31,7 +31,7 @@ public class Token
 }
 
 
-public static class Tokenizer
+public static class VariableReplacement
 {
     /// <summary>
     /// Evaluates the input value by replacing any placeholders with their corresponding values

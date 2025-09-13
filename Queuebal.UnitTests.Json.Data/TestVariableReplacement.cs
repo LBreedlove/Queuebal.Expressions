@@ -5,14 +5,14 @@ namespace Queuebal.UnitTests.Json.Data;
 
 
 [TestClass]
-public class TestTokenizer
+public class TestVariableReplacement
 {
     [TestMethod]
     public void test_get_tokens_when_unmatched_opening_bracket_throws_exception()
     {
         var text = "this is a test ${ with an extra ${ opening bracket";
         var variableProvider = new VariableProvider();
-        Assert.ThrowsException<FormatException>(() => Tokenizer.GetTokens(text, variableProvider).ToList());
+        Assert.ThrowsException<FormatException>(() => VariableReplacement.GetTokens(text, variableProvider).ToList());
     }
 
     [TestMethod]
@@ -21,7 +21,7 @@ public class TestTokenizer
         var text = "this is a ${test} with} an extra closing bracket";
         var variableProvider = new VariableProvider();
         variableProvider.AddValue("test", new JSONValue("value"));
-        Assert.ThrowsException<FormatException>(() => Tokenizer.GetTokens(text, variableProvider).ToList());
+        Assert.ThrowsException<FormatException>(() => VariableReplacement.GetTokens(text, variableProvider).ToList());
     }
 
     [TestMethod]
@@ -29,7 +29,7 @@ public class TestTokenizer
     {
         var text = "this is a test \\${ with an escaped opening bracket";
         var variableProvider = new VariableProvider();
-        var tokens = Tokenizer.GetTokens(text, variableProvider).ToList();
+        var tokens = VariableReplacement.GetTokens(text, variableProvider).ToList();
 
         Assert.AreEqual(1, tokens.Count);
         Assert.AreEqual("this is a test ${ with an escaped opening bracket", tokens[0].Text);
@@ -41,7 +41,7 @@ public class TestTokenizer
     {
         var text = "this is a test ${placeholder with no closing bracket";
         var variableProvider = new VariableProvider();
-        Assert.ThrowsException<FormatException>(() => Tokenizer.GetTokens(text, variableProvider).ToList());
+        Assert.ThrowsException<FormatException>(() => VariableReplacement.GetTokens(text, variableProvider).ToList());
     }
 
     [TestMethod]
@@ -51,7 +51,7 @@ public class TestTokenizer
         var variableProvider = new VariableProvider();
         variableProvider.AddValue("placeholder", new JSONValue("value"));
 
-        var tokens = Tokenizer.GetTokens(text, variableProvider).ToList();
+        var tokens = VariableReplacement.GetTokens(text, variableProvider).ToList();
 
         Assert.AreEqual(3, tokens.Count);
         Assert.AreEqual("this is a test ", tokens[0].Text);
@@ -72,7 +72,7 @@ public class TestTokenizer
         var variableProvider = new VariableProvider();
         variableProvider.AddValue("placeholder} with", new JSONValue("value"));
 
-        var tokens = Tokenizer.GetTokens(text, variableProvider).ToList();
+        var tokens = VariableReplacement.GetTokens(text, variableProvider).ToList();
 
         Assert.AreEqual(3, tokens.Count);
         Assert.AreEqual("this is a test ", tokens[0].Text);
@@ -93,7 +93,7 @@ public class TestTokenizer
         var variableProvider = new VariableProvider();
         variableProvider.AddValue("test", new JSONValue("value"));
 
-        Assert.ThrowsExactly<FormatException>(() => Tokenizer.GetTokens(text, variableProvider).ToList());
+        Assert.ThrowsExactly<FormatException>(() => VariableReplacement.GetTokens(text, variableProvider).ToList());
     }
 
     [TestMethod]
@@ -102,7 +102,7 @@ public class TestTokenizer
         var text = "this is a test ${placeholder} with no replacement value";
         var variableProvider = new VariableProvider();
 
-        Assert.ThrowsException<KeyNotFoundException>(() => Tokenizer.GetTokens(text, variableProvider).ToList());
+        Assert.ThrowsException<KeyNotFoundException>(() => VariableReplacement.GetTokens(text, variableProvider).ToList());
     }
 
     [TestMethod]
@@ -118,7 +118,7 @@ public class TestTokenizer
 
         using (variableProvider.WithScope("testScope", variableProviderValues))
         {
-            var tokens = Tokenizer.GetTokens(text, variableProvider).ToList();
+            var tokens = VariableReplacement.GetTokens(text, variableProvider).ToList();
 
             Assert.AreEqual(5, tokens.Count);
 
@@ -145,7 +145,7 @@ public class TestTokenizer
     public void test_evaluate_when_input_value_is_empty_returns_input()
     {
         var variableProvider = new VariableProvider();
-        var result = Tokenizer.Evaluate("", variableProvider);
+        var result = VariableReplacement.Evaluate("", variableProvider);
         Assert.AreEqual("", result);
     }
 
@@ -155,7 +155,7 @@ public class TestTokenizer
         var variableProvider = new VariableProvider();
         variableProvider.AddValue("test", new JSONValue(3.14f));
 
-        var result = Tokenizer.Evaluate("${test}", variableProvider);
+        var result = VariableReplacement.Evaluate("${test}", variableProvider);
         Assert.AreEqual(3.14f, result.FloatValue);
     }
 
@@ -164,7 +164,7 @@ public class TestTokenizer
     {
         var variableProvider = new VariableProvider();
         var inputValue = "this is a test string";
-        var result = Tokenizer.Evaluate(inputValue, variableProvider);
+        var result = VariableReplacement.Evaluate(inputValue, variableProvider);
         Assert.AreEqual(inputValue, result.StringValue);
     }
 
@@ -177,7 +177,7 @@ public class TestTokenizer
         variableProvider.AddValue("test3", new JSONValue("World"));
 
         var inputValue = "${test1} ${test2} ${test3}!";
-        var result = Tokenizer.Evaluate(inputValue, variableProvider);
+        var result = VariableReplacement.Evaluate(inputValue, variableProvider);
         Assert.AreEqual("Hello 123 World!", result.StringValue);
     }
 
@@ -188,7 +188,7 @@ public class TestTokenizer
         variableProvider.AddValue("test", new JSONValue());
 
         var inputValue = "${test}";
-        var result = Tokenizer.Evaluate(inputValue, variableProvider);
+        var result = VariableReplacement.Evaluate(inputValue, variableProvider);
         Assert.IsTrue(result.IsNull);
     }
 }

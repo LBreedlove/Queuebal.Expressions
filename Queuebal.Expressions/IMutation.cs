@@ -50,7 +50,7 @@ public abstract class Mutation : IMutation
         if (result.IsString)
         {
             // If the result is a string, evaluate it as a token
-            result = Tokenizer.Evaluate(result.StringValue, context.VariableProvider);
+            result = VariableReplacement.Evaluate(result.StringValue, context.VariableProvider);
         }
         return result;
     }
