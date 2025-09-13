@@ -15,7 +15,7 @@ public class TestDictExpression
         {
             Value = new Dictionary<string, IExpression>
             {
-                // this key will be replaced by the Tokenizer with a non-string value
+                // this key will be replaced by the VariableReplacement with a non-string value
                 { "${replace}", new ValueExpression { Value = new JSONValue("value") } },
             }
         };

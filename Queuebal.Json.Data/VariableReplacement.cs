@@ -1,6 +1,4 @@
 using System.Text;
-using System.Text.RegularExpressions;
-using Queuebal.Json;
 
 namespace Queuebal.Json.Data;
 
@@ -31,7 +29,7 @@ public class Token
 }
 
 
-public static class Tokenizer
+public static class VariableReplacement
 {
     /// <summary>
     /// Evaluates the input value by replacing any placeholders with their corresponding values
