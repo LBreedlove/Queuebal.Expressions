@@ -331,8 +331,8 @@ public static class Builder
             {
                 Mutation = new StringSplitMutation
                 {
-                    Separators = separators.ToList(),
-                    InputValue = inputValue,
+                    Separators = separators.Select(s => new ValueExpression{ Value = new(s) }).Cast<IExpression>().ToList(),
+                    OriginalValue = inputValue,
                 }
             };
 
@@ -347,8 +347,8 @@ public static class Builder
             {
                 Mutation = new StringJoinMutation
                 {
-                    Separator = separator,
-                    InputValue = new ListExpression
+                    Separator = new ValueExpression { Value = separator },
+                    OriginalValue = new ListExpression
                     {
                         Value = values.ToList()
                     }

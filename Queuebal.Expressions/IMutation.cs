@@ -15,6 +15,11 @@ public interface IMutation
     public static string MutationType => throw new NotImplementedException("MutationType must be implemented in derived classes.");
 
     /// <summary>
+    /// The value to mutate.
+    /// </summary>
+    IExpression? OriginalValue { get; set; }
+
+    /// <summary>
     /// Evaluates the mutation and returns the JSONValue result.
     /// </summary>
     JSONValue Evaluate(ExpressionContext context, JSONValue inputValue);
@@ -29,7 +34,7 @@ public abstract class Mutation : IMutation
     /// An input expression that can be used to mutate the input value,
     /// before the mutation is evaluated. This is useful for chaining mutations.
     /// </summary>
-    public IExpression? InputValue { get; set; }
+    public IExpression? OriginalValue { get; set; }
 
     /// <summary>
     /// Evaluates the mutation and returns the JSONValue result.
@@ -39,14 +44,15 @@ public abstract class Mutation : IMutation
     /// <returns></returns>
     public JSONValue Evaluate(ExpressionContext context, JSONValue inputValue)
     {
-        if (InputValue != null)
+        var originalValue = inputValue;
+        if (OriginalValue != null)
         {
-            // If an InputValue is provided, evaluate it first
-            inputValue = InputValue.Evaluate(context, inputValue);
+            // If an OriginalValue is provided, evaluate it first
+            originalValue = OriginalValue.Evaluate(context, inputValue);
         }
 
-        // Evaluate the condition using the provided context and input value
-        var result = EvaluateMutation(context, inputValue);
+        // Evaluate the mutation using the provided context and input value
+        var result = EvaluateMutation(context, originalValue, inputValue);
         if (result.IsString)
         {
             // If the result is a string, evaluate it as a token
@@ -61,5 +67,5 @@ public abstract class Mutation : IMutation
     /// <param name="context">The context the mutation is running in.</param>
     /// <param name="inputValue">The value to mutate.</param>
     /// <returns>The mutated value.</returns>
-    protected abstract JSONValue EvaluateMutation(ExpressionContext context, JSONValue inputValue);
+    protected abstract JSONValue EvaluateMutation(ExpressionContext context, JSONValue originalValue, JSONValue sourceData);
 }

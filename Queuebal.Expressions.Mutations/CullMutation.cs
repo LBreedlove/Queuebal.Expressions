@@ -16,9 +16,9 @@ public class CullMutation : Mutation
     /// </summary>
     public required IExpression MaxDepth { get; set; }
 
-    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue inputValue)
+    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue originalValue, JSONValue sourceData)
     {
-        var maxDepthValue = MaxDepth.Evaluate(context, inputValue);
+        var maxDepthValue = MaxDepth.Evaluate(context, sourceData);
         if (!maxDepthValue.IsInteger)
         {
             throw new InvalidOperationException("CullDictMutation MaxDepth must evaluate to an integer.");
@@ -29,22 +29,22 @@ public class CullMutation : Mutation
             throw new InvalidOperationException("CullDictMutation MaxDepth must be greater than or equal to 1.");
         }
 
-        if (inputValue.IsNull)
+        if (originalValue.IsNull)
         {
             return new JSONValue();
         }
 
-        if (!inputValue.IsDict && !inputValue.IsList)
+        if (!originalValue.IsDict && !originalValue.IsList)
         {
-            return inputValue;
+            return originalValue;
         }
 
-        if (inputValue.IsList)
+        if (originalValue.IsList)
         {
-            return CullList(inputValue.ListValue, maxDepthValue.IntValue);
+            return CullList(originalValue.ListValue, maxDepthValue.IntValue);
         }
 
-        return CullDict(inputValue.DictValue, maxDepthValue.IntValue);
+        return CullDict(originalValue.DictValue, maxDepthValue.IntValue);
     }
 
     private List<JSONValue> CullList(List<JSONValue> list, long depth)

@@ -112,7 +112,7 @@ public class TestExampleData
         // this sucks. We have to reference a type from the Conditions assembly and the Mutations assembly
         // for them to be loaded.
         var inputValue = new JSONValue("test");
-        var mutation = new StringSplitMutation { Separators = new List<string> { "." } };
+        var mutation = new StringSplitMutation { Separators = new List<IExpression> { new ValueExpression { Value = "." } } };
         var condition = new EqualsCondition { ComparerValue = new ValueExpression { Value = "test" } };
         mutation.Evaluate(new ExpressionContext(new VariableProvider()), inputValue);
         condition.Evaluate(new ExpressionContext(new VariableProvider()), inputValue);

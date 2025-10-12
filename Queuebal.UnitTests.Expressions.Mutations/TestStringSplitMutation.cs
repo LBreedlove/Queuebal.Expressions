@@ -14,7 +14,7 @@ public class TestStringSplitMutation
         // Arrange
         var mutation = new StringSplitMutation
         {
-            Separators = new List<string> { ";" }
+            Separators = new List<IExpression> { new ValueExpression { Value = ";" } }
         };
 
         var context = new ExpressionContext(new Json.Data.VariableProvider());
@@ -29,7 +29,7 @@ public class TestStringSplitMutation
         // Arrange
         var mutation = new StringSplitMutation
         {
-            Separators = new List<string> { ";" },
+            Separators = new List<IExpression> { new ValueExpression { Value = ";" } },
             RemoveEmptyEntries = true,
         };
 
@@ -52,7 +52,7 @@ public class TestStringSplitMutation
         // Arrange
         var mutation = new StringSplitMutation
         {
-            Separators = new List<string> { ";" },
+            Separators = new List<IExpression> { new ValueExpression { Value = ";" } },
             TrimEntries = true,
             RemoveEmptyEntries = true,
         };

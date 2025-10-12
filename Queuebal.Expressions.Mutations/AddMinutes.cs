@@ -15,19 +15,19 @@ public class AddMinutesMutation : Mutation
     /// </summary>
     public required IExpression Minutes { get; set; }
 
-    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue inputValue)
+    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue originalValue, JSONValue sourceData)
     {
-        if (!inputValue.IsDateTime)
+        if (!originalValue.IsDateTime)
         {
             throw new InvalidOperationException("AddMinutesMutation can only be applied to a DateTime input value.");
         }
 
-        var minutes = Minutes.Evaluate(context, inputValue);
+        var minutes = Minutes.Evaluate(context, sourceData);
         if (!minutes.IsNumber)
         {
             throw new InvalidOperationException("The Minutes expression must evaluate to a number value.");
         }
 
-        return inputValue.DateTimeValue.AddMinutes(minutes.FloatValue);
+        return originalValue.DateTimeValue.AddMinutes(minutes.FloatValue);
     }
 }

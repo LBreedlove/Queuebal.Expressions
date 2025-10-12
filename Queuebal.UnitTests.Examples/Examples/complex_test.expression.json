@@ -8,8 +8,11 @@
                     "ExpressionType": "Mutation",
                     "Mutation": {
                         "MutationType": "StringJoin",
-                        "Separator": ".",
-                        "InputValue": {
+                        "Separator": {
+                            "ExpressionType": "Value",
+                            "Value": "."
+                        },
+                        "OriginalValue": {
                             "ExpressionType": "List",
                             "Value": [
                                 {
@@ -32,8 +35,11 @@
                     "ExpressionType": "Mutation",
                     "Mutation": {
                         "MutationType": "StringJoin",
-                        "Separator": ".",
-                        "InputValue": {
+                        "Separator": {
+                            "ExpressionType": "Value",
+                            "Value": "."
+                        },
+                        "OriginalValue": {
                             "ExpressionType": "List",
                             "Value": [
                                 {
@@ -120,11 +126,16 @@
                                         "ExpressionType": "Mutation",
                                         "Mutation": {
                                             "MutationType": "StringSplit",
-                                            "Separators": [" "]
-                                        },
-                                        "InputValue": {
-                                            "ExpressionType": "DataSelector",
-                                            "Path": "order.customer.name"
+                                            "Separators": [
+                                                {
+                                                    "ExpressionType": "Value",
+                                                    "Value": " "
+                                                }
+                                            ],
+                                            "OriginalValue": {
+                                                "ExpressionType": "DataSelector",
+                                                "Path": "order.customer.name"
+                                            }
                                         }
                                     }
                                 },
@@ -135,11 +146,16 @@
                                         "ExpressionType": "Mutation",
                                         "Mutation": {
                                             "MutationType": "StringSplit",
-                                            "Separators": [" "]
-                                        },
-                                        "InputValue": {
-                                            "ExpressionType": "DataSelector",
-                                            "Path": "order.customer.name"
+                                            "Separators": [
+                                                {
+                                                    "ExpressionType": "Value",
+                                                    "Value": " "
+                                                }
+                                            ],
+                                            "OriginalValue": {
+                                                "ExpressionType": "DataSelector",
+                                                "Path": "order.customer.name"
+                                            }
                                         }
                                     }
                                 },

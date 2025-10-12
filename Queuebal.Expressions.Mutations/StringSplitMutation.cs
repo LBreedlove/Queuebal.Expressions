@@ -10,7 +10,7 @@ public class StringSplitMutation : Mutation
     /// <summary>
     /// The separators used to split the string.
     /// </summary>
-    public required List<string> Separators { get; set; }
+    public required List<IExpression> Separators { get; set; }
 
     /// <summary>
     /// If true, empty entries will be removed from the result.
@@ -24,9 +24,9 @@ public class StringSplitMutation : Mutation
     /// </summary>
     public bool TrimEntries { get; set; } = false;
 
-    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue inputValue)
+    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue originalValue, JSONValue sourceData)
     {
-        if (!inputValue.IsString)
+        if (!originalValue.IsString)
         {
             throw new InvalidOperationException("StringSplitMutation can only be applied to a string input value.");
         }
@@ -42,9 +42,20 @@ public class StringSplitMutation : Mutation
             splitOptions |= StringSplitOptions.TrimEntries;
         }
 
-        return inputValue.StringValue
-            .Split(Separators.Select(s => s[0]).ToArray(), splitOptions)
-            .Select(s => new JSONValue(s))
-            .ToList();
+        var separators = Separators.Select(s => s.Evaluate(context, sourceData)).ToList();
+        if (separators.Count == 0)
+        {
+            throw new InvalidOperationException("StringSplitMutation requires at least one separator.");
+        }
+
+        if (separators.Select(s => s.IsString).Any(v => !v))
+        {
+            throw new InvalidOperationException("All Separators expressions must evaluate to string values.");
+        }
+
+        return originalValue.StringValue
+                .Split(separators.Select(s => s.StringValue[0]).ToArray(), splitOptions)
+                .Select(s => new JSONValue(s))
+                .ToList();
     }
 }

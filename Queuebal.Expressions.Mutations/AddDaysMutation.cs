@@ -15,19 +15,19 @@ public class AddDaysMutation : Mutation
     /// </summary>
     public required IExpression Days { get; set; }
 
-    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue inputValue)
+    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue originalValue, JSONValue sourceData)
     {
-        if (!inputValue.IsDateTime)
+        if (!originalValue.IsDateTime)
         {
             throw new InvalidOperationException("AddDaysMutation can only be applied to a DateTime input value.");
         }
 
-        var days = Days.Evaluate(context, inputValue);
+        var days = Days.Evaluate(context, sourceData);
         if (!days.IsNumber)
         {
             throw new InvalidOperationException("The Days expression must evaluate to a number value.");
         }
 
-        return inputValue.DateTimeValue.AddDays(days.FloatValue);
+        return originalValue.DateTimeValue.AddDays(days.FloatValue);
     }
 }

@@ -13,15 +13,15 @@ public class RemoveNullKeysMutation : Mutation
     /// </summary>
     public bool Recursive { get; set; } = false;
 
-    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue inputValue)
+    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue originalValue, JSONValue sourceData)
     {
-        if (!inputValue.IsDict)
+        if (!originalValue.IsDict)
         {
             throw new InvalidOperationException("RemoveNullKeys can obly be applied to a dict input value");
         }
 
         var output = new Dictionary<string, JSONValue>();
-        foreach (var kvp in inputValue.DictValue)
+        foreach (var kvp in originalValue.DictValue)
         {
             if (kvp.Value.IsNull)
             {
@@ -31,7 +31,7 @@ public class RemoveNullKeysMutation : Mutation
             var value = kvp.Value;
             if (Recursive && kvp.Value.IsDict)
             {
-                value = EvaluateMutation(context, value);
+                value = EvaluateMutation(context, value, sourceData);
             }
 
             output[kvp.Key] = value;

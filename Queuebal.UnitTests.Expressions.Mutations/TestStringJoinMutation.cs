@@ -22,7 +22,7 @@ public class TestStringJoinMutation
     public void test_evaluate_when_input_is_not_list_throws()
     {
         // Arrange
-        var mutation = new StringJoinMutation { Separator = "." };
+        var mutation = new StringJoinMutation { Separator = new ValueExpression { Value = "." } };
         var inputValue = "not a list";
 
         // Act & Assert
@@ -33,7 +33,7 @@ public class TestStringJoinMutation
     public void test_evaluate_when_input_list_contains_non_string_value_throws()
     {
         // Arrange
-        var mutation = new StringJoinMutation { Separator = "." };
+        var mutation = new StringJoinMutation { Separator = new ValueExpression { Value = "." } };
         var inputValue = new List<JSONValue>
         {
             "hello", "world", 123, false, "value"
@@ -47,7 +47,7 @@ public class TestStringJoinMutation
     public void test_evaluate_combines_strings_with_separator()
     {
         // Arrange
-        var mutation = new StringJoinMutation { Separator = "." };
+        var mutation = new StringJoinMutation { Separator = new ValueExpression { Value = "." } };
         var inputValue = new List<JSONValue>
         {
             "hello", "world", "value"

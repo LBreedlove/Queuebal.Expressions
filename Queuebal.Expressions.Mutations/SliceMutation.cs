@@ -33,39 +33,40 @@ public class SliceMutation : Mutation
     /// </summary>
     public bool ExpectingString { get; set; } = false;
 
-    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue inputValue)
+    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue originalValue, JSONValue sourceData)
     {
         // we want users to be able to select something that doesn't exist and call slice on it
         // this should just return an empty list
-        if (inputValue.IsNull)
+        if (originalValue.IsNull)
         {
             return ExpectingString
                 ? ""
                 : new List<JSONValue>();
         }
 
-        if (!inputValue.IsList && !inputValue.IsString)
+        if (!originalValue.IsList && !originalValue.IsString)
         {
             throw new InvalidOperationException("SliceMutation can only be applied to a list or string input value.");
         }
 
-        var startValue = Start.Evaluate(context, inputValue);
+        var startValue = Start.Evaluate(context, sourceData);
         if (!startValue.IsInteger)
         {
             throw new InvalidOperationException("SliceMutation Start must evaluate to an integer.");
         }
         
-        var stopValue = Stop?.Evaluate(context, inputValue);
+        var stopValue = Stop?.Evaluate(context, sourceData);
         if (stopValue != null && !stopValue.IsInteger)
         {
             throw new InvalidOperationException("SliceMutation Stop must evaluate to an integer.");
         }
 
-        var stepValue = Step.Evaluate(context, inputValue);
+        var stepValue = Step.Evaluate(context, sourceData);
         if (!stepValue.IsInteger)
         {
             throw new InvalidOperationException("SliceMutation Step must evaluate to an integer.");
         }
+
         if (stepValue.IntValue < 1)
         {
             throw new InvalidOperationException("SliceMutation Step cannot be less than one");
@@ -76,9 +77,9 @@ public class SliceMutation : Mutation
             throw new InvalidOperationException("SliceMutation Start cannot be less than 0");
         }
 
-        return inputValue.IsList
-            ? GetListSlice(inputValue.ListValue, (int)startValue.IntValue, (int?)stopValue?.IntValue, (int)stepValue.IntValue)
-            : GetStringSlice(inputValue.StringValue, (int)startValue.IntValue, (int?)stopValue?.IntValue, (int)stepValue.IntValue);
+        return originalValue.IsList
+            ? GetListSlice(originalValue.ListValue, (int)startValue.IntValue, (int?)stopValue?.IntValue, (int)stepValue.IntValue)
+            : GetStringSlice(originalValue.StringValue, (int)startValue.IntValue, (int?)stopValue?.IntValue, (int)stepValue.IntValue);
     }
 
     private JSONValue GetListSlice(List<JSONValue> inputValue, int start, int? stop, int step)

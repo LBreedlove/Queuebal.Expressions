@@ -15,19 +15,19 @@ public class AddHoursMutation : Mutation
     /// </summary>
     public required IExpression Hours { get; set; }
 
-    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue inputValue)
+    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue originalValue, JSONValue sourceData)
     {
-        if (!inputValue.IsDateTime)
+        if (!originalValue.IsDateTime)
         {
             throw new InvalidOperationException("AddHoursMutation can only be applied to a DateTime input value.");
         }
 
-        var hours = Hours.Evaluate(context, inputValue);
+        var hours = Hours.Evaluate(context, sourceData);
         if (!hours.IsNumber)
         {
             throw new InvalidOperationException("The Hours expression must evaluate to a number value.");
         }
 
-        return inputValue.DateTimeValue.AddHours(hours.FloatValue);
+        return originalValue.DateTimeValue.AddHours(hours.FloatValue);
     }
 }

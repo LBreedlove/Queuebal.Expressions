@@ -37,7 +37,7 @@ public class TestToLowerMutation
     [TestMethod]
     public void test_evaluate_when_input_is_string_returns_uppercase_with_current_culture()
     {
-        var mutation = new ToLowerMutation { UseInvariantCulture = false };
+        var mutation = new ToLowerMutation { UseInvariantCulture = new ValueExpression { Value = false } };
 
         var context = new ExpressionContext(new Json.Data.VariableProvider());
 

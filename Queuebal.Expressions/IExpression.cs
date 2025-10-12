@@ -45,13 +45,6 @@ public abstract class Expression : IExpression
             inputValue = InputValue.Evaluate(context, inputValue);
         }
 
-        // if the inputValue is a string, we need to tokenize it and see if it
-        // represents a variable value in the context's data provider
-        if (inputValue.IsString)
-        {
-            inputValue = VariableReplacement.Evaluate(inputValue.StringValue, context.VariableProvider);
-        }
-
         // Evaluate the expression with the provided context and input value
         var result = EvaluateExpression(context, inputValue);
         if (result.IsString)
