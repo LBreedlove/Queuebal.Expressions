@@ -69,4 +69,30 @@ public class TestStringSplitMutation
         Assert.AreEqual("value2", result.ListValue[1].StringValue);
         Assert.AreEqual("value3", result.ListValue[2].StringValue);
     }
+
+    [TestMethod]
+    public void test_evaluate_when_separators_is_empty_throws()
+    {
+        // Arrange
+        var mutation = new StringSplitMutation
+        {
+            Separators = new List<IExpression>()
+        };
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
+        var inputValue = new JSONValue("value1;value2;value3");
+        Assert.ThrowsException<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
+    }
+
+    [TestMethod]
+    public void test_evaluate_when_separator_is_not_string_throws()
+    {
+        // Arrange
+        var mutation = new StringSplitMutation
+        {
+            Separators = new List<IExpression> { new ValueExpression { Value = 123 } }
+        };
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
+        var inputValue = new JSONValue("value1;value2;value3");
+        Assert.ThrowsException<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
+    }
 }

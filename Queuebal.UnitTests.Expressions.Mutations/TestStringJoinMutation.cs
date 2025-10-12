@@ -59,4 +59,20 @@ public class TestStringJoinMutation
         // Assert
         Assert.AreEqual("hello.world.value", result.StringValue);
     }
+
+    [TestMethod]
+    public void test_evaluate_when_separator_is_not_string_throws()
+    {
+        // Arrange
+        var mutation = new StringJoinMutation { Separator = new ValueExpression { Value = 123 } };
+        var inputValue = new List<JSONValue>
+        {
+            "hello",
+            "world",
+            "value"
+        };
+
+        // Act & Assert
+        Assert.ThrowsExactly<InvalidOperationException>(() => mutation.Evaluate(Context, inputValue));
+    }
 }

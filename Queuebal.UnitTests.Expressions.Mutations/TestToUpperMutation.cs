@@ -63,4 +63,18 @@ public class TestToUpperMutation
         Assert.IsTrue(result.IsString);
         Assert.AreEqual("New output value", result.StringValue);
     }
+
+    [TestMethod]
+    public void test_evaluate_when_use_invariant_culture_is_not_boolean_throws()
+    {
+        var mutation = new ToUpperMutation
+        {
+            UseInvariantCulture = new ValueExpression { Value = "not a boolean" }
+        };
+
+        var context = new ExpressionContext(new Json.Data.VariableProvider());
+
+        var inputValue = new JSONValue("test string");
+        Assert.ThrowsException<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
+    }
 }
