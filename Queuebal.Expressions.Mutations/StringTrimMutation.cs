@@ -19,28 +19,28 @@ public class StringTrimMutation : Mutation
     /// </summary>
     public bool TrimEnd { get; set; } = true;
 
-    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue inputValue)
+    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue originalValue, JSONValue sourceData)
     {
-        if (!inputValue.IsString)
+        if (!originalValue.IsString)
         {
             throw new InvalidOperationException("StringTrimMutation can only be applied to a string input value.");
         }
 
         if (TrimStart && TrimEnd)
         {
-            return inputValue.StringValue.Trim();
+            return originalValue.StringValue.Trim();
         }
 
         if (TrimStart)
         {
-            return inputValue.StringValue.TrimStart();
+            return originalValue.StringValue.TrimStart();
         }
 
         if (TrimEnd)
         {
-            return inputValue.StringValue.TrimEnd();
+            return originalValue.StringValue.TrimEnd();
         }
 
-        return inputValue.StringValue;
+        return originalValue.StringValue;
     }
 }

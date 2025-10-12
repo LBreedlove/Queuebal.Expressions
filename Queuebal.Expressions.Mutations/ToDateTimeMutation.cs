@@ -23,18 +23,18 @@ public class ToDateTimeMutation : Mutation
     /// <param name="context">The context the mutation is running in.</param>
     /// <param name="inputValue">The value to convert to DateTime.</param>
     /// <returns>The DateTime representation of the input value.</returns>
-    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue inputValue)
+    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue originalValue, JSONValue sourceData)
     {
-        if (inputValue.IsString)
+        if (originalValue.IsString)
         {
-            var result = DateTime.Parse(inputValue.StringValue);
-            if (inputValue.StringValue.EndsWith("Z", StringComparison.OrdinalIgnoreCase))
+            var result = DateTime.Parse(originalValue.StringValue);
+            if (originalValue.StringValue.EndsWith("Z", StringComparison.OrdinalIgnoreCase))
             {
                 // If the string ends with 'Z', it is in UTC format
                 return result.ToUniversalTime();
             }
 
-            if (inputValue.StringValue.EndsWith("+00:00") || inputValue.StringValue.EndsWith("-00:00"))
+            if (originalValue.StringValue.EndsWith("+00:00") || originalValue.StringValue.EndsWith("-00:00"))
             {
                 // If the string ends with '+00:00' or '-00:00', it is in UTC offset format
                 return result.ToUniversalTime();
@@ -50,10 +50,10 @@ public class ToDateTimeMutation : Mutation
             return new JSONValue(DateTime.SpecifyKind(result, DateTimeKind.Local));
         }
 
-        if (inputValue.IsNumber)
+        if (originalValue.IsNumber)
         {
             // If the input is a number, assume it's a Unix timestamp in seconds
-            return new JSONValue(DateTimeOffset.FromUnixTimeSeconds(inputValue.IntValue).UtcDateTime);
+            return new JSONValue(DateTimeOffset.FromUnixTimeSeconds(originalValue.IntValue).UtcDateTime);
         }
 
         throw new InvalidOperationException("Input value must be a string or number representing a date and time.");

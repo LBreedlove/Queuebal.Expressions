@@ -16,19 +16,19 @@ public class AddYearsMutation : Mutation
     /// </summary>
     public required IExpression Years { get; set; }
 
-    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue inputValue)
+    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue originalValue, JSONValue sourceData)
     {
-        if (!inputValue.IsDateTime)
+        if (!originalValue.IsDateTime)
         {
             throw new InvalidOperationException("AddYearsMutation can only be applied to a DateTime input value.");
         }
 
-        var years = Years.Evaluate(context, inputValue);
+        var years = Years.Evaluate(context, sourceData);
         if (!years.IsNumber)
         {
             throw new InvalidOperationException("The Years expression must evaluate to a number value.");
         }
 
-        return inputValue.DateTimeValue.AddYears((int)years.IntValue);
+        return originalValue.DateTimeValue.AddYears((int)years.IntValue);
     }
 }

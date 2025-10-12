@@ -28,14 +28,14 @@ public class ToDictMutation : Mutation
     /// </summary>
     public ConditionExpression? Condition { get; set; }
 
-    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue inputValue)
+    protected override JSONValue EvaluateMutation(ExpressionContext context, JSONValue originalValue, JSONValue sourceData)
     {
-        if (inputValue.IsNull)
+        if (originalValue.IsNull)
         {
             return new JSONValue(new Dictionary<string, JSONValue>());
         }
 
-        if (!inputValue.IsList)
+        if (!originalValue.IsList)
         {
             throw new InvalidOperationException("ToDictMutation can only be applied to a list input value.");
         }
@@ -43,7 +43,7 @@ public class ToDictMutation : Mutation
         var output = new Dictionary<string, JSONValue>();
 
         int index = 0;
-        foreach (var item in inputValue.ListValue)
+        foreach (var item in originalValue.ListValue)
         {
             string key = index.ToString();
             ++index;

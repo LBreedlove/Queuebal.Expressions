@@ -37,7 +37,7 @@ public class TestToUpperMutation
     [TestMethod]
     public void test_evaluate_when_input_is_string_returns_uppercase_with_current_culture()
     {
-        var mutation = new ToUpperMutation { UseInvariantCulture = false };
+        var mutation = new ToUpperMutation { UseInvariantCulture = new ValueExpression { Value = false } };
 
         var context = new ExpressionContext(new Json.Data.VariableProvider());
 
@@ -57,7 +57,7 @@ public class TestToUpperMutation
         var context = new ExpressionContext(new Json.Data.VariableProvider());
         context.VariableProvider.AddValue("OUTPUT", new JSONValue("New output value"));
 
-        var inputValue = new JSONValue("${output}");
+        var inputValue = new JSONValue("${OUTPUT}");
         var result = mutation.Evaluate(context, inputValue);
 
         Assert.IsTrue(result.IsString);

@@ -13,7 +13,7 @@ public class TestAddSecondsMutation
     {
         var mutation = new AddSecondsMutation
         {
-            InputValue = new MutationExpression
+            OriginalValue = new MutationExpression
             {
                 // convert the input string to a DateTime, UTC
                 Mutation = new ToDateTimeMutation()
@@ -57,4 +57,5 @@ public class TestAddSecondsMutation
 
         var inputValue = new JSONValue(DateTime.Parse("2023-10-01T17:00:00Z").ToUniversalTime());
         Assert.ThrowsException<InvalidOperationException>(() => mutation.Evaluate(context, inputValue));
-    }}
+    }
+}
